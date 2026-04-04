@@ -18,8 +18,6 @@
 html{font-size:16px;scroll-behavior:smooth}
 body{background:var(--navy);color:var(--white);font-family:var(--font-b);font-weight:400;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.5}
-
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(10,37,64,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(138,154,181,.1)}
 .logo-wrap{display:flex;flex-direction:column;gap:1px;text-decoration:none}
 .logo{font-family:var(--font-d);font-weight:800;font-size:1.2rem;letter-spacing:.06em;color:var(--white);text-transform:uppercase;line-height:1}
@@ -29,15 +27,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:68px;display:flex;ali
 .nav-links a{font-family:var(--font-b);font-weight:500;font-size:.88rem;color:var(--mist);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--white)}
 .nav-right{display:flex;align-items:center;gap:12px}
-.lang-switch{display:flex;align-items:center;gap:0;background:rgba(138,154,181,.08);border:1px solid var(--border);border-radius:3px;overflow:hidden;flex-shrink:0}
+.lang-switch{display:flex;align-items:center;background:rgba(138,154,181,.08);border:1px solid var(--border);border-radius:3px;overflow:hidden;flex-shrink:0}
 .lang-btn{font-family:var(--font-b);font-weight:500;font-size:.75rem;letter-spacing:.04em;color:var(--mist);padding:6px 10px;cursor:pointer;transition:all .2s;border:none;background:transparent;text-transform:uppercase}
 .lang-btn.active{background:var(--green);color:var(--navy)}
 .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:var(--navy);font-family:var(--font-b);font-weight:600;font-size:.88rem;letter-spacing:.04em;padding:10px 22px;border-radius:3px;border:none;cursor:pointer;text-decoration:none;transition:background .2s}
 .btn-primary:hover{background:var(--green-h)}
 .btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--white);font-family:var(--font-b);font-weight:500;font-size:.88rem;padding:10px 22px;border-radius:3px;border:1px solid rgba(244,245,240,.25);cursor:pointer;text-decoration:none;transition:border-color .2s}
 .btn-secondary:hover{border-color:rgba(244,245,240,.55)}
-
-/* HERO */
 #hero{min-height:100vh;display:flex;align-items:center;padding:120px 48px 80px;position:relative;overflow:hidden}
 #hero::before{content:'';position:absolute;bottom:-100px;right:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(0,229,160,.04) 0%,transparent 65%);pointer-events:none}
 #hero::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(0,229,160,.3),transparent)}
@@ -47,16 +43,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:68px;display:flex;ali
 h1{font-family:var(--font-d);font-weight:900;font-size:clamp(2.8rem,6vw,4.8rem);line-height:1.05;letter-spacing:-.02em;color:var(--white);margin-bottom:16px;opacity:0;animation:fadeUp .6s ease .2s forwards}
 h1 .accent{color:var(--green)}
 .hero-slogan{font-family:var(--font-d);font-weight:700;font-size:clamp(.9rem,1.6vw,1.1rem);color:var(--mist);letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px;opacity:0;animation:fadeUp .6s ease .28s forwards}
-.hero-sub{font-family:var(--font-b);font-weight:400;font-size:clamp(1rem,1.8vw,1.1rem);color:var(--mist);line-height:1.7;max-width:500px;margin-bottom:14px;opacity:0;animation:fadeUp .6s ease .35s forwards}
+.hero-sub{font-family:var(--font-b);font-weight:400;font-size:clamp(1rem,1.8vw,1.1rem);color:var(--mist);line-height:1.7;max-width:540px;margin-bottom:14px;opacity:0;animation:fadeUp .6s ease .35s forwards}
 .hero-cred{font-family:var(--font-b);font-size:.82rem;color:var(--mist);margin-bottom:40px;opacity:0;animation:fadeUp .6s ease .4s forwards}
 .hero-cred strong{color:var(--green);font-weight:600}
 .hero-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;opacity:0;animation:fadeUp .6s ease .48s forwards}
 .hero-actions .btn-primary{font-size:.92rem;padding:13px 26px}
-
-/* DIVIDER */
 .divider{height:1px;background:linear-gradient(to right,transparent,var(--border),transparent)}
-
-/* SECTION */
 .section{padding:100px 48px;max-width:1040px;margin:0 auto}
 .section-wrap{position:relative}
 .section-label{font-family:var(--font-d);font-weight:600;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--mist);margin-bottom:12px;display:flex;align-items:center;gap:10px}
@@ -64,31 +56,42 @@ h1 .accent{color:var(--green)}
 h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.01em;color:var(--white);margin-bottom:12px}
 .section-desc{font-family:var(--font-b);font-size:1rem;color:var(--mist);line-height:1.7;max-width:480px;margin-bottom:56px}
 
-/* WORK GRID */
-.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.work-card{background:var(--void);border:1px solid var(--border);border-radius:6px;overflow:hidden;position:relative;transition:border-color .25s,transform .25s;display:flex;flex-direction:column}
-.work-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+/* WORK GRID — 4 columns desktop */
+.work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.work-card{background:var(--void);border:1px solid var(--border);border-radius:8px;overflow:hidden;position:relative;transition:border-color .25s,transform .25s;display:flex;flex-direction:column}
+.work-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .3s ease;z-index:3}
 .work-card:hover{border-color:rgba(0,229,160,.3);transform:translateY(-4px)}
 .work-card:hover::before{transform:scaleX(1)}
-/* video thumb: fixed height, centered, not full bleed */
-.work-thumb{width:100%;display:flex;align-items:center;justify-content:center;background:#000;padding:16px 16px 0;position:relative}
-.work-thumb-inner{position:relative;width:120px;height:213px;border-radius:4px;overflow:hidden;flex-shrink:0}
-.work-thumb-inner iframe{position:absolute;inset:0;width:100%;height:100%;border:none;pointer-events:none}
-.work-thumb-overlay{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:rgba(10,37,64,.15);cursor:pointer;transition:background .2s;border-radius:4px}
-.work-thumb-overlay:hover{background:rgba(10,37,64,.05)}
-.work-play{width:40px;height:40px;border:2px solid rgba(0,229,160,.6);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--green);background:rgba(13,27,42,.6);backdrop-filter:blur(4px);transition:all .2s}
-.work-thumb-overlay:hover .work-play{background:var(--green);color:var(--navy);border-color:var(--green)}
-.work-body{padding:16px 20px 22px;text-align:center;flex:1;display:flex;flex-direction:column;align-items:center}
-.work-tag{font-family:var(--font-d);font-weight:600;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:6px}
-.work-desc{font-family:var(--font-b);font-size:.82rem;color:var(--mist);line-height:1.5;margin-bottom:14px}
-.work-stat{font-family:var(--font-c);font-weight:900;font-size:2rem;color:var(--green);letter-spacing:-.02em;line-height:1;margin-bottom:3px}
-.work-result{font-family:var(--font-b);font-weight:500;font-size:.78rem;color:var(--mist)}
 
-/* HOW IT WORKS */
+/* VIDEO PLAYER */
+.vid-wrap{position:relative;width:100%;aspect-ratio:9/16;background:#000;overflow:hidden;cursor:pointer}
+.vid-wrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.vid-controls{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%);opacity:0;transition:opacity .2s}
+.vid-wrap:hover .vid-controls,.vid-wrap.paused .vid-controls{opacity:1}
+.vid-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;border:2px solid rgba(0,229,160,.75);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--green);background:rgba(13,27,42,.65);backdrop-filter:blur(6px);transition:all .2s;pointer-events:none}
+.vid-wrap.playing .icon-play{display:none}
+.vid-wrap.playing .icon-pause{display:block}
+.vid-wrap:not(.playing) .icon-play{display:block}
+.vid-wrap:not(.playing) .icon-pause{display:none}
+.vid-bottom{padding:6px 10px 10px;display:flex;align-items:center;gap:8px}
+.vid-progress{flex:1;height:3px;background:rgba(255,255,255,.2);border-radius:2px;cursor:pointer;position:relative}
+.vid-progress-fill{height:100%;background:var(--green);border-radius:2px;width:0%;transition:width .1s linear}
+.vid-mute{width:26px;height:26px;border:none;background:transparent;color:rgba(255,255,255,.7);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:0}
+.vid-mute:hover{color:var(--white)}
+.vid-wrap:not(.muted) .icon-muted{display:none}
+.vid-wrap.muted .icon-sound{display:none}
+
+.work-body{padding:14px 16px 18px;text-align:center;flex:1;display:flex;flex-direction:column;align-items:center}
+.work-tag{font-family:var(--font-d);font-weight:600;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:5px}
+.work-desc{font-family:var(--font-b);font-size:.78rem;color:var(--mist);line-height:1.5;margin-bottom:12px}
+.work-stat{font-family:var(--font-c);font-weight:900;font-size:1.9rem;color:var(--green);letter-spacing:-.02em;line-height:1;margin-bottom:3px}
+.work-result{font-family:var(--font-b);font-weight:500;font-size:.75rem;color:var(--mist)}
+
+/* HOW */
 .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.how-card{background:var(--void);border:1px solid var(--border);border-radius:6px;padding:32px 28px;position:relative;overflow:hidden;cursor:default;transition:border-color .3s,transform .25s}
+.how-card{background:var(--void);border:1px solid var(--border);border-radius:6px;padding:32px 28px;cursor:default;transition:border-color .3s,transform .25s}
 .how-card:hover{border-color:rgba(0,229,160,.35);transform:translateY(-3px)}
-.how-num{font-family:var(--font-c);font-weight:900;font-size:3.5rem;color:var(--green);line-height:1;margin-bottom:20px;letter-spacing:-.02em;transition:color .3s}
+.how-num{font-family:var(--font-c);font-weight:900;font-size:3.5rem;color:var(--green);line-height:1;margin-bottom:20px;letter-spacing:-.02em}
 .how-title{font-family:var(--font-d);font-weight:700;font-size:1.05rem;color:var(--white);line-height:1.2;margin-bottom:0;transition:margin .3s}
 .how-details{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1),opacity .3s ease;opacity:0}
 .how-card:hover .how-details{max-height:300px;opacity:1}
@@ -96,10 +99,9 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 .how-list{list-style:none;display:flex;flex-direction:column;gap:8px;padding-top:4px}
 .how-list li{font-family:var(--font-b);font-size:.85rem;color:var(--mist);line-height:1.5;display:flex;align-items:flex-start;gap:8px}
 .how-list li::before{content:'—';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px}
-.how-card.open .how-details{max-height:300px;opacity:1}
-.how-card.open .how-title{margin-bottom:16px}
+.how-mobile{display:none}
 
-/* WHY ME */
+/* WHY */
 .why-list{display:flex;flex-direction:column;gap:0;max-width:680px}
 .why-row{display:flex;align-items:flex-start;gap:20px;padding:20px 0;border-bottom:1px solid var(--border)}
 .why-row:first-child{border-top:1px solid var(--border)}
@@ -107,7 +109,7 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 .why-title{font-family:var(--font-d);font-weight:700;font-size:1rem;color:var(--white);margin-bottom:4px}
 .why-desc{font-family:var(--font-b);font-size:.88rem;color:var(--mist);line-height:1.6}
 
-/* MICRO OFFER CTA */
+/* MICRO CTA */
 #micro-cta{padding:80px 48px;position:relative;overflow:hidden}
 #micro-cta::before{content:'';position:absolute;inset:0;background:var(--void);z-index:0}
 #micro-cta::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(0,229,160,.2),transparent)}
@@ -144,39 +146,31 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
 .footer-link:hover{color:var(--white);border-color:var(--border-md)}
 .footer-link.whatsapp:hover{color:#25D366;border-color:rgba(37,211,102,.3)}
 
-/* ANIMATIONS */
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
-/* HOW — mobile: 3 cards in a row, tap to expand */
-.how-tabs-nav{display:none}
-.how-mobile{display:none}
+/* MOBILE */
 @media(max-width:900px){
-  nav{padding:0 16px;gap:8px}
+  nav{padding:0 16px}
   .nav-links{display:none}
   #hero,.section,#micro-cta,#cta{padding-left:20px;padding-right:20px}
   #hero{padding-top:100px;padding-bottom:60px}
-  /* work grid: 2 columns on mobile */
   .work-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-  .work-thumb{padding:12px 12px 0}
-  .work-thumb-inner{width:100px;height:178px}
-  .work-body{padding:12px 12px 16px}
-  .work-stat{font-size:1.4rem}
-  .work-desc{font-size:.78rem}
-  /* hide desktop how grid, show mobile version */
+  .work-body{padding:10px 10px 14px}
+  .work-stat{font-size:1.5rem}
+  .work-desc{font-size:.74rem}
   .how-grid{display:none}
   .how-mobile{display:block}
-  .how-mobile-cards{display:flex;gap:8px;margin-bottom:0}
-  .how-mobile-card{flex:1;background:var(--void);border:1px solid var(--border);border-radius:6px;padding:16px 10px;cursor:pointer;transition:border-color .25s;text-align:center;-webkit-tap-highlight-color:transparent}
+  .how-mobile-cards{display:flex;gap:8px}
+  .how-mobile-card{flex:1;background:var(--void);border:1px solid var(--border);border-radius:6px;padding:14px 8px;cursor:pointer;transition:border-color .2s;text-align:center;-webkit-tap-highlight-color:transparent}
   .how-mobile-card.active{border-color:var(--green)}
-  .how-mobile-num{font-family:var(--font-c);font-weight:900;font-size:1.8rem;color:var(--green);line-height:1;margin-bottom:6px}
-  .how-mobile-title{font-family:var(--font-d);font-weight:700;font-size:.78rem;color:var(--white);line-height:1.2;margin-bottom:8px}
-  .how-mobile-hint{font-family:var(--font-b);font-size:.65rem;color:var(--mist);letter-spacing:.06em;text-transform:uppercase}
+  .how-mobile-num{font-family:var(--font-c);font-weight:900;font-size:1.7rem;color:var(--green);line-height:1;margin-bottom:5px}
+  .how-mobile-label{font-family:var(--font-d);font-weight:700;font-size:.76rem;color:var(--white);margin-bottom:6px;line-height:1.2}
+  .how-mobile-hint{font-family:var(--font-b);font-size:.6rem;color:var(--mist);letter-spacing:.07em;text-transform:uppercase}
   .how-mobile-card.active .how-mobile-hint{color:var(--green)}
-  .how-mobile-panel{background:var(--void);border:1px solid var(--green);border-top:none;border-radius:0 0 6px 6px;padding:20px 18px;display:none}
+  .how-mobile-panel{background:var(--void);border:1px solid var(--green);border-top:none;border-radius:0 0 6px 6px;padding:18px 16px;display:none}
   .how-mobile-panel.active{display:block;animation:fadeUp .3s ease forwards}
-  .how-mobile-panel .how-list{gap:10px}
   .why-list{max-width:100%}
   #cta{padding-top:80px;padding-bottom:80px}
   #micro-cta{padding:60px 20px}
@@ -211,7 +205,7 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
       <button class="lang-btn active" id="btnEN" onclick="setLang('en')">EN</button>
       <button class="lang-btn" id="btnHR" onclick="setLang('hr')">HR</button>
     </div>
-    <a href="https://wa.me/385998714532" target="_blank" class="btn-primary">
+    <a href="https://wa.me/385998714532?text=Hey%2C%20just%20saw%20your%20work%20%E2%80%94%20I%20want%20to%20improve%20my%20content%20performance.%20Can%20I%20send%20you%20a%20video%3F" target="_blank" class="btn-primary">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
       <span data-en="Send a message" data-hr="Pošalji poruku">Send a message</span>
     </a>
@@ -221,15 +215,15 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
 <!-- HERO -->
 <section id="hero">
   <div class="hero-inner">
-    <div class="overline" data-en="Improving your short-form content" data-hr="Unapređujem tvoj short-form sadržaj">Improving your short-form content</div>
-    <h1>I help brands turn content into <span class="accent" data-en="views," data-hr="preglede,">views,</span> <span class="accent" data-en="retention," data-hr="zadržavanje pažnje,">retention,</span><br>and <span class="accent" data-en="results." data-hr="konkretne rezultate.">results.</span></h1>
+    <div class="overline" data-en="Short-form content that performs" data-hr="Short-form sadržaj koji performira">Short-form content that performs</div>
+    <h1>We help brands turn content into <span class="accent" data-en="views," data-hr="preglede,">views,</span> <span class="accent" data-en="retention," data-hr="zadržavanje,">retention,</span><br>and <span class="accent" data-en="real results." data-hr="konkretne rezultate.">real results.</span></h1>
     <p class="hero-slogan" data-en="Scale or stay invisible." data-hr="Rasti ili ostani nevidljiv.">Scale or stay invisible.</p>
     <p class="hero-sub" data-en="Short-form content built around performance — strategy, scripts, and editing that actually move the numbers." data-hr="Short-form sadržaj temeljen na performansu — strategija, skripte i edit koji stvarno pomiču brojke.">Short-form content built around performance — strategy, scripts, and editing that actually move the numbers.</p>
     <p class="hero-cred"><span data-en="Generated over" data-hr="Generirano preko">Generated over</span> <strong>10M+ <span data-en="views" data-hr="pregleda">views</span></strong> <span data-en="across client content." data-hr="kroz sadržaj klijenata.">across client content.</span></p>
     <div class="hero-actions">
-      <a href="https://wa.me/385998714532" target="_blank" class="btn-primary">
+      <a href="https://wa.me/385998714532?text=Hey%2C%20just%20saw%20your%20work%20%E2%80%94%20I%20want%20to%20improve%20my%20content%20performance.%20Can%20I%20send%20you%20a%20video%3F" target="_blank" class="btn-primary">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        <span data-en="Send me a video" data-hr="Pošalji mi video">Send me a video</span>
+        <span data-en="Send us a video" data-hr="Pošalji nam video">Send us a video</span>
       </a>
       <a href="#work" class="btn-secondary" data-en="See the work" data-hr="Pogledaj radove">See the work</a>
     </div>
@@ -248,11 +242,19 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
   <div class="work-grid">
 
     <div class="work-card reveal">
-      <div class="work-thumb">
-        <div class="work-thumb-inner">
-          <iframe src="https://www.youtube.com/embed/ecSlodJf4xk" allowfullscreen allow="autoplay; encrypted-media" loading="lazy"></iframe>
-          <div class="work-thumb-overlay" onclick="playVideo(this)">
-            <div class="work-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      <div class="vid-wrap paused muted" id="v0">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Aneldevinjathofinal.mp4" loop muted playsinline preload="metadata"></video>
+        <div class="vid-controls">
+          <div class="vid-play-btn">
+            <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </div>
+          <div class="vid-bottom">
+            <div class="vid-progress"><div class="vid-progress-fill" id="v0-fill"></div></div>
+            <button class="vid-mute">
+              <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              <svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            </button>
           </div>
         </div>
       </div>
@@ -265,11 +267,19 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     </div>
 
     <div class="work-card reveal">
-      <div class="work-thumb">
-        <div class="work-thumb-inner">
-          <iframe src="https://www.youtube.com/embed/dKeGzptTIKI" allowfullscreen allow="autoplay; encrypted-media" loading="lazy"></iframe>
-          <div class="work-thumb-overlay" onclick="playVideo(this)">
-            <div class="work-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      <div class="vid-wrap paused muted" id="v1">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Jovanavideo2.mp4" loop muted playsinline preload="metadata"></video>
+        <div class="vid-controls">
+          <div class="vid-play-btn">
+            <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </div>
+          <div class="vid-bottom">
+            <div class="vid-progress"><div class="vid-progress-fill" id="v1-fill"></div></div>
+            <button class="vid-mute">
+              <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              <svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            </button>
           </div>
         </div>
       </div>
@@ -282,28 +292,44 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     </div>
 
     <div class="work-card reveal">
-      <div class="work-thumb">
-        <div class="work-thumb-inner">
-          <iframe src="https://www.youtube.com/embed/9Vb8r1q_Lfk" allowfullscreen allow="autoplay; encrypted-media" loading="lazy"></iframe>
-          <div class="work-thumb-overlay" onclick="playVideo(this)">
-            <div class="work-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      <div class="vid-wrap paused muted" id="v2">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Mandy%20Video%202%20V4.mp4" loop muted playsinline preload="metadata"></video>
+        <div class="vid-controls">
+          <div class="vid-play-btn">
+            <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </div>
+          <div class="vid-bottom">
+            <div class="vid-progress"><div class="vid-progress-fill" id="v2-fill"></div></div>
+            <button class="vid-mute">
+              <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              <svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            </button>
           </div>
         </div>
       </div>
       <div class="work-body">
         <p class="work-tag" data-en="Creator" data-hr="Kreator">Creator</p>
-        <p class="work-desc" data-en="Storytelling + caption system rebuilt. Dead content revived." data-hr="Storytelling + sustav captiona izgrađen ispočetka. &quot;Mrtav&quot; sadržaj oživljen.">Storytelling + caption system rebuilt. Dead content revived.</p>
+        <p class="work-desc" data-en="Storytelling + caption system rebuilt. Dead content revived." data-hr="Storytelling + sustav captiona izgrađen ispočetka. Mrtav sadržaj oživljen.">Storytelling + caption system rebuilt. Dead content revived.</p>
         <div class="work-stat">+70%</div>
         <p class="work-result" data-en="Watch time increase" data-hr="Povećano vrijeme gledanja">Watch time increase</p>
       </div>
     </div>
 
     <div class="work-card reveal">
-      <div class="work-thumb">
-        <div class="work-thumb-inner">
-          <iframe src="https://www.youtube.com/embed/2p02ZnBHyFY" allowfullscreen allow="autoplay; encrypted-media" loading="lazy"></iframe>
-          <div class="work-thumb-overlay" onclick="playVideo(this)">
-            <div class="work-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      <div class="vid-wrap paused muted" id="v3">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo8finalllll.mp4" loop muted playsinline preload="metadata"></video>
+        <div class="vid-controls">
+          <div class="vid-play-btn">
+            <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </div>
+          <div class="vid-bottom">
+            <div class="vid-progress"><div class="vid-progress-fill" id="v3-fill"></div></div>
+            <button class="vid-mute">
+              <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              <svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            </button>
           </div>
         </div>
       </div>
@@ -316,11 +342,19 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     </div>
 
     <div class="work-card reveal">
-      <div class="work-thumb">
-        <div class="work-thumb-inner">
-          <iframe src="https://www.youtube.com/embed/4O-EXmkf7I8" allowfullscreen allow="autoplay; encrypted-media" loading="lazy"></iframe>
-          <div class="work-thumb-overlay" onclick="playVideo(this)">
-            <div class="work-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      <div class="vid-wrap paused muted" id="v4">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo10.mp4" loop muted playsinline preload="metadata"></video>
+        <div class="vid-controls">
+          <div class="vid-play-btn">
+            <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </div>
+          <div class="vid-bottom">
+            <div class="vid-progress"><div class="vid-progress-fill" id="v4-fill"></div></div>
+            <button class="vid-mute">
+              <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              <svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            </button>
           </div>
         </div>
       </div>
@@ -333,11 +367,19 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     </div>
 
     <div class="work-card reveal">
-      <div class="work-thumb">
-        <div class="work-thumb-inner">
-          <iframe src="https://www.youtube.com/embed/rDxT3DYBnJY" allowfullscreen allow="autoplay; encrypted-media" loading="lazy"></iframe>
-          <div class="work-thumb-overlay" onclick="playVideo(this)">
-            <div class="work-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      <div class="vid-wrap paused muted" id="v5">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo6final.mp4" loop muted playsinline preload="metadata"></video>
+        <div class="vid-controls">
+          <div class="vid-play-btn">
+            <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </div>
+          <div class="vid-bottom">
+            <div class="vid-progress"><div class="vid-progress-fill" id="v5-fill"></div></div>
+            <button class="vid-mute">
+              <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              <svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            </button>
           </div>
         </div>
       </div>
@@ -346,6 +388,56 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
         <p class="work-desc" data-en="Full content system — scripts, edits, posting. Channel grew from scratch." data-hr="Kompletan content sustav — skripte, edit, objava. Kanal izgrađen od nule.">Full content system — scripts, edits, posting. Channel grew from scratch.</p>
         <div class="work-stat">0 → 8K</div>
         <p class="work-result" data-en="Followers in 60 days" data-hr="Rast followera u 60 dana">Followers in 60 days</p>
+      </div>
+    </div>
+
+    <div class="work-card reveal">
+      <div class="vid-wrap paused muted" id="v6">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo1final.mp4" loop muted playsinline preload="metadata"></video>
+        <div class="vid-controls">
+          <div class="vid-play-btn">
+            <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </div>
+          <div class="vid-bottom">
+            <div class="vid-progress"><div class="vid-progress-fill" id="v6-fill"></div></div>
+            <button class="vid-mute">
+              <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              <svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="work-body">
+        <p class="work-tag" data-en="Coaching" data-hr="Coaching">Coaching</p>
+        <p class="work-desc" data-en="Authority positioning + hook framework. Consistent growth unlocked." data-hr="Authority pozicioniranje + hook framework. Konstantan rast otključan.">Authority positioning + hook framework. Consistent growth unlocked.</p>
+        <div class="work-stat">+120%</div>
+        <p class="work-result" data-en="Reach growth in 30 days" data-hr="Rast dosega u 30 dana">Reach growth in 30 days</p>
+      </div>
+    </div>
+
+    <div class="work-card reveal">
+      <div class="vid-wrap paused muted" id="v7">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo5.mp4" loop muted playsinline preload="metadata"></video>
+        <div class="vid-controls">
+          <div class="vid-play-btn">
+            <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </div>
+          <div class="vid-bottom">
+            <div class="vid-progress"><div class="vid-progress-fill" id="v7-fill"></div></div>
+            <button class="vid-mute">
+              <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              <svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="work-body">
+        <p class="work-tag" data-en="Personal brand" data-hr="Osobni brend">Personal brand</p>
+        <p class="work-desc" data-en="Viral hook system + retention editing. Views multiplied in weeks." data-hr="Sustav viralnih hookova + retention editing. Pregledi višestruko porasli.">Viral hook system + retention editing. Views multiplied in weeks.</p>
+        <div class="work-stat">3.1M</div>
+        <p class="work-result" data-en="Total views in 60 days" data-hr="Ukupno pregleda u 60 dana">Total views in 60 days</p>
       </div>
     </div>
 
@@ -363,7 +455,6 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
   <p class="section-desc reveal" data-en="Three phases. Everything handled. You just show up and film." data-hr="Tri faze. Sve pokriveno. Ti samo snimaš.">Three phases. Everything handled. You just show up and film.</p>
 
   <div class="how-grid">
-
     <div class="how-card reveal">
       <div class="how-num">01</div>
       <p class="how-title" data-en="We define your strategy" data-hr="Definiramo strategiju">We define your strategy</p>
@@ -376,7 +467,6 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
         </ul>
       </div>
     </div>
-
     <div class="how-card reveal">
       <div class="how-num">02</div>
       <p class="how-title" data-en="You film, we edit" data-hr="Ti snimaš, mi editiramo">You film, we edit</p>
@@ -388,7 +478,6 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
         </ul>
       </div>
     </div>
-
     <div class="how-card reveal">
       <div class="how-num">03</div>
       <p class="how-title" data-en="We post and track" data-hr="Objavljujemo i optimiziramo">We post and track</p>
@@ -400,26 +489,24 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
         </ul>
       </div>
     </div>
-
   </div>
 
-  <!-- MOBILE How It Works: 3 cards in a row, tap to expand -->
   <div class="how-mobile">
     <div class="how-mobile-cards">
       <div class="how-mobile-card active" onclick="selectHowMobile(0)">
         <div class="how-mobile-num">01</div>
-        <div class="how-mobile-title" data-en="Strategy" data-hr="Strategija">Strategy</div>
-        <div class="how-mobile-hint" data-en="Tap to see more" data-hr="Klikni za više">Tap to see more</div>
+        <div class="how-mobile-label" data-en="Strategy" data-hr="Strategija">Strategy</div>
+        <div class="how-mobile-hint" data-en="Tap for more" data-hr="Klikni za više">Tap for more</div>
       </div>
       <div class="how-mobile-card" onclick="selectHowMobile(1)">
         <div class="how-mobile-num">02</div>
-        <div class="how-mobile-title" data-en="Edit" data-hr="Edit">Edit</div>
-        <div class="how-mobile-hint" data-en="Tap to see more" data-hr="Klikni za više">Tap to see more</div>
+        <div class="how-mobile-label" data-en="Edit" data-hr="Edit">Edit</div>
+        <div class="how-mobile-hint" data-en="Tap for more" data-hr="Klikni za više">Tap for more</div>
       </div>
       <div class="how-mobile-card" onclick="selectHowMobile(2)">
         <div class="how-mobile-num">03</div>
-        <div class="how-mobile-title" data-en="Post" data-hr="Objava">Post</div>
-        <div class="how-mobile-hint" data-en="Tap to see more" data-hr="Klikni za više">Tap to see more</div>
+        <div class="how-mobile-label" data-en="Post" data-hr="Objava">Post</div>
+        <div class="how-mobile-hint" data-en="Tap for more" data-hr="Klikni za više">Tap for more</div>
       </div>
     </div>
     <div class="how-mobile-panel active" id="howMobile0">
@@ -451,13 +538,12 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
 
 <div class="divider"></div>
 
-<!-- WHY ME -->
+<!-- WHY -->
 <section class="section-wrap">
 <div class="section" id="why">
   <div class="section-label reveal" data-en="Differentiation" data-hr="Diferencijacija">Differentiation</div>
   <h2 class="reveal" data-en="Why Motionix." data-hr="Zašto Motionix.">Why Motionix.</h2>
   <p class="section-desc reveal" data-en="Not another editor. A content system built around your growth." data-hr="Nismo samo editori. Gradimo sustav za rast.">Not another editor. A content system built around your growth.</p>
-
   <div class="why-list">
     <div class="why-row reveal">
       <span class="why-num">01</span>
@@ -477,7 +563,7 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
       <span class="why-num">03</span>
       <div>
         <p class="why-title" data-en="Every edit is intentional" data-hr="Svaki edit ima razlog">Every edit is intentional</p>
-        <p class="why-desc" data-en="No random transitions, no trend-chasing effects. Every cut, caption, and sound choice is there to hold attention and move the viewer toward action." data-hr="Nema random tranzicija ni &quot;trend&quot; efekata bez smisla. Svaki rez, caption i zvuk imaju cilj — zadržati gledatelja i potaknuti akciju.">No random transitions, no trend-chasing effects. Every cut, caption, and sound choice is there to hold attention and move the viewer toward action.</p>
+        <p class="why-desc" data-en="No random transitions, no trend-chasing effects. Every cut, caption, and sound choice is there to hold attention and move the viewer toward action." data-hr="Nema random tranzicija ni trend efekata bez smisla. Svaki rez, caption i zvuk imaju cilj — zadržati gledatelja i potaknuti akciju.">No random transitions, no trend-chasing effects. Every cut, caption, and sound choice is there to hold attention and move the viewer toward action.</p>
       </div>
     </div>
     <div class="why-row reveal">
@@ -493,17 +579,17 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
 
 <div class="divider"></div>
 
-<!-- MICRO OFFER CTA -->
+<!-- MICRO CTA -->
 <section id="micro-cta">
   <div class="micro-inner">
     <div class="micro-text">
-      <h3 data-en="Send me a <span class='accent'>video.</span><br>I'll break it down for <span class='accent'>free.</span>" data-hr="Pošalji mi <span class='accent'>video</span> — analizirat ću ga <span class='accent'>besplatno.</span>">Send me a <span class="accent">video.</span><br>I'll break it down for <span class="accent">free.</span></h3>
-      <p><span data-en="Drop me any video you've posted — I'll tell you exactly" data-hr="Pošalji bilo koji video koji si objavio —">Drop me any video you've posted — I'll tell you exactly</span> <strong data-en="what's killing your retention" data-hr="reći ću ti točno što ubija retention">what's killing your retention</strong> <span data-en="and what I'd change. No pitch. Just real feedback." data-hr="i što bih promijenio. Bez prodaje. Samo konkretan feedback.">and what I'd change. No pitch. Just real feedback.</span></p>
+      <h3 data-en="Send us a <span class='accent'>video.</span><br>We'll break it down for <span class='accent'>free.</span>" data-hr="Pošalji nam <span class='accent'>video</span> — analizirat ćemo ga <span class='accent'>besplatno.</span>">Send us a <span class="accent">video.</span><br>We'll break it down for <span class="accent">free.</span></h3>
+      <p><span data-en="Drop us any video you've posted — we'll tell you exactly" data-hr="Pošalji bilo koji video koji si objavio —">Drop us any video you've posted — we'll tell you exactly</span> <strong data-en="what's killing your retention" data-hr="reći ćemo ti točno što ubija retention">what's killing your retention</strong> <span data-en="and what we'd change. No pitch. Just real feedback." data-hr="i što bismo promijenili. Bez prodaje. Samo konkretan feedback.">and what we'd change. No pitch. Just real feedback.</span></p>
     </div>
     <div class="micro-actions reveal">
-      <a href="https://wa.me/385998714532" target="_blank" class="btn-primary">
+      <a href="https://wa.me/385998714532?text=Hey%2C%20just%20saw%20your%20work%20%E2%80%94%20I%20want%20to%20improve%20my%20content%20performance.%20Can%20I%20send%20you%20a%20video%3F" target="_blank" class="btn-primary">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        <span data-en="Send me a video" data-hr="Pošalji video">Send me a video</span>
+        <span data-en="Send us a video" data-hr="Pošalji nam video">Send us a video</span>
       </a>
       <span class="micro-note" data-en="Free. No strings. Takes 2 minutes." data-hr="Besplatno. Bez obaveze. 2 minute.">Free. No strings. Takes 2 minutes.</span>
     </div>
@@ -517,9 +603,9 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
   <div class="cta-inner">
     <div class="section-label reveal" style="justify-content:center;" data-en="Let's work" data-hr="Krenimo raditi">Let's work</div>
     <h2 class="reveal" data-en="If you already have content,<br>you're closer than you think." data-hr="Ako već imaš sadržaj —<br>bliži si nego što misliš.">If you already have content,<br>you're closer than you think.</h2>
-    <p class="cta-sub reveal" data-en="Send me one video and I'll show you how it can perform better." data-hr="Pošalji jedan video i pokazat ću ti kako može performati bolje.">Send me one video and I'll show you how it can perform better.</p>
+    <p class="cta-sub reveal" data-en="Send us one video and we'll show you how it can perform better." data-hr="Pošalji nam jedan video i pokazat ćemo ti kako može performati bolje.">Send us one video and we'll show you how it can perform better.</p>
     <div class="cta-actions reveal">
-      <a href="https://wa.me/385998714532" target="_blank" class="btn-primary">
+      <a href="https://wa.me/385998714532?text=Hey%2C%20just%20saw%20your%20work%20%E2%80%94%20I%20want%20to%20improve%20my%20content%20performance.%20Can%20I%20send%20you%20a%20video%3F" target="_blank" class="btn-primary">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
         <span data-en="Send a message" data-hr="Pošalji poruku">Send a message</span>
       </a>
@@ -540,7 +626,7 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
       </div>
     </div>
     <div class="footer-links">
-      <a href="https://wa.me/385998714532" target="_blank" class="footer-link whatsapp">
+      <a href="https://wa.me/385998714532?text=Hey%2C%20just%20saw%20your%20work%20%E2%80%94%20I%20want%20to%20improve%20my%20content%20performance.%20Can%20I%20send%20you%20a%20video%3F" target="_blank" class="footer-link whatsapp">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         WhatsApp
       </a>
@@ -561,56 +647,81 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
 </footer>
 
 <script>
-// HOW — mobile accordion
-function selectHowMobile(index) {
-  document.querySelectorAll('.how-mobile-card').forEach((c, i) => c.classList.toggle('active', i === index));
-  document.querySelectorAll('.how-mobile-panel').forEach((p, i) => p.classList.toggle('active', i === index));
+// VIDEO PLAYER — event delegation
+document.querySelectorAll('.vid-wrap').forEach(wrap => {
+  const vid = wrap.querySelector('video');
+  const fill = document.getElementById(wrap.id + '-fill');
+  const muteBtn = wrap.querySelector('.vid-mute');
+  const progressBar = wrap.querySelector('.vid-progress');
+
+  // click on wrap = play/pause (except controls)
+  wrap.addEventListener('click', function(e) {
+    if (e.target.closest('.vid-mute') || e.target.closest('.vid-progress')) return;
+    if (vid.paused) {
+      vid.play();
+      wrap.classList.remove('paused');
+      wrap.classList.add('playing');
+    } else {
+      vid.pause();
+      wrap.classList.remove('playing');
+      wrap.classList.add('paused');
+    }
+  });
+
+  // mute toggle
+  if (muteBtn) {
+    muteBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      vid.muted = !vid.muted;
+      wrap.classList.toggle('muted', vid.muted);
+    });
+  }
+
+  // seek
+  if (progressBar) {
+    progressBar.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const pct = e.offsetX / progressBar.offsetWidth;
+      if (vid.duration) vid.currentTime = pct * vid.duration;
+    });
+  }
+
+  // progress update
+  vid.addEventListener('timeupdate', () => {
+    if (fill && vid.duration) fill.style.width = (vid.currentTime / vid.duration * 100) + '%';
+  });
+
+  vid.addEventListener('ended', () => {
+    wrap.classList.remove('playing');
+    wrap.classList.add('paused');
+  });
+});
+
+// HOW mobile accordion
+function selectHowMobile(i) {
+  document.querySelectorAll('.how-mobile-card').forEach((c,j) => c.classList.toggle('active', i===j));
+  document.querySelectorAll('.how-mobile-panel').forEach((p,j) => p.classList.toggle('active', i===j));
 }
 
 // SCROLL REVEAL
 const reveals = document.querySelectorAll('.reveal');
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObs.unobserve(entry.target); }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
-document.querySelectorAll('.work-grid, .how-grid, .why-list').forEach(grid => {
-  grid.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = `${i * 80}ms`; });
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} });
+}, {threshold:.08, rootMargin:'0px 0px -32px 0px'});
+document.querySelectorAll('.work-grid,.how-grid,.why-list').forEach(g => {
+  g.querySelectorAll('.reveal').forEach((el,i) => { el.style.transitionDelay = i*80+'ms'; });
 });
-reveals.forEach(el => revealObs.observe(el));
+reveals.forEach(el => obs.observe(el));
 
-// VIDEO PLAY
-function playVideo(overlay) {
-  overlay.style.display = 'none';
-  const iframe = overlay.previousElementSibling;
-  iframe.src += (iframe.src.includes('?') ? '&' : '?') + 'autoplay=1';
-  // expand thumb-inner to full width when playing
-  const inner = overlay.closest('.work-thumb-inner');
-  if(inner){ inner.style.width='100%'; inner.style.height='auto'; inner.style.aspectRatio='9/16'; }
-}
-
-// HOW CARDS — mobile click toggle
-const isMobile = () => window.innerWidth <= 900;
-document.querySelectorAll('.how-card').forEach(card => {
-  card.addEventListener('click', () => {
-    if (!isMobile()) return;
-    card.classList.toggle('open');
-  });
-});
-
-// LANGUAGE SWITCH
-let currentLang = 'en';
-function setLang(lang) {
-  currentLang = lang;
-  document.getElementById('btnEN').classList.toggle('active', lang === 'en');
-  document.getElementById('btnHR').classList.toggle('active', lang === 'hr');
+// LANGUAGE
+let lang = 'en';
+function setLang(l) {
+  lang = l;
+  document.getElementById('btnEN').classList.toggle('active', l==='en');
+  document.getElementById('btnHR').classList.toggle('active', l==='hr');
   document.querySelectorAll('[data-en]').forEach(el => {
-    const text = el.getAttribute('data-' + lang);
-    if (text) el.innerHTML = text;
-  });
-  document.querySelectorAll('h2[data-en], h3[data-en]').forEach(el => {
-    const text = el.getAttribute('data-' + lang);
-    if (text) el.innerHTML = text;
+    const t = el.getAttribute('data-'+l);
+    if(t) el.innerHTML = t;
   });
 }
 </script>
