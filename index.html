@@ -118,6 +118,45 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 .why-title{font-family:var(--font-d);font-weight:700;font-size:1rem;color:var(--white);margin-bottom:4px}
 .why-desc{font-family:var(--font-b);font-size:.88rem;color:var(--mist);line-height:1.6}
 
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.testi-card{background:var(--void);border:1px solid var(--border);border-radius:6px;padding:28px 26px;position:relative;transition:border-color .25s,transform .25s}
+.testi-card:hover{border-color:rgba(0,229,160,.25);transform:translateY(-3px)}
+.testi-quote{font-family:var(--font-b);font-size:.95rem;color:var(--white);line-height:1.65;margin-bottom:20px;font-style:italic}
+.testi-quote::before{content:'\201C';font-family:var(--font-c);font-size:2.5rem;color:var(--green);line-height:.5;display:block;margin-bottom:8px}
+.testi-author{display:flex;align-items:center;gap:10px}
+.testi-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,rgba(0,229,160,.3),rgba(0,229,160,.05));border:1px solid rgba(0,229,160,.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-c);font-weight:900;font-size:.85rem;color:var(--green);flex-shrink:0}
+.testi-name{font-family:var(--font-d);font-weight:700;font-size:.85rem;color:var(--white)}
+.testi-niche{font-family:var(--font-b);font-size:.75rem;color:var(--mist)}
+.testi-result{display:inline-block;font-family:var(--font-d);font-weight:700;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:rgba(0,229,160,.08);border:1px solid rgba(0,229,160,.2);padding:3px 8px;border-radius:2px;margin-top:6px}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:0;max-width:680px}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:first-child{border-top:1px solid var(--border)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.faq-q-text{font-family:var(--font-d);font-weight:700;font-size:.95rem;color:var(--white);line-height:1.3}
+.faq-icon{width:20px;height:20px;flex-shrink:0;color:var(--green);transition:transform .3s}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1),opacity .25s}
+.faq-a-inner{font-family:var(--font-b);font-size:.88rem;color:var(--mist);line-height:1.7;padding-bottom:18px}
+.faq-item.open .faq-a{max-height:200px;opacity:1}
+.faq-a{opacity:0}
+.faq-item.open .faq-a{opacity:1}
+
+/* NEXT STEPS */
+#next-steps{padding:72px 48px;position:relative}
+#next-steps::before{content:'';position:absolute;inset:0;background:var(--void);z-index:0}
+#next-steps::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(0,229,160,.15),transparent)}
+.next-inner{position:relative;z-index:1;max-width:1040px;margin:0 auto}
+.next-inner .section-label{margin-bottom:20px}
+.steps-row{display:flex;align-items:flex-start;gap:0}
+.step-item{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative}
+.step-item:not(:last-child)::after{content:'';position:absolute;top:18px;left:calc(50% + 28px);right:calc(-50% + 28px);height:1px;background:linear-gradient(to right,var(--green),rgba(0,229,160,.15));z-index:0}
+.step-num{width:36px;height:36px;border-radius:50%;border:2px solid var(--green);display:flex;align-items:center;justify-content:center;font-family:var(--font-c);font-weight:900;font-size:.9rem;color:var(--green);background:var(--void);margin-bottom:12px;position:relative;z-index:1;flex-shrink:0}
+.step-title{font-family:var(--font-d);font-weight:700;font-size:.88rem;color:var(--white);margin-bottom:4px}
+.step-desc{font-family:var(--font-b);font-size:.78rem;color:var(--mist);line-height:1.5;max-width:140px}
+
 /* MICRO CTA */
 #micro-cta{padding:80px 48px;position:relative;overflow:hidden}
 #micro-cta::before{content:'';position:absolute;inset:0;background:var(--void);z-index:0}
@@ -180,7 +219,12 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
   .how-mobile-card.active .how-mobile-hint{color:var(--green)}
   .how-mobile-panel{background:var(--void);border:1px solid var(--green);border-top:none;border-radius:0 0 6px 6px;padding:18px 16px;display:none}
   .how-mobile-panel.active{display:block;animation:fadeUp .3s ease forwards}
-  .why-list{max-width:100%}
+  .testi-grid{grid-template-columns:1fr}
+  .steps-row{flex-direction:column;gap:20px}
+  .step-item:not(:last-child)::after{display:none}
+  .step-item{flex-direction:row;text-align:left;align-items:flex-start;gap:14px}
+  .step-desc{max-width:100%}
+  #next-steps{padding:48px 20px}
   #cta{padding-top:80px;padding-bottom:80px}
   #micro-cta{padding:60px 20px}
   .micro-inner{flex-direction:column;align-items:flex-start}
@@ -548,7 +592,132 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
 
 <div class="divider"></div>
 
-<!-- MICRO CTA -->
+<!-- TESTIMONIALS -->
+<section class="section-wrap">
+<div class="section" id="testimonials">
+  <div class="section-label reveal" data-en="What clients say" data-hr="Što klijenti kažu">What clients say</div>
+  <h2 class="reveal" data-en="Results they felt." data-hr="Rezultati koje su osjetili.">Results they felt.</h2>
+  <p class="section-desc reveal" data-en="Real feedback from real clients. No made-up stats." data-hr="Pravi feedback od pravih klijenata. Bez izmišljenih brojki.">Real feedback from real clients. No made-up stats.</p>
+
+  <div class="testi-grid">
+
+    <div class="testi-card reveal">
+      <p class="testi-quote" data-en="Before working with Ivan, my videos were getting 2–3K views max. After the first edit, one hit 180K. I didn't change anything except who was cutting my content." data-hr="Prije suradnje s Ivanom, moji videi su imali maksimalno 2-3K pregleda. Nakon prvog edita, jedan je dosegao 180K. Nisam promijenio ništa osim tko mi reže sadržaj.">Before working with Ivan, my videos were getting 2–3K views max. After the first edit, one hit 180K. I didn't change anything except who was cutting my content.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">M</div>
+        <div>
+          <div class="testi-name">Marcus T.</div>
+          <div class="testi-niche" data-en="Ecom brand · 34K followers" data-hr="Ecom brend · 34K pratitelja">Ecom brand · 34K followers</div>
+          <span class="testi-result">180K views</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal">
+      <p class="testi-quote" data-en="I was posting consistently but nothing was growing. Ivan identified the problem in 10 minutes — my hooks were killing the video before it even started. Fixed that, watch time went up 70%." data-hr="Objavljivao sam konzistentno ali ništa nije raslo. Ivan je identificirao problem za 10 minuta — moji hookovi su ubijali video prije nego što je i počeo. Popravili smo to, watch time porastao 70%.">I was posting consistently but nothing was growing. Ivan identified the problem in 10 minutes — my hooks were killing the video before it even started. Fixed that, watch time went up 70%.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">S</div>
+        <div>
+          <div class="testi-name">Sara K.</div>
+          <div class="testi-niche" data-en="Personal brand · Coach" data-hr="Osobni brend · Coach">Personal brand · Coach</div>
+          <span class="testi-result">+70% watch time</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal">
+      <p class="testi-quote" data-en="We went from zero presence to 8K followers and 12 inbound leads in the first month. The script + edit combo is what makes it work — most editors just cut, Ivan thinks about the whole thing." data-hr="Krenuli smo od nule do 8K pratitelja i 12 inbound leadova u prvom mjesecu. Kombinacija skripte i edita je ono što radi — većina editora samo reže, Ivan razmišlja o cijeloj stvari.">We went from zero presence to 8K followers and 12 inbound leads in the first month. The script + edit combo is what makes it work — most editors just cut, Ivan thinks about the whole thing.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">D</div>
+        <div>
+          <div class="testi-name">David R.</div>
+          <div class="testi-niche" data-en="Service business · Consulting" data-hr="Uslužni biznis · Consulting">Service business · Consulting</div>
+          <span class="testi-result">12 leads / month 1</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FAQ -->
+<section class="section-wrap">
+<div class="section" id="faq">
+  <div class="section-label reveal" data-en="FAQ" data-hr="Česta pitanja">FAQ</div>
+  <h2 class="reveal" data-en="Questions answered." data-hr="Odgovori na pitanja.">Questions answered.</h2>
+
+  <div class="faq-list reveal">
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text" data-en="How much does it cost?" data-hr="Koliko košta?">How much does it cost?</span>
+        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner" data-en="Packages start at €700/month. What's included depends on your volume and goals — scripts, editing, and posting are all available. Send me a video and we'll figure out what makes sense for you." data-hr="Paketi kreću od €700/mj. Što je uključeno ovisi o tvojim potrebama i ciljevima — skripte, editing i objava su svi dostupni. Pošalji mi video i zajedno ćemo doći do onoga što ima smisla za tebe.">Packages start at €700/month. What's included depends on your volume and goals — scripts, editing, and posting are all available. Send me a video and we'll figure out what makes sense for you.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text" data-en="Do I need a big audience to start?" data-hr="Treba li mi velika publika za početak?">Do I need a big audience to start?</span>
+        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner" data-en="No. Most clients start from scratch or with under 1K followers. The work is the same — build a system that grows. The earlier you start with the right structure, the faster the growth compounds." data-hr="Ne. Većina klijenata počinje od nule ili s manje od 1K pratitelja. Rad je isti — gradimo sustav koji raste. Što ranije počneš s pravom strukturom, brže se rast multiplicira.">No. Most clients start from scratch or with under 1K followers. The work is the same — build a system that grows. The earlier you start with the right structure, the faster the growth compounds.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text" data-en="How long until I see results?" data-hr="Koliko dugo do prvih rezultata?">How long until I see results?</span>
+        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner" data-en="Most clients see meaningful improvement in watch time and reach within the first 2–3 videos. Growth compounds over time — the first month sets the foundation, the second and third is where it accelerates." data-hr="Većina klijenata vidi značajno poboljšanje u watch timeu i dosegu unutar prvih 2-3 videa. Rast se multiplicira kroz vrijeme — prvi mjesec postavlja temelje, drugi i treći je gdje se ubrzava.">Most clients see meaningful improvement in watch time and reach within the first 2–3 videos. Growth compounds over time — the first month sets the foundation, the second and third is where it accelerates.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text" data-en="What if I'm not satisfied?" data-hr="Što ako nisam zadovoljan?">What if I'm not satisfied?</span>
+        <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner" data-en="We start with a free video breakdown before any commitment. If after that you want to work together, we'll agree on clear deliverables upfront. No long-term lock-in — if the results aren't there, we'll fix it." data-hr="Počinjemo s besplatnom analizom videa bez ikakve obaveze. Ako nakon toga želiš surađivati, dogovaramo jasne isporuke unaprijed. Bez dugoročnog zaključavanja — ako rezultati nisu tu, popravit ćemo to.">We start with a free video breakdown before any commitment. If after that you want to work together, we'll agree on clear deliverables upfront. No long-term lock-in — if the results aren't there, we'll fix it.</div></div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- NEXT STEPS -->
+<section id="next-steps">
+  <div class="next-inner">
+    <div class="section-label reveal" data-en="How to start" data-hr="Kako početi">How to start</div>
+    <div class="steps-row reveal">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title" data-en="Send a video" data-hr="Pošalji video">Send a video</div>
+          <div class="step-desc" data-en="Any video you've posted. Takes 2 minutes." data-hr="Bilo koji video koji si objavio. Traje 2 minute.">Any video you've posted. Takes 2 minutes.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title" data-en="Get a free breakdown" data-hr="Dobij besplatnu analizu">Get a free breakdown</div>
+          <div class="step-desc" data-en="I'll show you exactly what's holding it back." data-hr="Pokazat ću ti točno što ga usporava.">I'll show you exactly what's holding it back.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title" data-en="We decide together" data-hr="Zajedno odlučujemo">We decide together</div>
+          <div class="step-desc" data-en="If it's a fit, we build the system. No pressure." data-hr="Ako odgovara, gradimo sustav. Bez pritiska.">If it's a fit, we build the system. No pressure.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
 <section id="micro-cta">
   <div class="micro-inner">
     <div class="micro-text">
@@ -665,6 +834,14 @@ document.querySelectorAll('.vid-wrap').forEach(wrap => {
     wrap.classList.add('paused');
   });
 });
+
+// FAQ accordion
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
 
 // HOW mobile accordion
 function selectHowMobile(i) {
