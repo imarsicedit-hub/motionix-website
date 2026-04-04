@@ -66,17 +66,26 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 /* VIDEO PLAYER */
 .vid-wrap{position:relative;width:100%;aspect-ratio:9/16;background:#000;overflow:hidden;cursor:pointer}
 .vid-wrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.vid-controls{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%);opacity:0;transition:opacity .2s}
-.vid-wrap:hover .vid-controls,.vid-wrap.paused .vid-controls{opacity:1}
-.vid-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;border:2px solid rgba(0,229,160,.75);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--green);background:rgba(13,27,42,.65);backdrop-filter:blur(6px);transition:all .2s;pointer-events:none}
+/* gradient only shows on hover or when paused */
+.vid-overlay{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%);opacity:0;transition:opacity .2s;pointer-events:none}
+.vid-wrap:hover .vid-overlay{opacity:1}
+.vid-wrap.paused .vid-overlay{opacity:1}
+/* play button — center of video */
+.vid-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;width:52px;height:52px;border:2px solid rgba(0,229,160,.8);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--green);background:rgba(13,27,42,.7);backdrop-filter:blur(6px);transition:opacity .2s,background .2s;pointer-events:none}
+/* hide play btn when playing, show on hover or paused */
+.vid-wrap.playing .vid-play-btn{opacity:0}
+.vid-wrap.playing:hover .vid-play-btn{opacity:1}
+.vid-wrap.paused .vid-play-btn{opacity:1}
+/* play/pause icon swap */
 .vid-wrap.playing .icon-play{display:none}
 .vid-wrap.playing .icon-pause{display:block}
 .vid-wrap:not(.playing) .icon-play{display:block}
 .vid-wrap:not(.playing) .icon-pause{display:none}
-.vid-bottom{padding:6px 10px 10px;display:flex;align-items:center;gap:8px}
-.vid-progress{flex:1;height:3px;background:rgba(255,255,255,.2);border-radius:2px;cursor:pointer;position:relative}
+/* bottom controls */
+.vid-bottom{padding:6px 10px 10px;display:flex;align-items:center;gap:8px;pointer-events:all}
+.vid-progress{flex:1;height:3px;background:rgba(255,255,255,.25);border-radius:2px;cursor:pointer;position:relative}
 .vid-progress-fill{height:100%;background:var(--green);border-radius:2px;width:0%;transition:width .1s linear}
-.vid-mute{width:26px;height:26px;border:none;background:transparent;color:rgba(255,255,255,.7);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:0}
+.vid-mute{width:26px;height:26px;border:none;background:transparent;color:rgba(255,255,255,.75);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:0}
 .vid-mute:hover{color:var(--white)}
 .vid-wrap:not(.muted) .icon-muted{display:none}
 .vid-wrap.muted .icon-sound{display:none}
@@ -215,8 +224,8 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
 <!-- HERO -->
 <section id="hero">
   <div class="hero-inner">
-    <div class="overline" data-en="Short-form content that performs" data-hr="Short-form sadržaj koji performira">Short-form content that performs</div>
-    <h1>We help brands turn content into <span class="accent" data-en="views," data-hr="preglede,">views,</span> <span class="accent" data-en="retention," data-hr="zadržavanje,">retention,</span><br>and <span class="accent" data-en="real results." data-hr="konkretne rezultate.">real results.</span></h1>
+    <div class="overline" data-en="Improving your short-form content" data-hr="Unapređujem tvoj short-form sadržaj">Improving your short-form content</div>
+    <h1>I help brands turn content into <span class="accent" data-en="views," data-hr="preglede,">views,</span> <span class="accent" data-en="retention," data-hr="zadržavanje,">retention,</span><br>and <span class="accent" data-en="real results." data-hr="konkretne rezultate.">real results.</span></h1>
     <p class="hero-slogan" data-en="Scale or stay invisible." data-hr="Rasti ili ostani nevidljiv.">Scale or stay invisible.</p>
     <p class="hero-sub" data-en="Short-form content built around performance — strategy, scripts, and editing that actually move the numbers." data-hr="Short-form sadržaj temeljen na performansu — strategija, skripte i edit koji stvarno pomiču brojke.">Short-form content built around performance — strategy, scripts, and editing that actually move the numbers.</p>
     <p class="hero-cred"><span data-en="Generated over" data-hr="Generirano preko">Generated over</span> <strong>10M+ <span data-en="views" data-hr="pregleda">views</span></strong> <span data-en="across client content." data-hr="kroz sadržaj klijenata.">across client content.</span></p>
@@ -244,12 +253,7 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     <div class="work-card reveal">
       <div class="vid-wrap paused muted" id="v0">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Aneldevinjathofinal.mp4" loop muted playsinline preload="metadata"></video>
-        <div class="vid-controls">
-          <div class="vid-play-btn">
-            <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-          </div>
-          <div class="vid-bottom">
+        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
             <div class="vid-progress"><div class="vid-progress-fill" id="v0-fill"></div></div>
             <button class="vid-mute">
               <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
@@ -269,12 +273,7 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     <div class="work-card reveal">
       <div class="vid-wrap paused muted" id="v1">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Jovanavideo2.mp4" loop muted playsinline preload="metadata"></video>
-        <div class="vid-controls">
-          <div class="vid-play-btn">
-            <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-          </div>
-          <div class="vid-bottom">
+        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
             <div class="vid-progress"><div class="vid-progress-fill" id="v1-fill"></div></div>
             <button class="vid-mute">
               <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
@@ -294,12 +293,7 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     <div class="work-card reveal">
       <div class="vid-wrap paused muted" id="v2">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Mandy%20Video%202%20V4.mp4" loop muted playsinline preload="metadata"></video>
-        <div class="vid-controls">
-          <div class="vid-play-btn">
-            <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-          </div>
-          <div class="vid-bottom">
+        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
             <div class="vid-progress"><div class="vid-progress-fill" id="v2-fill"></div></div>
             <button class="vid-mute">
               <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
@@ -319,12 +313,7 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     <div class="work-card reveal">
       <div class="vid-wrap paused muted" id="v3">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo8finalllll.mp4" loop muted playsinline preload="metadata"></video>
-        <div class="vid-controls">
-          <div class="vid-play-btn">
-            <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-          </div>
-          <div class="vid-bottom">
+        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
             <div class="vid-progress"><div class="vid-progress-fill" id="v3-fill"></div></div>
             <button class="vid-mute">
               <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
@@ -344,12 +333,7 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     <div class="work-card reveal">
       <div class="vid-wrap paused muted" id="v4">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo10.mp4" loop muted playsinline preload="metadata"></video>
-        <div class="vid-controls">
-          <div class="vid-play-btn">
-            <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-          </div>
-          <div class="vid-bottom">
+        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
             <div class="vid-progress"><div class="vid-progress-fill" id="v4-fill"></div></div>
             <button class="vid-mute">
               <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
@@ -369,12 +353,7 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     <div class="work-card reveal">
       <div class="vid-wrap paused muted" id="v5">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo6final.mp4" loop muted playsinline preload="metadata"></video>
-        <div class="vid-controls">
-          <div class="vid-play-btn">
-            <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-          </div>
-          <div class="vid-bottom">
+        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
             <div class="vid-progress"><div class="vid-progress-fill" id="v5-fill"></div></div>
             <button class="vid-mute">
               <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
@@ -394,12 +373,7 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     <div class="work-card reveal">
       <div class="vid-wrap paused muted" id="v6">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo1final.mp4" loop muted playsinline preload="metadata"></video>
-        <div class="vid-controls">
-          <div class="vid-play-btn">
-            <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-          </div>
-          <div class="vid-bottom">
+        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
             <div class="vid-progress"><div class="vid-progress-fill" id="v6-fill"></div></div>
             <button class="vid-mute">
               <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
@@ -419,12 +393,7 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     <div class="work-card reveal">
       <div class="vid-wrap paused muted" id="v7">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo5.mp4" loop muted playsinline preload="metadata"></video>
-        <div class="vid-controls">
-          <div class="vid-play-btn">
-            <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-          </div>
-          <div class="vid-bottom">
+        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
             <div class="vid-progress"><div class="vid-progress-fill" id="v7-fill"></div></div>
             <button class="vid-mute">
               <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
@@ -630,7 +599,7 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         WhatsApp
       </a>
-      <a href="mailto:ivan@motionix.co" class="footer-link">
+      <a href="mailto:ivan@motionix.co?subject=I%20want%20to%20improve%20my%20content%20performance&body=Hey%2C%20just%20saw%20your%20work%20%E2%80%94%20I%20want%20to%20improve%20my%20content%20performance.%20Can%20I%20send%20you%20a%20video%3F" class="footer-link">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         ivan@motionix.co
       </a>
@@ -647,14 +616,14 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
 </footer>
 
 <script>
-// VIDEO PLAYER — event delegation
+// VIDEO PLAYER
 document.querySelectorAll('.vid-wrap').forEach(wrap => {
   const vid = wrap.querySelector('video');
   const fill = document.getElementById(wrap.id + '-fill');
   const muteBtn = wrap.querySelector('.vid-mute');
   const progressBar = wrap.querySelector('.vid-progress');
 
-  // click on wrap = play/pause (except controls)
+  // click wrap = toggle play/pause (ignore mute and progress clicks)
   wrap.addEventListener('click', function(e) {
     if (e.target.closest('.vid-mute') || e.target.closest('.vid-progress')) return;
     if (vid.paused) {
@@ -668,7 +637,7 @@ document.querySelectorAll('.vid-wrap').forEach(wrap => {
     }
   });
 
-  // mute toggle
+  // mute
   if (muteBtn) {
     muteBtn.addEventListener('click', function(e) {
       e.stopPropagation();
@@ -681,16 +650,16 @@ document.querySelectorAll('.vid-wrap').forEach(wrap => {
   if (progressBar) {
     progressBar.addEventListener('click', function(e) {
       e.stopPropagation();
-      const pct = e.offsetX / progressBar.offsetWidth;
-      if (vid.duration) vid.currentTime = pct * vid.duration;
+      if (vid.duration) vid.currentTime = (e.offsetX / progressBar.offsetWidth) * vid.duration;
     });
   }
 
-  // progress update
+  // progress bar fill
   vid.addEventListener('timeupdate', () => {
     if (fill && vid.duration) fill.style.width = (vid.currentTime / vid.duration * 100) + '%';
   });
 
+  // reset to paused state when video ends
   vid.addEventListener('ended', () => {
     wrap.classList.remove('playing');
     wrap.classList.add('paused');
