@@ -126,7 +126,7 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 .why-title{font-family:var(--font-d);font-weight:700;font-size:.98rem;color:var(--white);margin-bottom:0;flex:1;text-align:center}
 .why-icon{width:18px;height:18px;flex-shrink:0;color:var(--green);transition:transform .3s}
 .why-row.open .why-icon{transform:rotate(45deg)}
-.why-desc{font-family:var(--font-b);font-size:.86rem;color:var(--mist);line-height:1.65;max-height:0;overflow:hidden;opacity:0;width:100%;transition:max-height .35s cubic-bezier(.4,0,.2,1),opacity .25s,padding .25s}
+.why-desc{font-family:var(--font-b);font-size:.86rem;color:var(--mist);line-height:1.65;max-height:0;overflow:hidden;opacity:0;width:100%;text-align:center;transition:max-height .35s cubic-bezier(.4,0,.2,1),opacity .25s,padding .25s}
 .why-row.open .why-desc{max-height:150px;opacity:1;padding-bottom:16px}
 
 /* TESTIMONIALS */
@@ -245,7 +245,9 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
   .testi-card{padding:18px 14px}
   .why-list{max-width:100%}
   .why-num{width:20px;font-size:.8rem}
-  .why-title{font-size:.92rem;text-align:left}
+  .why-title{font-size:.92rem;text-align:center}
+  .why-desc{text-align:center}
+  .why-row-head{justify-content:center;gap:10px}
   .steps-row{flex-direction:column;gap:20px}
   .step-item:not(:last-child)::after{display:none}
   .step-item{flex-direction:row;text-align:left;align-items:flex-start;gap:14px}
@@ -277,6 +279,8 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     <li><a href="#work" data-en="Work" data-hr="Rad">Work</a></li>
     <li><a href="#how" data-en="Process" data-hr="Proces">Process</a></li>
     <li><a href="#why" data-en="Why us" data-hr="Zašto mi">Why us</a></li>
+    <li><a href="#testimonials" data-en="Clients" data-hr="Klijenti">Clients</a></li>
+    <li><a href="#faq" data-en="FAQ" data-hr="FAQ">FAQ</a></li>
     <li><a href="#contact" data-en="Contact" data-hr="Kontakt">Contact</a></li>
   </ul>
   <div class="nav-right">
