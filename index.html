@@ -56,12 +56,19 @@ h1 .accent{color:var(--green)}
 h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.01em;color:var(--white);margin-bottom:12px}
 .section-desc{font-family:var(--font-b);font-size:1rem;color:var(--mist);line-height:1.7;max-width:480px;margin-bottom:56px}
 
-/* WORK GRID — 4 columns desktop */
+/* WORK GRID — 4 columns desktop, first 4 visible */
 .work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .work-card{background:var(--void);border:1px solid var(--border);border-radius:8px;overflow:hidden;position:relative;transition:border-color .25s,transform .25s;display:flex;flex-direction:column}
 .work-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .3s ease;z-index:3}
 .work-card:hover{border-color:rgba(0,229,160,.3);transform:translateY(-4px)}
 .work-card:hover::before{transform:scaleX(1)}
+.work-card.hidden{display:none}
+.work-card.hidden.shown{display:flex}
+.work-more-wrap{text-align:center;margin-top:28px}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--mist);font-family:var(--font-b);font-weight:500;font-size:.85rem;padding:10px 22px;border-radius:3px;border:1px solid var(--border);cursor:pointer;transition:all .2s;text-decoration:none}
+.btn-outline:hover{color:var(--white);border-color:var(--border-md)}
+.btn-outline svg{transition:transform .3s}
+.btn-outline.expanded svg{transform:rotate(180deg)}
 
 /* VIDEO PLAYER */
 .vid-wrap{position:relative;width:100%;aspect-ratio:9/16;background:#000;overflow:hidden;cursor:pointer}
@@ -112,11 +119,15 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 
 /* WHY */
 .why-list{display:flex;flex-direction:column;gap:0;max-width:680px}
-.why-row{display:flex;align-items:flex-start;gap:20px;padding:20px 0;border-bottom:1px solid var(--border)}
+.why-row{display:flex;align-items:flex-start;gap:20px;padding:18px 0;border-bottom:1px solid var(--border);cursor:pointer;-webkit-tap-highlight-color:transparent}
 .why-row:first-child{border-top:1px solid var(--border)}
+.why-row-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:1}
 .why-num{font-family:var(--font-c);font-weight:900;font-size:1rem;color:var(--green);flex-shrink:0;width:28px;padding-top:2px}
-.why-title{font-family:var(--font-d);font-weight:700;font-size:1rem;color:var(--white);margin-bottom:4px}
-.why-desc{font-family:var(--font-b);font-size:.88rem;color:var(--mist);line-height:1.6}
+.why-title{font-family:var(--font-d);font-weight:700;font-size:1rem;color:var(--white);margin-bottom:0}
+.why-icon{width:18px;height:18px;flex-shrink:0;color:var(--green);transition:transform .3s}
+.why-row.open .why-icon{transform:rotate(45deg)}
+.why-desc{font-family:var(--font-b);font-size:.88rem;color:var(--mist);line-height:1.6;max-height:0;overflow:hidden;opacity:0;transition:max-height .35s cubic-bezier(.4,0,.2,1),opacity .25s,padding .25s}
+.why-row.open .why-desc{max-height:120px;opacity:1;padding-top:10px}
 
 /* TESTIMONIALS */
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -157,18 +168,13 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 .step-title{font-family:var(--font-d);font-weight:700;font-size:.88rem;color:var(--white);margin-bottom:4px}
 .step-desc{font-family:var(--font-b);font-size:.78rem;color:var(--mist);line-height:1.5;max-width:140px}
 
-/* MICRO CTA */
-#micro-cta{padding:80px 48px;position:relative;overflow:hidden}
-#micro-cta::before{content:'';position:absolute;inset:0;background:var(--void);z-index:0}
-#micro-cta::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(0,229,160,.2),transparent)}
-.micro-inner{position:relative;z-index:1;max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
-.micro-text h3{font-family:var(--font-d);font-weight:800;font-size:clamp(1.4rem,2.5vw,1.9rem);line-height:1.15;letter-spacing:-.01em;color:var(--white);margin-bottom:8px}
-.micro-text h3 .accent{color:var(--green)}
-.micro-text p{font-family:var(--font-b);font-size:.92rem;color:var(--mist);line-height:1.6;max-width:420px}
-.micro-text p strong{color:var(--white);font-weight:500}
-.micro-actions{display:flex;flex-direction:column;align-items:flex-start;gap:8px;flex-shrink:0}
-.micro-actions .btn-primary{font-size:.95rem;padding:13px 26px;white-space:nowrap}
-.micro-note{font-family:var(--font-b);font-size:.75rem;color:var(--mist);padding-left:4px}
+/* mobile: hide play btn controls when playing and not touching */
+@media(hover:none){
+  .vid-wrap.playing .vid-overlay{opacity:0}
+  .vid-wrap.playing .vid-play-btn{opacity:0}
+  .vid-wrap.paused .vid-overlay{opacity:1}
+  .vid-wrap.paused .vid-play-btn{opacity:1}
+}
 
 /* FINAL CTA */
 #cta{padding:120px 48px;text-align:center;position:relative;overflow:hidden}
@@ -374,7 +380,7 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
       </div>
     </div>
 
-    <div class="work-card reveal">
+    <div class="work-card reveal hidden">
       <div class="vid-wrap paused muted" id="v4">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo10.mp4" loop muted playsinline preload="metadata"></video>
         <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
@@ -394,7 +400,7 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
       </div>
     </div>
 
-    <div class="work-card reveal">
+    <div class="work-card reveal hidden">
       <div class="vid-wrap paused muted" id="v5">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo6final.mp4" loop muted playsinline preload="metadata"></video>
         <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
@@ -414,7 +420,7 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
       </div>
     </div>
 
-    <div class="work-card reveal">
+    <div class="work-card reveal hidden">
       <div class="vid-wrap paused muted" id="v6">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo1final.mp4" loop muted playsinline preload="metadata"></video>
         <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
@@ -434,7 +440,7 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
       </div>
     </div>
 
-    <div class="work-card reveal">
+    <div class="work-card reveal hidden">
       <div class="vid-wrap paused muted" id="v7">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo5.mp4" loop muted playsinline preload="metadata"></video>
         <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
@@ -454,6 +460,12 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
       </div>
     </div>
 
+  </div>
+  <div class="work-more-wrap">
+    <button class="btn-outline" id="seeMoreBtn" onclick="toggleMoreWork()" data-en="See more work" data-hr="Vidi još radova">
+      <span data-en="See more work" data-hr="Vidi još radova">See more work</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
   </div>
 </div>
 </section>
@@ -506,7 +518,7 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
 
   <div class="how-mobile">
     <div class="how-mobile-cards">
-      <div class="how-mobile-card active" onclick="selectHowMobile(0)">
+      <div class="how-mobile-card" onclick="selectHowMobile(0)">
         <div class="how-mobile-num">01</div>
         <div class="how-mobile-label" data-en="Strategy" data-hr="Strategija">Strategy</div>
         <div class="how-mobile-hint" data-en="Tap for more" data-hr="Klikni za više">Tap for more</div>
@@ -522,7 +534,7 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
         <div class="how-mobile-hint" data-en="Tap for more" data-hr="Klikni za više">Tap for more</div>
       </div>
     </div>
-    <div class="how-mobile-panel active" id="howMobile0">
+    <div class="how-mobile-panel" id="howMobile0">
       <ul class="how-list">
         <li data-en="Deep onboarding — your offer, audience, goals" data-hr="Detaljan onboarding — tvoja ponuda, publika i ciljevi">Deep onboarding — your offer, audience, goals</li>
         <li data-en="Strategy call to align on direction" data-hr="Strategijski call za usklađivanje smjera">Strategy call to align on direction</li>
@@ -558,33 +570,37 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
   <h2 class="reveal" data-en="Why Motionix." data-hr="Zašto Motionix.">Why Motionix.</h2>
   <p class="section-desc reveal" data-en="Not another editor. A content system built around your growth." data-hr="Nismo samo editori. Gradimo sustav za rast.">Not another editor. A content system built around your growth.</p>
   <div class="why-list">
-    <div class="why-row reveal">
+    <div class="why-row reveal" onclick="toggleWhy(this)">
       <span class="why-num">01</span>
-      <div>
+      <div class="why-row-head">
         <p class="why-title" data-en="We research before we create" data-hr="Prvo istraživanje, onda kreacija">We research before we create</p>
-        <p class="why-desc" data-en="Most agencies start with templates. We start with data — studying top performers in your exact niche before writing a single word of script." data-hr="Većina agencija kreće s templateima. Mi krećemo s podacima — analiziramo top performere u tvojoj niši prije nego napišemo ijednu riječ.">Most agencies start with templates. We start with data — studying top performers in your exact niche before writing a single word of script.</p>
+        <svg class="why-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </div>
+      <p class="why-desc" data-en="Most agencies start with templates. We start with data — studying top performers in your exact niche before writing a single word of script." data-hr="Većina agencija kreće s templateima. Mi krećemo s podacima — analiziramo top performere u tvojoj niši prije nego napišemo ijednu riječ.">Most agencies start with templates. We start with data — studying top performers in your exact niche before writing a single word of script.</p>
     </div>
-    <div class="why-row reveal">
+    <div class="why-row reveal" onclick="toggleWhy(this)">
       <span class="why-num">02</span>
-      <div>
+      <div class="why-row-head">
         <p class="why-title" data-en="Scripts + editing in one system" data-hr="Skripte + edit kao jedan sustav">Scripts + editing in one system</p>
-        <p class="why-desc" data-en="The script determines 80% of performance. Most editors just cut what you give them. We write what performs, then edit it to keep people watching." data-hr="Skripta određuje 80% performansa. Većina editora samo reže ono što dobije. Mi pišemo ono što radi — pa to editiramo da zadrži pažnju.">The script determines 80% of performance. Most editors just cut what you give them. We write what performs, then edit it to keep people watching.</p>
+        <svg class="why-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </div>
+      <p class="why-desc" data-en="The script determines 80% of performance. Most editors just cut what you give them. We write what performs, then edit it to keep people watching." data-hr="Skripta određuje 80% performansa. Većina editora samo reže ono što dobije. Mi pišemo ono što radi — pa to editiramo da zadrži pažnju.">The script determines 80% of performance. Most editors just cut what you give them. We write what performs, then edit it to keep people watching.</p>
     </div>
-    <div class="why-row reveal">
+    <div class="why-row reveal" onclick="toggleWhy(this)">
       <span class="why-num">03</span>
-      <div>
+      <div class="why-row-head">
         <p class="why-title" data-en="Every edit is intentional" data-hr="Svaki edit ima razlog">Every edit is intentional</p>
-        <p class="why-desc" data-en="No random transitions, no trend-chasing effects. Every cut, caption, and sound choice is there to hold attention and move the viewer toward action." data-hr="Nema random tranzicija ni trend efekata bez smisla. Svaki rez, caption i zvuk imaju cilj — zadržati gledatelja i potaknuti akciju.">No random transitions, no trend-chasing effects. Every cut, caption, and sound choice is there to hold attention and move the viewer toward action.</p>
+        <svg class="why-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </div>
+      <p class="why-desc" data-en="No random transitions, no trend-chasing effects. Every cut, caption, and sound choice is there to hold attention and move the viewer toward action." data-hr="Nema random tranzicija ni trend efekata bez smisla. Svaki rez, caption i zvuk imaju cilj — zadržati gledatelja i potaknuti akciju.">No random transitions, no trend-chasing effects. Every cut, caption, and sound choice is there to hold attention and move the viewer toward action.</p>
     </div>
-    <div class="why-row reveal">
+    <div class="why-row reveal" onclick="toggleWhy(this)">
       <span class="why-num">04</span>
-      <div>
+      <div class="why-row-head">
         <p class="why-title" data-en="We measure and improve" data-hr="Mjerimo i poboljšavamo">We measure and improve</p>
-        <p class="why-desc" data-en="We track retention curves and engagement data. What works gets replicated. What doesn't gets fixed. This is how content compounds over time." data-hr="Pratimo retention i engagement podatke. Ono što radi — skaliramo. Ono što ne radi — popravljamo. Tako content raste kroz vrijeme.">We track retention curves and engagement data. What works gets replicated. What doesn't gets fixed. This is how content compounds over time.</p>
+        <svg class="why-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </div>
+      <p class="why-desc" data-en="We track retention curves and engagement data. What works gets replicated. What doesn't gets fixed. This is how content compounds over time." data-hr="Pratimo retention i engagement podatke. Ono što radi — skaliramo. Ono što ne radi — popravljamo. Tako content raste kroz vrijeme.">We track retention curves and engagement data. What works gets replicated. What doesn't gets fixed. This is how content compounds over time.</p>
     </div>
   </div>
 </div>
@@ -717,25 +733,6 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
   </div>
 </section>
 
-<div class="divider"></div>
-<section id="micro-cta">
-  <div class="micro-inner">
-    <div class="micro-text">
-      <h3 data-en="Send us a <span class='accent'>video.</span><br>We'll break it down for <span class='accent'>free.</span>" data-hr="Pošalji nam <span class='accent'>video</span> — analizirat ćemo ga <span class='accent'>besplatno.</span>">Send us a <span class="accent">video.</span><br>We'll break it down for <span class="accent">free.</span></h3>
-      <p><span data-en="Drop us any video you've posted — we'll tell you exactly" data-hr="Pošalji bilo koji video koji si objavio —">Drop us any video you've posted — we'll tell you exactly</span> <strong data-en="what's killing your retention" data-hr="reći ćemo ti točno što ubija retention">what's killing your retention</strong> <span data-en="and what we'd change. No pitch. Just real feedback." data-hr="i što bismo promijenili. Bez prodaje. Samo konkretan feedback.">and what we'd change. No pitch. Just real feedback.</span></p>
-    </div>
-    <div class="micro-actions reveal">
-      <a href="https://wa.me/385998714532?text=Hey%2C%20just%20saw%20your%20work%20%E2%80%94%20I%20want%20to%20improve%20my%20content%20performance.%20Can%20I%20send%20you%20a%20video%3F" target="_blank" class="btn-primary">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        <span data-en="Send us a video" data-hr="Pošalji nam video">Send us a video</span>
-      </a>
-      <span class="micro-note" data-en="Free. No strings. Takes 2 minutes." data-hr="Besplatno. Bez obaveze. 2 minute.">Free. No strings. Takes 2 minutes.</span>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
 <!-- FINAL CTA -->
 <section id="cta">
   <div class="cta-inner">
@@ -835,6 +832,26 @@ document.querySelectorAll('.vid-wrap').forEach(wrap => {
   });
 });
 
+// SEE MORE WORK
+function toggleMoreWork() {
+  const btn = document.getElementById('seeMoreBtn');
+  const hidden = document.querySelectorAll('.work-card.hidden');
+  const isExpanded = btn.classList.contains('expanded');
+  hidden.forEach(c => c.classList.toggle('shown', !isExpanded));
+  btn.classList.toggle('expanded', !isExpanded);
+  const lang = document.getElementById('btnHR').classList.contains('active') ? 'hr' : 'en';
+  btn.querySelector('span').textContent = isExpanded
+    ? (lang === 'hr' ? 'Vidi još radova' : 'See more work')
+    : (lang === 'hr' ? 'Prikaži manje' : 'Show less');
+}
+
+// WHY accordion
+function toggleWhy(row) {
+  const isOpen = row.classList.contains('open');
+  document.querySelectorAll('.why-row.open').forEach(r => r.classList.remove('open'));
+  if (!isOpen) row.classList.add('open');
+}
+
 // FAQ accordion
 function toggleFaq(el) {
   const item = el.parentElement;
@@ -843,10 +860,17 @@ function toggleFaq(el) {
   if (!isOpen) item.classList.add('open');
 }
 
-// HOW mobile accordion
+// HOW mobile — tap to open, tap again to close
 function selectHowMobile(i) {
-  document.querySelectorAll('.how-mobile-card').forEach((c,j) => c.classList.toggle('active', i===j));
-  document.querySelectorAll('.how-mobile-panel').forEach((p,j) => p.classList.toggle('active', i===j));
+  const cards = document.querySelectorAll('.how-mobile-card');
+  const panels = document.querySelectorAll('.how-mobile-panel');
+  const isAlreadyOpen = cards[i].classList.contains('active');
+  cards.forEach(c => c.classList.remove('active'));
+  panels.forEach(p => p.classList.remove('active'));
+  if (!isAlreadyOpen) {
+    cards[i].classList.add('active');
+    panels[i].classList.add('active');
+  }
 }
 
 // SCROLL REVEAL
