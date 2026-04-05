@@ -171,8 +171,9 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
 .footer-link:hover{color:var(--white);border-color:var(--border-md)}
 .footer-link.whatsapp:hover{color:#25D366;border-color:rgba(37,211,102,.3)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal{opacity:1;transform:none;transition:opacity .55s ease,transform .55s ease}
+.js-loaded .reveal{opacity:0;transform:translateY(18px)}
+.js-loaded .reveal.visible{opacity:1;transform:translateY(0)}
 .mob-subnav{display:none}
 @media(max-width:900px){
 .mob-subnav{display:flex;overflow-x:auto;gap:0;background:var(--void);border-bottom:1px solid var(--border);scrollbar-width:none;position:sticky;top:68px;z-index:90}
@@ -219,11 +220,11 @@ footer{padding:32px 20px}
 }
 @media(max-width:540px){.hero-actions{flex-direction:column;align-items:flex-start}.cta-actions{flex-direction:column;align-items:center}.nav-right{gap:6px}.btn-primary{padding:8px 14px;font-size:.8rem}}
 
-/* MESSAGE THREAD (multi-bubble card) */
-.msg-thread{display:flex;flex-direction:column;gap:0;margin-bottom:20px;flex:1}
-.msg-bubble{font-family:var(--font-b);font-size:.92rem;color:var(--white);line-height:1.55;padding:10px 14px;background:rgba(0,229,160,.06);border:1px solid rgba(0,229,160,.12);border-radius:6px;font-style:italic}
-.msg-bubble::before{content:'\201C';font-family:var(--font-c);font-size:2rem;color:var(--green);line-height:.3;display:block;margin-bottom:6px}
-.msg-divider{height:1px;background:var(--border);margin:10px 0}
+/* TESTI DIVIDER & TRANSLATION */
+.testi-divider{height:1px;background:var(--border);margin:12px 0}
+.testi-translation{font-size:.8rem;color:var(--mist);font-style:normal;display:block;margin-top:3px}
+.testi-card .testi-quote+.testi-divider+.testi-quote{margin-top:0}
+.testi-card .testi-quote{margin-bottom:0}
 </style>
 </head>
 <body>
@@ -284,9 +285,23 @@ footer{padding:32px 20px}
   <div class="work-grid">
     <div class="work-card reveal">
       <div class="vid-wrap paused" id="v0">
-        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Masterindvideo2.mp4" loop playsinline preload="metadata"></video>
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Mandy%20Video%202%20V4.mp4" loop playsinline preload="metadata"></video>
         <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div>
         <div class="vid-overlay"><div class="vid-bottom"><div class="vid-progress"><div class="vid-progress-fill" id="v0-fill"></div></div><button class="vid-mute"><svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button></div></div>
+      </div>
+      <div class="work-body">
+        <p class="work-tag" data-en="English Course Seller" data-hr="English Course Seller">English Course Seller</p>
+        <p class="work-desc" data-en="Ad-style edit with direct response script. One post generated 40 qualified leads." data-hr="Ad-style edit s direct response skriptom. Jedna objava generirala 40 kvalificiranih leadova.">Ad-style edit with direct response script. One post generated 40 qualified leads.</p>
+        <div class="work-stat">40 leads</div>
+        <p class="work-result" data-en="From a single post" data-hr="Iz jedne objave">From a single post</p>
+        <p class="work-country">Mandy · <span style='color:var(--green)'>UK</span></p>
+      </div>
+    </div>
+    <div class="work-card reveal">
+      <div class="vid-wrap paused" id="v1">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Masterindvideo2.mp4" loop playsinline preload="metadata"></video>
+        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div>
+        <div class="vid-overlay"><div class="vid-bottom"><div class="vid-progress"><div class="vid-progress-fill" id="v1-fill"></div></div><button class="vid-mute"><svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button></div></div>
       </div>
       <div class="work-body">
         <p class="work-tag" data-en="SEO Expert · Mastermind" data-hr="SEO Stručnjak · Mastermind">SEO Expert · Mastermind</p>
@@ -297,10 +312,10 @@ footer{padding:32px 20px}
       </div>
     </div>
     <div class="work-card reveal">
-      <div class="vid-wrap paused" id="v1">
+      <div class="vid-wrap paused" id="v2">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Jovanavideo2.mp4" loop playsinline preload="metadata"></video>
         <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div>
-        <div class="vid-overlay"><div class="vid-bottom"><div class="vid-progress"><div class="vid-progress-fill" id="v1-fill"></div></div><button class="vid-mute"><svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button></div></div>
+        <div class="vid-overlay"><div class="vid-bottom"><div class="vid-progress"><div class="vid-progress-fill" id="v2-fill"></div></div><button class="vid-mute"><svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button></div></div>
       </div>
       <div class="work-body">
         <p class="work-tag" data-en="AirBnB &amp; Booking Mentor" data-hr="AirBnB &amp; Booking Mentor">AirBnB &amp; Booking Mentor</p>
@@ -308,20 +323,6 @@ footer{padding:32px 20px}
         <div class="work-stat">20K in 24h</div>
         <p class="work-result" data-en="Views &amp; counting" data-hr="Pregleda i raste">Views &amp; counting</p>
         <p class="work-country">Jovana · <span style='color:var(--green)'>Serbia</span></p>
-      </div>
-    </div>
-    <div class="work-card reveal">
-      <div class="vid-wrap paused" id="v2">
-        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Mandy%20Video%202%20V4.mp4" loop playsinline preload="metadata"></video>
-        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div>
-        <div class="vid-overlay"><div class="vid-bottom"><div class="vid-progress"><div class="vid-progress-fill" id="v2-fill"></div></div><button class="vid-mute"><svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button></div></div>
-      </div>
-      <div class="work-body">
-        <p class="work-tag" data-en="English Course Seller" data-hr="English Course Seller">English Course Seller</p>
-        <p class="work-desc" data-en="Ad-style edit with direct response script. One post generated 40 qualified leads." data-hr="Ad-style edit s direct response skriptom. Jedna objava generirala 40 kvalificiranih leadova.">Ad-style edit with direct response script. One post generated 40 qualified leads.</p>
-        <div class="work-stat">40 leads</div>
-        <p class="work-result" data-en="From a single post" data-hr="Iz jedne objave">From a single post</p>
-        <p class="work-country">Mandy · <span style='color:var(--green)'>UK</span></p>
       </div>
     </div>
     <div class="work-card reveal">
@@ -354,23 +355,9 @@ footer{padding:32px 20px}
     </div>
     <div class="work-card reveal hidden">
       <div class="vid-wrap paused" id="v5">
-        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo9.mp4" loop playsinline preload="metadata"></video>
-        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div>
-        <div class="vid-overlay"><div class="vid-bottom"><div class="vid-progress"><div class="vid-progress-fill" id="v5-fill"></div></div><button class="vid-mute"><svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button></div></div>
-      </div>
-      <div class="work-body">
-        <p class="work-tag" data-en="Musical Artist" data-hr="Glazbeni Artist">Musical Artist</p>
-        <p class="work-desc" data-en="Script + edit combo turned one video into a direct sales driver. Music + storytelling that converts." data-hr="Kombinacija skripte i edita pretvorila je jedan video u direktni sales driver. Glazba + storytelling koji konvertira.">Script + edit combo turned one video into a direct sales driver. Music + storytelling that converts.</p>
-        <div class="work-stat">12 customers</div>
-        <p class="work-result" data-en="From 1 video" data-hr="Iz 1 videa">From 1 video</p>
-        <p class="work-country">USA</p>
-      </div>
-    </div>
-    <div class="work-card reveal hidden">
-      <div class="vid-wrap paused" id="v6">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo8finalllll.mp4" loop playsinline preload="metadata"></video>
         <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div>
-        <div class="vid-overlay"><div class="vid-bottom"><div class="vid-progress"><div class="vid-progress-fill" id="v6-fill"></div></div><button class="vid-mute"><svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button></div></div>
+        <div class="vid-overlay"><div class="vid-bottom"><div class="vid-progress"><div class="vid-progress-fill" id="v5-fill"></div></div><button class="vid-mute"><svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button></div></div>
       </div>
       <div class="work-body">
         <p class="work-tag" data-en="Tech Expert" data-hr="Tech Ekspert">Tech Expert</p>
@@ -378,6 +365,20 @@ footer{padding:32px 20px}
         <div class="work-stat">200 followers</div>
         <p class="work-result" data-en="From 1 video" data-hr="Iz 1 videa">From 1 video</p>
         <p class="work-country">Poland</p>
+      </div>
+    </div>
+    <div class="work-card reveal hidden">
+      <div class="vid-wrap paused" id="v6">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo9.mp4" loop playsinline preload="metadata"></video>
+        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div>
+        <div class="vid-overlay"><div class="vid-bottom"><div class="vid-progress"><div class="vid-progress-fill" id="v6-fill"></div></div><button class="vid-mute"><svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button></div></div>
+      </div>
+      <div class="work-body">
+        <p class="work-tag" data-en="Musical Artist" data-hr="Glazbeni Artist">Musical Artist</p>
+        <p class="work-desc" data-en="Script + edit combo turned one video into a direct sales driver. Music + storytelling that converts." data-hr="Kombinacija skripte i edita pretvorila je jedan video u direktni sales driver. Glazba + storytelling koji konvertira.">Script + edit combo turned one video into a direct sales driver. Music + storytelling that converts.</p>
+        <div class="work-stat">12 customers</div>
+        <p class="work-result" data-en="From 1 video" data-hr="Iz 1 videa">From 1 video</p>
+        <p class="work-country">USA</p>
       </div>
     </div>
     <div class="work-card reveal hidden">
@@ -411,123 +412,119 @@ footer{padding:32px 20px}
   <p class="section-desc reveal" data-en="Real feedback from real clients. No made-up stats." data-hr="Pravi feedback od pravih klijenata. Bez izmisljenih brojki.">Real feedback from real clients. No made-up stats.</p>
   <div class="testi-grid">
 
-    <!-- 1. ANEL - multi-message card -->
+    <!-- 1. JOHN TAYLOR -->
     <div class="testi-card reveal">
-      <div class="msg-thread">
-        <div class="msg-bubble">Predobro, baš mi se sviđa</div>
-        <div class="msg-divider"></div>
-        <div class="msg-bubble">Odličan video</div>
-        <div class="msg-divider"></div>
-        <div class="msg-bubble">Brutalan je video, nema šta.</div>
-      </div>
-      <div class="testi-author">
-        <div class="testi-avatar">A</div>
-        <div>
-          <div class="testi-name">Anel</div>
-          <div class="testi-niche" data-en="SEO Expert · Mastermind · BiH" data-hr="SEO Stručnjak · Mastermind · BiH">SEO Expert · Mastermind · BiH</div>
-          <span class="testi-result">20 new clients from 1 video</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 2. FIP.GRAPHICS - motion design -->
-    <div class="testi-card reveal">
-      <p class="testi-quote" data-en="I have to say the video turned out amazing 😍 Thank you once again for all the effort and attention to detail. Every frame has purpose, the transitions are perfectly timed, and the rhythm carries the emotion from start to finish. Your creativity and experience truly stand out. When we start a new project I'm definitely calling you first — working with you is always smooth and the results are consistently top quality." data-hr="I have to say the video turned out amazing 😍 Thank you once again for all the effort and attention to detail. Every frame has purpose, the transitions are perfectly timed, and the rhythm carries the emotion from start to finish. Your creativity and experience truly stand out. When we start a new project I'm definitely calling you first — working with you is always smooth and the results are consistently top quality.">I have to say the video turned out amazing 😍 Thank you once again for all the effort and attention to detail. Every frame has purpose, the transitions are perfectly timed, and the rhythm carries the emotion from start to finish. Your creativity and experience truly stand out. When we start a new project I'm definitely calling you first — working with you is always smooth and the results are consistently top quality.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">F</div>
-        <div>
-          <div class="testi-name">fip.graphics</div>
-          <div class="testi-niche" data-en="Graphic Designer · Motion Design Client" data-hr="Grafički dizajner · Motion Design klijent">Graphic Designer · Motion Design Client</div>
-          <span class="testi-result">Premium motion design ad</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3. JOHN TAYLOR - act3agency -->
-    <div class="testi-card reveal">
-      <p class="testi-quote" data-en="Great video, I can see that you do professional work, and that with additional coordination and direction, we will create some great branded content." data-hr="Great video, I can see that you do professional work, and that with additional coordination and direction, we will create some great branded content.">Great video, I can see that you do professional work, and that with additional coordination and direction, we will create some great branded content.</p>
+      <p class="testi-quote">Great video, I can see that you do professional work, and that with additional coordination and direction, we will create some great branded content.</p>
       <div class="testi-author">
         <div class="testi-avatar">J</div>
         <div>
           <div class="testi-name">John Taylor</div>
-          <div class="testi-niche" data-en="act3agency · Podcast Branded Content" data-hr="act3agency · Podcast Branded Content">act3agency · Podcast Branded Content</div>
+          <div class="testi-niche">act3agency · Podcast Branded Content</div>
           <span class="testi-result">Branded podcast content</span>
         </div>
       </div>
     </div>
 
-    <!-- 4. JOVANA - multi-message -->
+    <!-- 2. ANEL -->
     <div class="testi-card reveal">
-      <div class="msg-thread">
-        <div class="msg-bubble">Sviđa mi se</div>
-        <div class="msg-divider"></div>
-        <div class="msg-bubble">Sviđa mi se :)</div>
-      </div>
+      <p class="testi-quote">Predobro, baš mi se sviđa <span class="testi-translation">(Incredible, I really love it)</span></p>
+      <div class="testi-divider"></div>
+      <p class="testi-quote">Odličan video <span class="testi-translation">(Excellent video)</span></p>
+      <div class="testi-divider"></div>
+      <p class="testi-quote">Brutalan je video, nema šta. <span class="testi-translation">(The video is brutal, no words.)</span></p>
       <div class="testi-author">
-        <div class="testi-avatar">J</div>
+        <div class="testi-avatar">A</div>
         <div>
-          <div class="testi-name">Jovana</div>
-          <div class="testi-niche" data-en="AirBnB &amp; Booking Mentor · Serbia" data-hr="AirBnB &amp; Booking Mentor · Srbija">AirBnB &amp; Booking Mentor · Serbia</div>
-          <span class="testi-result">20K views in 24h</span>
+          <div class="testi-name">Anel</div>
+          <div class="testi-niche">SEO Expert · Mastermind · BiH</div>
+          <span class="testi-result">20 new clients from 1 video</span>
         </div>
       </div>
     </div>
 
-    <!-- 5. MARIO MORENO - hidden -->
-    <div class="testi-card reveal testi-hidden">
-      <p class="testi-quote" data-en="You really nailed the elevated approach. I'm impressed!" data-hr="You really nailed the elevated approach. I'm impressed!">You really nailed the elevated approach. I'm impressed!</p>
+    <!-- 3. MARIO MORENO -->
+    <div class="testi-card reveal">
+      <p class="testi-quote">You really nailed the elevated approach. I'm impressed!</p>
       <div class="testi-author">
         <div class="testi-avatar">M</div>
         <div>
           <div class="testi-name">Mario Moreno</div>
-          <div class="testi-niche" data-en="Marketing Expert" data-hr="Marketing Ekspert">Marketing Expert</div>
+          <div class="testi-niche">Marketing Expert</div>
           <span class="testi-result">Elevated content approach</span>
         </div>
       </div>
     </div>
 
-    <!-- 6. AVSTER - self-help, hidden -->
+    <!-- 4. JOVANA -->
+    <div class="testi-card reveal">
+      <p class="testi-quote">Sviđa mi se <span class="testi-translation">(I love it)</span></p>
+      <div class="testi-divider"></div>
+      <p class="testi-quote">Sviđa mi se :) <span class="testi-translation">(I love it :))</span></p>
+      <div class="testi-author">
+        <div class="testi-avatar">J</div>
+        <div>
+          <div class="testi-name">Jovana</div>
+          <div class="testi-niche">AirBnB &amp; Booking Mentor · Serbia</div>
+          <span class="testi-result">20K views in 24h</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. AVSTER - hidden -->
     <div class="testi-card reveal testi-hidden">
-      <p class="testi-quote" data-en="Wow Ivan, this is great. I know that the content thus far could gain some horsepower with more attention catching interruptions but I see where you took it." data-hr="Wow Ivan, this is great. I know that the content thus far could gain some horsepower with more attention catching interruptions but I see where you took it.">Wow Ivan, this is great. I know that the content thus far could gain some horsepower with more attention catching interruptions but I see where you took it.</p>
+      <p class="testi-quote">Wow Ivan, this is great. I know that the content thus far could gain some horsepower with more attention catching interruptions but I see where you took it.</p>
       <div class="testi-author">
         <div class="testi-avatar">A</div>
         <div>
           <div class="testi-name">Avster</div>
-          <div class="testi-niche" data-en="Self-Help · Motivational Content" data-hr="Self-Help · Motivacijski sadržaj">Self-Help · Motivational Content</div>
+          <div class="testi-niche">Self-Help · Motivational Content</div>
           <span class="testi-result">Motivational content creator</span>
         </div>
       </div>
     </div>
 
-    <!-- 7. MANDY UK - hidden -->
+    <!-- 6. MANDY - hidden -->
     <div class="testi-card reveal testi-hidden">
-      <p class="testi-quote" data-en="Video looks amazing — it performed even better. 17 leads in the first 24 hours." data-hr="Video looks amazing — it performed even better. 17 leads in the first 24 hours.">Video looks amazing — it performed even better. 17 leads in the first 24 hours.</p>
+      <p class="testi-quote">Video looks amazing — it performed even better. 17 leads in the first 24 hours.</p>
       <div class="testi-author">
         <div class="testi-avatar">M</div>
         <div>
           <div class="testi-name">Mandy</div>
-          <div class="testi-niche" data-en="English Course Seller · UK" data-hr="English Course Seller · UK">English Course Seller · UK</div>
+          <div class="testi-niche">English Course Seller · UK</div>
           <span class="testi-result">17 leads in 24h</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. FIP.GRAPHICS - hidden -->
+    <div class="testi-card reveal testi-hidden">
+      <p class="testi-quote">I have to say the video turned out amazing 😍 Thank you once again for all the effort and attention to detail. Every frame has purpose, the transitions are perfectly timed, and the rhythm carries the emotion from start to finish.</p>
+      <div class="testi-divider"></div>
+      <p class="testi-quote">Your creativity and experience truly stand out. When we start a new project I'm definitely calling you first — working with you is always smooth and the results are consistently top quality.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">F</div>
+        <div>
+          <div class="testi-name">fip.graphics</div>
+          <div class="testi-niche">Graphic Designer · Motion Design Client</div>
+          <span class="testi-result">Premium motion design ad</span>
         </div>
       </div>
     </div>
 
     <!-- 8. TECH EXPERT POLAND - hidden -->
     <div class="testi-card reveal testi-hidden">
-      <p class="testi-quote" data-en="The videos are performing much better now. I'm gaining a lot more followers — around 70 new followers per video to start with. The difference is real." data-hr="Videi su počeli performati puno bolje. Dobivam puno više pratitelja — oko 70 novih pratitelja po videu za početak. Razlika je stvarna.">The videos are performing much better now. I'm gaining a lot more followers — around 70 new followers per video to start with. The difference is real.</p>
+      <p class="testi-quote">The videos are performing much better now. I'm gaining a lot more followers — around 70 new followers per video to start with. The difference is real.</p>
       <div class="testi-author">
         <div class="testi-avatar">T</div>
         <div>
           <div class="testi-name">Tech Expert</div>
-          <div class="testi-niche" data-en="Tech Content Creator · Poland" data-hr="Tech Content Creator · Poljska">Tech Content Creator · Poland</div>
+          <div class="testi-niche">Tech Content Creator · Poland</div>
           <span class="testi-result">~70 new followers per video</span>
         </div>
       </div>
     </div>
 
-  </div>
-  </div>
-  <div class="testi-more-wrap">
+  </div>  <div class="testi-more-wrap">
     <button class="btn-outline" id="testiMoreBtn" onclick="toggleMoreTesti()">
       <span data-en="See more" data-hr="Vidi više">See more</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
@@ -672,11 +669,21 @@ function toggleMoreWork(){const btn=document.getElementById('seeMoreBtn'),hidden
 function toggleWhy(r){const o=r.classList.contains('open');document.querySelectorAll('.why-row.open').forEach(x=>x.classList.remove('open'));if(!o)r.classList.add('open');}
 function toggleFaq(el){const i=el.parentElement,o=i.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open');}
 function selectHowMobile(i){const cs=document.querySelectorAll('.how-mobile-card'),ps=document.querySelectorAll('.how-mobile-panel'),o=cs[i].classList.contains('active');cs.forEach(c=>c.classList.remove('active'));ps.forEach(p=>p.classList.remove('active'));if(!o){cs[i].classList.add('active');ps[i].classList.add('active');}}
-const revs=document.querySelectorAll('.reveal'),obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0,rootMargin:'0px 0px 0px 0px'});document.querySelectorAll('.work-grid,.how-grid,.why-list').forEach(g=>{g.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=i*80+'ms';});});revs.forEach(el=>obs.observe(el));
-// Force visible after short delay as fallback
-setTimeout(()=>{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));},300);
-// Fallback: ensure all reveals become visible
-document.addEventListener('DOMContentLoaded',()=>{setTimeout(()=>{revs.forEach(el=>el.classList.add('visible'));},100);});
+// Reveal animation with guaranteed visibility
+document.body.classList.add('js-loaded');
+function initReveals(){
+  const revs=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:0,rootMargin:'0px 0px 50px 0px'});
+  document.querySelectorAll('.work-grid,.how-grid,.why-list').forEach(g=>{
+    g.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=i*60+'ms';});
+  });
+  revs.forEach(el=>obs.observe(el));
+  // Guarantee: after 800ms force everything visible
+  setTimeout(()=>{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));},800);
+}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initReveals);}else{initReveals();}
 let lang='en';function setLang(l){lang=l;document.getElementById('btnEN').classList.toggle('active',l==='en');document.getElementById('btnHR').classList.toggle('active',l==='hr');document.querySelectorAll('[data-en]').forEach(el=>{const t=el.getAttribute('data-'+l);if(t)el.innerHTML=t;});}
 </script>
 </body>
