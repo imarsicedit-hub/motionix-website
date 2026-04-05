@@ -9,12 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700;800;900&family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --navy:#0A2540;--void:#0D1B2A;--white:#F4F5F0;--mist:#8A9AB5;
-  --green:#00E5A0;--green-h:#33EBB3;
-  --border:rgba(138,154,181,0.15);--border-md:rgba(138,154,181,0.25);
-  --font-d:'Barlow',sans-serif;--font-c:'Barlow Condensed',sans-serif;--font-b:'DM Sans',sans-serif;
-}
+:root{--navy:#0A2540;--void:#0D1B2A;--white:#F4F5F0;--mist:#8A9AB5;--green:#00E5A0;--green-h:#33EBB3;--border:rgba(138,154,181,0.15);--border-md:rgba(138,154,181,0.25);--font-d:'Barlow',sans-serif;--font-c:'Barlow Condensed',sans-serif;--font-b:'DM Sans',sans-serif;}
 html{font-size:16px;scroll-behavior:smooth}
 body{background:var(--navy);color:var(--white);font-family:var(--font-b);font-weight:400;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.5}
@@ -55,8 +50,6 @@ h1 .accent{color:var(--green)}
 .section-label::before{content:'';display:block;width:16px;height:1px;background:var(--green)}
 h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.01em;color:var(--white);margin-bottom:12px}
 .section-desc{font-family:var(--font-b);font-size:1rem;color:var(--mist);line-height:1.7;max-width:480px;margin-bottom:56px}
-
-/* WORK GRID — 4 columns desktop, first 4 visible */
 .work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .work-card{background:var(--void);border:1px solid var(--border);border-radius:8px;overflow:hidden;position:relative;transition:border-color .25s,transform .25s;display:flex;flex-direction:column}
 .work-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .3s ease;z-index:3}
@@ -69,26 +62,19 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 .btn-outline:hover{color:var(--white);border-color:var(--border-md)}
 .btn-outline svg{transition:transform .3s}
 .btn-outline.expanded svg{transform:rotate(180deg)}
-
-/* VIDEO PLAYER */
 .vid-wrap{position:relative;width:100%;aspect-ratio:9/16;background:#000;overflow:hidden;cursor:pointer}
 .vid-wrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-/* gradient only shows on hover or when paused */
 .vid-overlay{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%);opacity:0;transition:opacity .2s;pointer-events:none}
 .vid-wrap:hover .vid-overlay{opacity:1}
 .vid-wrap.paused .vid-overlay{opacity:1}
-/* play button — center of video */
 .vid-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;width:52px;height:52px;border:2px solid rgba(0,229,160,.8);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--green);background:rgba(13,27,42,.7);backdrop-filter:blur(6px);transition:opacity .2s,background .2s;pointer-events:none}
-/* hide play btn when playing, show on hover or paused */
 .vid-wrap.playing .vid-play-btn{opacity:0}
 .vid-wrap.playing:hover .vid-play-btn{opacity:1}
 .vid-wrap.paused .vid-play-btn{opacity:1}
-/* play/pause icon swap */
 .vid-wrap.playing .icon-play{display:none}
 .vid-wrap.playing .icon-pause{display:block}
 .vid-wrap:not(.playing) .icon-play{display:block}
 .vid-wrap:not(.playing) .icon-pause{display:none}
-/* bottom controls */
 .vid-bottom{padding:6px 10px 10px;display:flex;align-items:center;gap:8px;pointer-events:all}
 .vid-progress{flex:1;height:3px;background:rgba(255,255,255,.25);border-radius:2px;cursor:pointer;position:relative}
 .vid-progress-fill{height:100%;background:var(--green);border-radius:2px;width:0%;transition:width .1s linear}
@@ -96,14 +82,11 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 .vid-mute:hover{color:var(--white)}
 .vid-wrap:not(.muted) .icon-muted{display:none}
 .vid-wrap.muted .icon-sound{display:none}
-
 .work-body{padding:14px 16px 18px;text-align:center;flex:1;display:flex;flex-direction:column;align-items:center}
 .work-tag{font-family:var(--font-d);font-weight:600;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:5px}
 .work-desc{font-family:var(--font-b);font-size:.78rem;color:var(--mist);line-height:1.5;margin-bottom:12px}
 .work-stat{font-family:var(--font-c);font-weight:900;font-size:1.9rem;color:var(--green);letter-spacing:-.02em;line-height:1;margin-bottom:3px}
 .work-result{font-family:var(--font-b);font-weight:500;font-size:.75rem;color:var(--mist)}
-
-/* HOW */
 .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .how-card{background:var(--void);border:1px solid var(--border);border-radius:6px;padding:32px 28px;cursor:default;transition:border-color .3s,transform .25s}
 .how-card:hover{border-color:rgba(0,229,160,.35);transform:translateY(-3px)}
@@ -116,8 +99,6 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 .how-list li{font-family:var(--font-b);font-size:.85rem;color:var(--mist);line-height:1.5;display:flex;align-items:flex-start;gap:8px}
 .how-list li::before{content:'—';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px}
 .how-mobile{display:none}
-
-/* WHY */
 .why-list{display:flex;flex-direction:column;gap:0;max-width:600px;margin:0 auto}
 .why-row{display:flex;align-items:center;gap:0;padding:0;border-bottom:1px solid var(--border);cursor:pointer;-webkit-tap-highlight-color:transparent;flex-direction:column}
 .why-row:first-child{border-top:1px solid var(--border)}
@@ -128,13 +109,12 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 .why-row.open .why-icon{transform:rotate(45deg)}
 .why-desc{font-family:var(--font-b);font-size:.86rem;color:var(--mist);line-height:1.65;max-height:0;overflow:hidden;opacity:0;width:100%;text-align:center;transition:max-height .35s cubic-bezier(.4,0,.2,1),opacity .25s,padding .25s}
 .why-row.open .why-desc{max-height:150px;opacity:1;padding-bottom:16px}
-
-/* TESTIMONIALS */
 .testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .testi-card.testi-hidden{display:none}
 .testi-card.testi-shown{display:grid}
 .testi-more-wrap{text-align:center;margin-top:20px}
 .testi-card{background:var(--void);border:1px solid var(--border);border-radius:6px;padding:28px 26px;position:relative;transition:border-color .25s,transform .25s;display:flex;flex-direction:column}
+.testi-card.reveal{opacity:1!important;transform:none!important}
 .testi-card:hover{border-color:rgba(0,229,160,.25);transform:translateY(-3px)}
 .testi-quote{font-family:var(--font-b);font-size:.95rem;color:var(--white);line-height:1.65;margin-bottom:20px;font-style:italic;flex:1}
 .testi-quote::before{content:'\201C';font-family:var(--font-c);font-size:2.5rem;color:var(--green);line-height:.5;display:block;margin-bottom:8px}
@@ -144,22 +124,10 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 .testi-niche{font-family:var(--font-b);font-size:.75rem;color:var(--mist)}
 .testi-result{display:inline-block;font-family:var(--font-d);font-weight:700;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:rgba(0,229,160,.08);border:1px solid rgba(0,229,160,.2);padding:3px 8px;border-radius:2px;margin-top:6px}
 .work-country{font-family:var(--font-d);font-weight:700;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-top:5px}
-/* testi video */
-.testi-vid-wrap{position:relative;width:100%;aspect-ratio:9/16;background:#000;border-radius:8px;overflow:hidden;margin-bottom:14px;cursor:pointer;max-height:280px}
-.testi-vid-wrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.testi-vid-overlay{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:rgba(10,37,64,.2);transition:background .2s}
-.testi-vid-wrap.playing .testi-vid-overlay{background:transparent}
-.testi-vid-wrap.playing:hover .testi-vid-overlay{background:rgba(10,37,64,.15)}
-.testi-play-btn{width:44px;height:44px;border:2px solid rgba(0,229,160,.75);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--green);background:rgba(13,27,42,.65);backdrop-filter:blur(4px);transition:opacity .2s}
-.testi-vid-wrap.playing .testi-play-btn{opacity:0}
-.testi-vid-wrap.playing:hover .testi-play-btn{opacity:1}
-/* chat screenshot card */
 .testi-card.is-chat{padding:16px}
-.chat-frame{border-radius:8px;overflow:hidden;margin-bottom:14px;position:relative;line-height:0;border:1px solid var(--border)}
-.chat-frame img{width:100%;height:auto;display:block;max-height:360px;object-fit:contain;background:#0b141a}
+.chat-frame{border-radius:8px;overflow:hidden;margin-bottom:14px;position:relative;line-height:0;border:1px solid var(--border);background:#0b141a;display:flex;align-items:center;justify-content:center}
+.chat-frame img{width:100%;height:auto;display:block;max-height:420px;object-fit:contain}
 .chat-platform{position:absolute;top:8px;right:8px;font-family:var(--font-b);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(0,0,0,.55);padding:3px 8px;border-radius:20px;backdrop-filter:blur(4px)}
-
-/* FAQ */
 .faq-list{display:flex;flex-direction:column;gap:0;max-width:680px}
 .faq-item{border-bottom:1px solid var(--border)}
 .faq-item:first-child{border-top:1px solid var(--border)}
@@ -167,13 +135,9 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 .faq-q-text{font-family:var(--font-d);font-weight:700;font-size:.95rem;color:var(--white);line-height:1.3}
 .faq-icon{width:20px;height:20px;flex-shrink:0;color:var(--green);transition:transform .3s}
 .faq-item.open .faq-icon{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1),opacity .25s}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1),opacity .25s;opacity:0}
 .faq-a-inner{font-family:var(--font-b);font-size:.88rem;color:var(--mist);line-height:1.7;padding-bottom:18px}
 .faq-item.open .faq-a{max-height:200px;opacity:1}
-.faq-a{opacity:0}
-.faq-item.open .faq-a{opacity:1}
-
-/* NEXT STEPS */
 #next-steps{padding:72px 48px;position:relative}
 #next-steps::before{content:'';position:absolute;inset:0;background:var(--void);z-index:0}
 #next-steps::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(0,229,160,.15),transparent)}
@@ -185,18 +149,7 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 .step-num{width:36px;height:36px;border-radius:50%;border:2px solid var(--green);display:flex;align-items:center;justify-content:center;font-family:var(--font-c);font-weight:900;font-size:.9rem;color:var(--green);background:var(--void);margin-bottom:12px;position:relative;z-index:1;flex-shrink:0}
 .step-title{font-family:var(--font-d);font-weight:700;font-size:.88rem;color:var(--white);margin-bottom:4px}
 .step-desc{font-family:var(--font-b);font-size:.78rem;color:var(--mist);line-height:1.5;max-width:140px}
-
-/* mobile touch: controls auto-hide after play starts */
-@media(hover:none){
-  .vid-wrap.playing .vid-overlay{opacity:0;transition:opacity .4s .8s}
-  .vid-wrap.playing .vid-play-btn{opacity:0;transition:opacity .4s .8s}
-  .vid-wrap.playing.touching .vid-overlay{opacity:1;transition:opacity .2s 0s}
-  .vid-wrap.playing.touching .vid-play-btn{opacity:1;transition:opacity .2s 0s}
-  .vid-wrap.paused .vid-overlay{opacity:1}
-  .vid-wrap.paused .vid-play-btn{opacity:1}
-}
-
-/* FINAL CTA */
+@media(hover:none){.vid-wrap.playing .vid-overlay{opacity:0;transition:opacity .4s .8s}.vid-wrap.playing .vid-play-btn{opacity:0;transition:opacity .4s .8s}.vid-wrap.playing.touching .vid-overlay{opacity:1;transition:opacity .2s 0s}.vid-wrap.playing.touching .vid-play-btn{opacity:1;transition:opacity .2s 0s}.vid-wrap.paused .vid-overlay{opacity:1}.vid-wrap.paused .vid-play-btn{opacity:1}}
 #cta{padding:120px 48px;text-align:center;position:relative;overflow:hidden}
 #cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(0,229,160,.05) 0%,transparent 65%);pointer-events:none}
 #cta::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(0,229,160,.25),transparent)}
@@ -205,8 +158,6 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 .cta-sub{font-family:var(--font-b);font-size:1rem;color:var(--mist);line-height:1.7;margin-bottom:40px}
 .cta-actions{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
 .cta-actions .btn-primary{font-size:1rem;padding:15px 32px}
-
-/* FOOTER */
 footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding:40px 48px}
 .footer-inner{max-width:1040px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
 .footer-left{display:flex;flex-direction:column;gap:6px}
@@ -219,72 +170,63 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
 .footer-link{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-b);font-size:.82rem;color:var(--mist);text-decoration:none;padding:7px 14px;border:1px solid var(--border);border-radius:3px;transition:all .2s}
 .footer-link:hover{color:var(--white);border-color:var(--border-md)}
 .footer-link.whatsapp:hover{color:#25D366;border-color:rgba(37,211,102,.3)}
-
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
-
-/* MOBILE SUB-NAV */
 .mob-subnav{display:none}
 @media(max-width:900px){
-  .mob-subnav{display:flex;overflow-x:auto;gap:0;background:var(--void);border-bottom:1px solid var(--border);scrollbar-width:none;position:sticky;top:68px;z-index:90}
-  .mob-subnav::-webkit-scrollbar{display:none}
-  .mob-subnav a{flex-shrink:0;font-family:var(--font-d);font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);text-decoration:none;padding:10px 18px;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s}
-  .mob-subnav a:hover{color:var(--white);border-bottom-color:rgba(0,229,160,.4)}
+.mob-subnav{display:flex;overflow-x:auto;gap:0;background:var(--void);border-bottom:1px solid var(--border);scrollbar-width:none;position:sticky;top:68px;z-index:90}
+.mob-subnav::-webkit-scrollbar{display:none}
+.mob-subnav a{flex-shrink:0;font-family:var(--font-d);font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);text-decoration:none;padding:10px 18px;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s}
+.mob-subnav a:hover{color:var(--white);border-bottom-color:rgba(0,229,160,.4)}
+nav{padding:0 16px}
+.nav-links{display:none}
+#hero,.section,#micro-cta,#cta{padding-left:20px;padding-right:20px}
+#hero{padding-top:100px;padding-bottom:60px}
+.work-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+.work-body{padding:10px 10px 14px}
+.work-stat{font-size:1.5rem}
+.work-desc{font-size:.74rem}
+.how-grid{display:none}
+.how-mobile{display:block}
+.how-mobile-cards{display:flex;gap:8px}
+.how-mobile-card{flex:1;background:var(--void);border:1px solid var(--border);border-radius:6px;padding:14px 8px;cursor:pointer;transition:border-color .2s;text-align:center;-webkit-tap-highlight-color:transparent}
+.how-mobile-card.active{border-color:var(--green)}
+.how-mobile-num{font-family:var(--font-c);font-weight:900;font-size:1.7rem;color:var(--green);line-height:1;margin-bottom:5px}
+.how-mobile-label{font-family:var(--font-d);font-weight:700;font-size:.76rem;color:var(--white);margin-bottom:6px;line-height:1.2}
+.how-mobile-hint{font-family:var(--font-b);font-size:.6rem;color:var(--mist);letter-spacing:.07em;text-transform:uppercase}
+.how-mobile-card.active .how-mobile-hint{color:var(--green)}
+.how-mobile-panel{background:var(--void);border:1px solid var(--green);border-top:none;border-radius:0 0 6px 6px;padding:18px 16px;display:none}
+.how-mobile-panel.active{display:block;animation:fadeUp .3s ease forwards}
+.testi-grid{grid-template-columns:1fr;gap:10px}
+.testi-more-wrap{margin-top:14px}
+.testi-card{padding:18px 14px}
+.why-list{max-width:100%}
+.why-num{width:20px;font-size:.8rem}
+.why-title{font-size:.92rem;text-align:center}
+.why-desc{text-align:center}
+.why-row-head{justify-content:center;gap:10px}
+.steps-row{flex-direction:column;gap:20px}
+.step-item:not(:last-child)::after{display:none}
+.step-item{flex-direction:row;text-align:left;align-items:flex-start;gap:14px}
+.step-desc{max-width:100%}
+#next-steps{padding:48px 20px}
+#cta{padding-top:80px;padding-bottom:80px}
+#micro-cta{padding:60px 20px}
+.micro-inner{flex-direction:column;align-items:flex-start}
+footer{padding:32px 20px}
+.footer-inner{flex-direction:column;align-items:flex-start}
 }
+@media(max-width:540px){.hero-actions{flex-direction:column;align-items:flex-start}.cta-actions{flex-direction:column;align-items:center}.nav-right{gap:6px}.btn-primary{padding:8px 14px;font-size:.8rem}}
 
-/* MOBILE */
-@media(max-width:900px){
-  nav{padding:0 16px}
-  .nav-links{display:none}
-
-  #hero,.section,#micro-cta,#cta{padding-left:20px;padding-right:20px}
-  #hero{padding-top:100px;padding-bottom:60px}
-  .work-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-  .work-body{padding:10px 10px 14px}
-  .work-stat{font-size:1.5rem}
-  .work-desc{font-size:.74rem}
-  .how-grid{display:none}
-  .how-mobile{display:block}
-  .how-mobile-cards{display:flex;gap:8px}
-  .how-mobile-card{flex:1;background:var(--void);border:1px solid var(--border);border-radius:6px;padding:14px 8px;cursor:pointer;transition:border-color .2s;text-align:center;-webkit-tap-highlight-color:transparent}
-  .how-mobile-card.active{border-color:var(--green)}
-  .how-mobile-num{font-family:var(--font-c);font-weight:900;font-size:1.7rem;color:var(--green);line-height:1;margin-bottom:5px}
-  .how-mobile-label{font-family:var(--font-d);font-weight:700;font-size:.76rem;color:var(--white);margin-bottom:6px;line-height:1.2}
-  .how-mobile-hint{font-family:var(--font-b);font-size:.6rem;color:var(--mist);letter-spacing:.07em;text-transform:uppercase}
-  .how-mobile-card.active .how-mobile-hint{color:var(--green)}
-  .how-mobile-panel{background:var(--void);border:1px solid var(--green);border-top:none;border-radius:0 0 6px 6px;padding:18px 16px;display:none}
-  .how-mobile-panel.active{display:block;animation:fadeUp .3s ease forwards}
-  .testi-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-  .testi-more-wrap{margin-top:14px}
-  .testi-card{padding:18px 14px}
-  .why-list{max-width:100%}
-  .why-num{width:20px;font-size:.8rem}
-  .why-title{font-size:.92rem;text-align:center}
-  .why-desc{text-align:center}
-  .why-row-head{justify-content:center;gap:10px}
-  .steps-row{flex-direction:column;gap:20px}
-  .step-item:not(:last-child)::after{display:none}
-  .step-item{flex-direction:row;text-align:left;align-items:flex-start;gap:14px}
-  .step-desc{max-width:100%}
-  #next-steps{padding:48px 20px}
-  #cta{padding-top:80px;padding-bottom:80px}
-  #micro-cta{padding:60px 20px}
-  .micro-inner{flex-direction:column;align-items:flex-start}
-  footer{padding:32px 20px}
-  .footer-inner{flex-direction:column;align-items:flex-start}
-}
-@media(max-width:540px){
-  .hero-actions{flex-direction:column;align-items:flex-start}
-  .cta-actions{flex-direction:column;align-items:center}
-  .nav-right{gap:6px}
-  .btn-primary{padding:8px 14px;font-size:.8rem}
-}
+/* MESSAGE THREAD (multi-bubble card) */
+.msg-thread{display:flex;flex-direction:column;gap:0;margin-bottom:20px;flex:1}
+.msg-bubble{font-family:var(--font-b);font-size:.92rem;color:var(--white);line-height:1.55;padding:10px 14px;background:rgba(0,229,160,.06);border:1px solid rgba(0,229,160,.12);border-radius:6px;font-style:italic}
+.msg-bubble::before{content:'\201C';font-family:var(--font-c);font-size:2rem;color:var(--green);line-height:.3;display:block;margin-bottom:6px}
+.msg-divider{height:1px;background:var(--border);margin:10px 0}
 </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav>
   <a href="#" class="logo-wrap">
     <span class="logo">Motioni<span>x</span></span>
@@ -310,14 +252,13 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
   </div>
 </nav>
 <div class="mob-subnav">
-  <a href="#work" data-en="Work" data-hr="Rad">Work</a>
-  <a href="#testimonials" data-en="Clients" data-hr="Klijenti">Clients</a>
-  <a href="#how" data-en="Process" data-hr="Proces">Process</a>
-  <a href="#why" data-en="Why us" data-hr="Zašto mi">Why us</a>
-  <a href="#faq" data-en="FAQ" data-hr="FAQ">FAQ</a>
-  <a href="#contact" data-en="Contact" data-hr="Kontakt">Contact</a>
+  <a href="#work">Work</a>
+  <a href="#testimonials">Clients</a>
+  <a href="#how">Process</a>
+  <a href="#why">Why us</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
 </div>
-<!-- HERO -->
 <section id="hero">
   <div class="hero-inner">
     <div class="overline" data-en="Improving your short-form content" data-hr="Unapređujem tvoj short-form sadržaj">Improving your short-form content</div>
@@ -334,113 +275,74 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     </div>
   </div>
 </section>
-
 <div class="divider"></div>
-
-<!-- WORK -->
 <section class="section-wrap">
 <div class="section" id="work">
   <div class="section-label reveal" data-en="Results &amp; Work" data-hr="Rezultati &amp; radovi">Results &amp; Work</div>
   <h2 class="reveal" data-en="Numbers first. Always." data-hr="Brojke su na prvom mjestu. Uvijek.">Numbers first. Always.</h2>
   <p class="section-desc reveal" data-en="Every project below has a result attached. No vague claims." data-hr="Svaki projekt ispod ima jasan rezultat. Bez praznih priča.">Every project below has a result attached. No vague claims.</p>
-
   <div class="work-grid">
-
     <div class="work-card reveal">
       <div class="vid-wrap paused" id="v0">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Masterindvideo2.mp4" loop playsinline preload="metadata"></video>
-        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
-            <div class="vid-progress"><div class="vid-progress-fill" id="v0-fill"></div></div>
-            <button class="vid-mute">
-              <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-              <svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-            </button>
-          </div>
-        </div>
+        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div>
+        <div class="vid-overlay"><div class="vid-bottom"><div class="vid-progress"><div class="vid-progress-fill" id="v0-fill"></div></div><button class="vid-mute"><svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button></div></div>
       </div>
       <div class="work-body">
         <p class="work-tag" data-en="SEO Expert · Mastermind" data-hr="SEO Stručnjak · Mastermind">SEO Expert · Mastermind</p>
         <p class="work-desc" data-en="Script + hook system built for authority positioning. One video closed a mastermind cohort." data-hr="Sustav skripti i hookova za authority pozicioniranje. Jedan video zatvorio je cijelu mastermind grupu.">Script + hook system built for authority positioning. One video closed a mastermind cohort.</p>
         <div class="work-stat">20 clients</div>
         <p class="work-result" data-en="From a single video" data-hr="Iz jednog videa">From a single video</p>
-        <p class="work-country">Anel · <span style="color:var(--green)">BiH</span></p>
+        <p class="work-country">Anel · <span style='color:var(--green)'>BiH</span></p>
       </div>
     </div>
-
     <div class="work-card reveal">
       <div class="vid-wrap paused" id="v1">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Jovanavideo2.mp4" loop playsinline preload="metadata"></video>
-        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
-            <div class="vid-progress"><div class="vid-progress-fill" id="v1-fill"></div></div>
-            <button class="vid-mute">
-              <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-              <svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-            </button>
-          </div>
-        </div>
+        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div>
+        <div class="vid-overlay"><div class="vid-bottom"><div class="vid-progress"><div class="vid-progress-fill" id="v1-fill"></div></div><button class="vid-mute"><svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button></div></div>
       </div>
       <div class="work-body">
         <p class="work-tag" data-en="AirBnB &amp; Booking Mentor" data-hr="AirBnB &amp; Booking Mentor">AirBnB &amp; Booking Mentor</p>
-        <p class="work-desc" data-en="Basic edit with a strong script. Proof that structure beats production value every time." data-hr="Jednostavan edit s dobrom skriptom. Dokaz da struktura pobjeđuje produkcijsku vrijednost.">Basic edit with a strong script. Proof that structure beats production value every time.</p>
+        <p class="work-desc" data-en="Basic edit with a strong script. Proof that structure beats production value every time." data-hr="Jednostavan edit s dobrom skriptom. Dokaz da struktura pobjjeđuje produkcijsku vrijednost.">Basic edit with a strong script. Proof that structure beats production value every time.</p>
         <div class="work-stat">20K in 24h</div>
         <p class="work-result" data-en="Views &amp; counting" data-hr="Pregleda i raste">Views &amp; counting</p>
-        <p class="work-country">Jovana · <span style="color:var(--green)">Serbia</span></p>
+        <p class="work-country">Jovana · <span style='color:var(--green)'>Serbia</span></p>
       </div>
     </div>
-
     <div class="work-card reveal">
       <div class="vid-wrap paused" id="v2">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Mandy%20Video%202%20V4.mp4" loop playsinline preload="metadata"></video>
-        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
-            <div class="vid-progress"><div class="vid-progress-fill" id="v2-fill"></div></div>
-            <button class="vid-mute">
-              <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-              <svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-            </button>
-          </div>
-        </div>
+        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div>
+        <div class="vid-overlay"><div class="vid-bottom"><div class="vid-progress"><div class="vid-progress-fill" id="v2-fill"></div></div><button class="vid-mute"><svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button></div></div>
       </div>
       <div class="work-body">
         <p class="work-tag" data-en="English Course Seller" data-hr="English Course Seller">English Course Seller</p>
         <p class="work-desc" data-en="Ad-style edit with direct response script. One post generated 40 qualified leads." data-hr="Ad-style edit s direct response skriptom. Jedna objava generirala 40 kvalificiranih leadova.">Ad-style edit with direct response script. One post generated 40 qualified leads.</p>
         <div class="work-stat">40 leads</div>
         <p class="work-result" data-en="From a single post" data-hr="Iz jedne objave">From a single post</p>
-        <p class="work-country">Mandy · <span style="color:var(--green)">UK</span></p>
+        <p class="work-country">Mandy · <span style='color:var(--green)'>UK</span></p>
       </div>
     </div>
-
     <div class="work-card reveal">
       <div class="vid-wrap paused" id="v3">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo10.mp4" loop playsinline preload="metadata"></video>
-        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
-            <div class="vid-progress"><div class="vid-progress-fill" id="v3-fill"></div></div>
-            <button class="vid-mute">
-              <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-              <svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-            </button>
-          </div>
-        </div>
+        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div>
+        <div class="vid-overlay"><div class="vid-bottom"><div class="vid-progress"><div class="vid-progress-fill" id="v3-fill"></div></div><button class="vid-mute"><svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button></div></div>
       </div>
       <div class="work-body">
         <p class="work-tag" data-en="Real Estate" data-hr="Real Estate">Real Estate</p>
         <p class="work-desc" data-en="Pattern-interrupt editing system. Viewers stay because every cut earns the next second." data-hr="Sustav pattern-interrupt editinga. Gledatelji ostaju jer svaki rez zaslužuje sljedeću sekundu.">Pattern-interrupt editing system. Viewers stay because every cut earns the next second.</p>
         <div class="work-stat">+70%</div>
         <p class="work-result" data-en="Watch rate increase" data-hr="Povećanje watch ratea">Watch rate increase</p>
-        <p class="work-country">Haris · <span style="color:var(--green)">UAE</span></p>
+        <p class="work-country">Haris · <span style='color:var(--green)'>UAE</span></p>
       </div>
     </div>
-
     <div class="work-card reveal hidden">
       <div class="vid-wrap paused" id="v4">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo6final.mp4" loop playsinline preload="metadata"></video>
-        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
-            <div class="vid-progress"><div class="vid-progress-fill" id="v4-fill"></div></div>
-            <button class="vid-mute">
-              <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-              <svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-            </button>
-          </div>
-        </div>
+        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div>
+        <div class="vid-overlay"><div class="vid-bottom"><div class="vid-progress"><div class="vid-progress-fill" id="v4-fill"></div></div><button class="vid-mute"><svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button></div></div>
       </div>
       <div class="work-body">
         <p class="work-tag" data-en="Real Estate" data-hr="Real Estate">Real Estate</p>
@@ -450,18 +352,11 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
         <p class="work-country">UAE</p>
       </div>
     </div>
-
     <div class="work-card reveal hidden">
       <div class="vid-wrap paused" id="v5">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo9.mp4" loop playsinline preload="metadata"></video>
-        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
-            <div class="vid-progress"><div class="vid-progress-fill" id="v5-fill"></div></div>
-            <button class="vid-mute">
-              <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-              <svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-            </button>
-          </div>
-        </div>
+        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div>
+        <div class="vid-overlay"><div class="vid-bottom"><div class="vid-progress"><div class="vid-progress-fill" id="v5-fill"></div></div><button class="vid-mute"><svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button></div></div>
       </div>
       <div class="work-body">
         <p class="work-tag" data-en="Musical Artist" data-hr="Glazbeni Artist">Musical Artist</p>
@@ -471,18 +366,11 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
         <p class="work-country">USA</p>
       </div>
     </div>
-
     <div class="work-card reveal hidden">
       <div class="vid-wrap paused" id="v6">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo8finalllll.mp4" loop playsinline preload="metadata"></video>
-        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
-            <div class="vid-progress"><div class="vid-progress-fill" id="v6-fill"></div></div>
-            <button class="vid-mute">
-              <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-              <svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-            </button>
-          </div>
-        </div>
+        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div>
+        <div class="vid-overlay"><div class="vid-bottom"><div class="vid-progress"><div class="vid-progress-fill" id="v6-fill"></div></div><button class="vid-mute"><svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button></div></div>
       </div>
       <div class="work-body">
         <p class="work-tag" data-en="Tech Expert" data-hr="Tech Ekspert">Tech Expert</p>
@@ -492,18 +380,11 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
         <p class="work-country">Poland</p>
       </div>
     </div>
-
     <div class="work-card reveal hidden">
       <div class="vid-wrap paused" id="v7">
         <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo1final.mp4" loop playsinline preload="metadata"></video>
-        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
-            <div class="vid-progress"><div class="vid-progress-fill" id="v7-fill"></div></div>
-            <button class="vid-mute">
-              <svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-              <svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-            </button>
-          </div>
-        </div>
+        <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div>
+        <div class="vid-overlay"><div class="vid-bottom"><div class="vid-progress"><div class="vid-progress-fill" id="v7-fill"></div></div><button class="vid-mute"><svg class="icon-sound" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><svg class="icon-muted" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button></div></div>
       </div>
       <div class="work-body">
         <p class="work-tag" data-en="Fitness Trainer" data-hr="Fitness Trener">Fitness Trainer</p>
@@ -513,54 +394,75 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
         <p class="work-country">UAE</p>
       </div>
     </div>
-
   </div>
   <div class="work-more-wrap">
-    <button class="btn-outline" id="seeMoreBtn" onclick="toggleMoreWork()" data-en="See more work" data-hr="Vidi još radova">
+    <button class="btn-outline" id="seeMoreBtn" onclick="toggleMoreWork()">
       <span data-en="See more work" data-hr="Vidi još radova">See more work</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
   </div>
 </div>
 </section>
-
 <div class="divider"></div>
-
-<!-- TESTIMONIALS -->
 <section class="section-wrap">
 <div class="section" id="testimonials">
   <div class="section-label reveal" data-en="What clients say" data-hr="Što klijenti kažu">What clients say</div>
   <h2 class="reveal" data-en="Results they felt." data-hr="Rezultati koje su osjetili.">Results they felt.</h2>
-  <p class="section-desc reveal" data-en="Real feedback from real clients. No made-up stats." data-hr="Pravi feedback od pravih klijenata. Bez izmišljenih brojki.">Real feedback from real clients. No made-up stats.</p>
-
+  <p class="section-desc reveal" data-en="Real feedback from real clients. No made-up stats." data-hr="Pravi feedback od pravih klijenata. Bez izmisljenih brojki.">Real feedback from real clients. No made-up stats.</p>
   <div class="testi-grid">
 
+    <!-- 1. ANEL - multi-message card -->
     <div class="testi-card reveal">
-      <p class="testi-quote" data-en="Before working with Ivan, my videos were getting 2–3K views max. After the first edit, one hit 180K. I didn't change anything except who was cutting my content." data-hr="Prije suradnje s Ivanom, moji videi su imali maksimalno 2-3K pregleda. Nakon prvog edita, jedan je dosegao 180K. Nisam promijenio ništa osim tko mi reže sadržaj.">Before working with Ivan, my videos were getting 2–3K views max. After the first edit, one hit 180K. I didn't change anything except who was cutting my content.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">M</div>
-        <div>
-          <div class="testi-name">Mandy</div>
-          <div class="testi-niche" data-en="English Course Seller · UK" data-hr="English Course Seller · UK">English Course Seller · UK</div>
-          <span class="testi-result">40 leads from 1 post</span>
-        </div>
+      <div class="msg-thread">
+        <div class="msg-bubble">Predobro, baš mi se sviđa</div>
+        <div class="msg-divider"></div>
+        <div class="msg-bubble">Odličan video</div>
+        <div class="msg-divider"></div>
+        <div class="msg-bubble">Brutalan je video, nema šta.</div>
       </div>
-    </div>
-
-    <div class="testi-card reveal">
-      <p class="testi-quote" data-en="One video, one mastermind cohort fully closed. The script and hook structure made the difference — people watched to the end and reached out." data-hr="Jedan video, cijela mastermind grupa zatvorena. Struktura skripte i hooka napravila je razliku — ljudi su gledali do kraja i javili se.">One video, one mastermind cohort fully closed. The script and hook structure made the difference — people watched to the end and reached out.</p>
       <div class="testi-author">
         <div class="testi-avatar">A</div>
         <div>
           <div class="testi-name">Anel</div>
-          <div class="testi-niche" data-en="SEO Expert · Mastermind" data-hr="SEO Stručnjak · Mastermind">SEO Expert · Mastermind</div>
-          <span class="testi-result">20 new clients</span>
+          <div class="testi-niche" data-en="SEO Expert · Mastermind · BiH" data-hr="SEO Stručnjak · Mastermind · BiH">SEO Expert · Mastermind · BiH</div>
+          <span class="testi-result">20 new clients from 1 video</span>
         </div>
       </div>
     </div>
 
+    <!-- 2. FIP.GRAPHICS - motion design -->
     <div class="testi-card reveal">
-      <p class="testi-quote" data-en="I have 10K followers but the video hit 20K views in the first 24 hours. Basic edit, strong script. I didn't expect that kind of reach so fast." data-hr="Imam 10K pratitelja ali video je dosegao 20K pregleda u prvih 24 sata. Jednostavan edit, dobra skripta. Nisam očekivala takav doseg tako brzo.">I have 10K followers but the video hit 20K views in the first 24 hours. Basic edit, strong script. I didn't expect that kind of reach so fast.</p>
+      <p class="testi-quote" data-en="I have to say the video turned out amazing 😍 Thank you once again for all the effort and attention to detail. Every frame has purpose, the transitions are perfectly timed, and the rhythm carries the emotion from start to finish. Your creativity and experience truly stand out. When we start a new project I'm definitely calling you first — working with you is always smooth and the results are consistently top quality." data-hr="I have to say the video turned out amazing 😍 Thank you once again for all the effort and attention to detail. Every frame has purpose, the transitions are perfectly timed, and the rhythm carries the emotion from start to finish. Your creativity and experience truly stand out. When we start a new project I'm definitely calling you first — working with you is always smooth and the results are consistently top quality.">I have to say the video turned out amazing 😍 Thank you once again for all the effort and attention to detail. Every frame has purpose, the transitions are perfectly timed, and the rhythm carries the emotion from start to finish. Your creativity and experience truly stand out. When we start a new project I'm definitely calling you first — working with you is always smooth and the results are consistently top quality.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">F</div>
+        <div>
+          <div class="testi-name">fip.graphics</div>
+          <div class="testi-niche" data-en="Graphic Designer · Motion Design Client" data-hr="Grafički dizajner · Motion Design klijent">Graphic Designer · Motion Design Client</div>
+          <span class="testi-result">Premium motion design ad</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. JOHN TAYLOR - act3agency -->
+    <div class="testi-card reveal">
+      <p class="testi-quote" data-en="Great video, I can see that you do professional work, and that with additional coordination and direction, we will create some great branded content." data-hr="Great video, I can see that you do professional work, and that with additional coordination and direction, we will create some great branded content.">Great video, I can see that you do professional work, and that with additional coordination and direction, we will create some great branded content.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">J</div>
+        <div>
+          <div class="testi-name">John Taylor</div>
+          <div class="testi-niche" data-en="act3agency · Podcast Branded Content" data-hr="act3agency · Podcast Branded Content">act3agency · Podcast Branded Content</div>
+          <span class="testi-result">Branded podcast content</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. JOVANA - multi-message -->
+    <div class="testi-card reveal">
+      <div class="msg-thread">
+        <div class="msg-bubble">Sviđa mi se</div>
+        <div class="msg-divider"></div>
+        <div class="msg-bubble">Sviđa mi se :)</div>
+      </div>
       <div class="testi-author">
         <div class="testi-avatar">J</div>
         <div>
@@ -571,307 +473,153 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
       </div>
     </div>
 
-    <div class="testi-card reveal">
-      <p class="testi-quote" data-en="Watch time was my biggest problem. After the pattern-interrupt edit system, retention jumped 70%. People actually finish the video now." data-hr="Watch time je bio moj najveći problem. Nakon pattern-interrupt sustava editinga, retencija je skočila 70%. Ljudi sada stvarno dovršavaju video.">Watch time was my biggest problem. After the pattern-interrupt edit system, retention jumped 70%. People actually finish the video now.</p>
+    <!-- 5. MARIO MORENO - hidden -->
+    <div class="testi-card reveal testi-hidden">
+      <p class="testi-quote" data-en="You really nailed the elevated approach. I'm impressed!" data-hr="You really nailed the elevated approach. I'm impressed!">You really nailed the elevated approach. I'm impressed!</p>
       <div class="testi-author">
-        <div class="testi-avatar">H</div>
+        <div class="testi-avatar">M</div>
         <div>
-          <div class="testi-name">Haris</div>
-          <div class="testi-niche" data-en="Real Estate · UAE" data-hr="Real Estate · UAE">Real Estate · UAE</div>
-          <span class="testi-result">+70% watch rate</span>
+          <div class="testi-name">Mario Moreno</div>
+          <div class="testi-niche" data-en="Marketing Expert" data-hr="Marketing Ekspert">Marketing Expert</div>
+          <span class="testi-result">Elevated content approach</span>
         </div>
       </div>
     </div>
 
+    <!-- 6. AVSTER - self-help, hidden -->
     <div class="testi-card reveal testi-hidden">
-      <p class="testi-quote" data-en="I had decent content but zero strategy. After one month the channel structure was completely different — every video had a purpose and it showed in the numbers." data-hr="Imao sam pristojan sadržaj ali nula strategije. Nakon jednog mjeseca struktura kanala bila je potpuno drugačija — svaki video imao je svrhu i to se vidjelo u brojevima.">I had decent content but zero strategy. After one month the channel structure was completely different — every video had a purpose and it showed in the numbers.</p>
+      <p class="testi-quote" data-en="Wow Ivan, this is great. I know that the content thus far could gain some horsepower with more attention catching interruptions but I see where you took it." data-hr="Wow Ivan, this is great. I know that the content thus far could gain some horsepower with more attention catching interruptions but I see where you took it.">Wow Ivan, this is great. I know that the content thus far could gain some horsepower with more attention catching interruptions but I see where you took it.</p>
       <div class="testi-author">
         <div class="testi-avatar">A</div>
         <div>
-          <div class="testi-name">Ana V.</div>
-          <div class="testi-niche" data-en="Business coach · 8K followers" data-hr="Business coach · 8K pratitelja">Business coach · 8K followers</div>
-          <span class="testi-result">+4K followers / month</span>
+          <div class="testi-name">Avster</div>
+          <div class="testi-niche" data-en="Self-Help · Motivational Content" data-hr="Self-Help · Motivacijski sadržaj">Self-Help · Motivational Content</div>
+          <span class="testi-result">Motivational content creator</span>
         </div>
       </div>
     </div>
 
+    <!-- 7. MANDY UK - hidden -->
     <div class="testi-card reveal testi-hidden">
-      <p class="testi-quote" data-en="Three videos in a row hit over 50K. Before that I hadn't broken 5K in six months. The difference was the script framework — it changed how I open every single video." data-hr="Tri videa zaredom prešla 50K. Prije toga nisam prešao 5K u šest mjeseci. Razlika je bio framework za skripte — promijenio je kako otváram svaki video.">Three videos in a row hit over 50K. Before that I hadn't broken 5K in six months. The difference was the script framework — it changed how I open every single video.</p>
+      <p class="testi-quote" data-en="Video looks amazing — it performed even better. 17 leads in the first 24 hours." data-hr="Video looks amazing — it performed even better. 17 leads in the first 24 hours.">Video looks amazing — it performed even better. 17 leads in the first 24 hours.</p>
       <div class="testi-author">
-        <div class="testi-avatar">R</div>
+        <div class="testi-avatar">M</div>
         <div>
-          <div class="testi-name">Ryan B.</div>
-          <div class="testi-niche" data-en="Personal finance · 22K followers" data-hr="Osobne financije · 22K pratitelja">Personal finance · 22K followers</div>
-          <span class="testi-result">50K+ on 3 videos</span>
+          <div class="testi-name">Mandy</div>
+          <div class="testi-niche" data-en="English Course Seller · UK" data-hr="English Course Seller · UK">English Course Seller · UK</div>
+          <span class="testi-result">17 leads in 24h</span>
         </div>
       </div>
     </div>
 
+    <!-- 8. TECH EXPERT POLAND - hidden -->
     <div class="testi-card reveal testi-hidden">
-      <p class="testi-quote" data-en="The editing quality is one thing but what separates this is the strategic thinking. Every cut, every caption placement has a reason. My audience retention went from 38% to 71% average." data-hr="Kvaliteta editinga je jedno, ali ono što to odvaja je strateško razmišljanje. Svaki rez, svako postavljanje captiona ima razlog. Prosječna retencija publike porasla mi je s 38% na 71%.">The editing quality is one thing but what separates this is the strategic thinking. Every cut, every caption placement has a reason. My audience retention went from 38% to 71% average.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">L</div>
-        <div>
-          <div class="testi-name">Lena K.</div>
-          <div class="testi-niche" data-en="Lifestyle brand · 45K followers" data-hr="Lifestyle brend · 45K pratitelja">Lifestyle brand · 45K followers</div>
-          <span class="testi-result">38% → 71% retention</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="testi-card reveal testi-hidden">
-      <p class="testi-quote" data-en="First month we got 12 qualified leads from content alone. I was skeptical that short-form could drive real business results but the numbers proved me wrong completely." data-hr="U prvom mjesecu dobili smo 12 kvalificiranih leadova samo iz sadržaja. Bio sam skeptičan da short-form može generirati stvarne poslovne rezultate, ali brojke su me potpuno opovrgle.">First month we got 12 qualified leads from content alone. I was skeptical that short-form could drive real business results but the numbers proved me wrong completely.</p>
+      <p class="testi-quote" data-en="The videos are performing much better now. I'm gaining a lot more followers — around 70 new followers per video to start with. The difference is real." data-hr="Videi su počeli performati puno bolje. Dobivam puno više pratitelja — oko 70 novih pratitelja po videu za početak. Razlika je stvarna.">The videos are performing much better now. I'm gaining a lot more followers — around 70 new followers per video to start with. The difference is real.</p>
       <div class="testi-author">
         <div class="testi-avatar">T</div>
         <div>
-          <div class="testi-name">Tom H.</div>
-          <div class="testi-niche" data-en="SaaS founder · B2B content" data-hr="SaaS founder · B2B sadržaj">SaaS founder · B2B content</div>
-          <span class="testi-result">12 leads / month 1</span>
+          <div class="testi-name">Tech Expert</div>
+          <div class="testi-niche" data-en="Tech Content Creator · Poland" data-hr="Tech Content Creator · Poljska">Tech Content Creator · Poland</div>
+          <span class="testi-result">~70 new followers per video</span>
         </div>
       </div>
     </div>
 
   </div>
+  </div>
   <div class="testi-more-wrap">
-    <button class="btn-outline" id="testiMoreBtn" onclick="toggleMoreTesti()" data-en="See more" data-hr="Vidi više">
+    <button class="btn-outline" id="testiMoreBtn" onclick="toggleMoreTesti()">
       <span data-en="See more" data-hr="Vidi više">See more</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
   </div>
 </div>
 </section>
-
 <div class="divider"></div>
-
-
-
-<div class="divider"></div>
-
-<!-- HOW IT WORKS -->
 <section class="section-wrap">
 <div class="section" id="how">
   <div class="section-label reveal" data-en="Process" data-hr="Proces">Process</div>
   <h2 class="reveal" data-en="How it works." data-hr="Kako to funkcionira.">How it works.</h2>
   <p class="section-desc reveal" data-en="Three phases. Everything handled. You just show up and film." data-hr="Tri faze. Sve pokriveno. Ti samo snimaš.">Three phases. Everything handled. You just show up and film.</p>
-
   <div class="how-grid">
-    <div class="how-card reveal">
-      <div class="how-num">01</div>
-      <p class="how-title" data-en="We define your strategy" data-hr="Definiramo strategiju">We define your strategy</p>
-      <div class="how-details">
-        <ul class="how-list">
-          <li data-en="Deep onboarding — your offer, audience, goals" data-hr="Detaljan onboarding — tvoja ponuda, publika i ciljevi">Deep onboarding — your offer, audience, goals</li>
-          <li data-en="Strategy call to align on direction" data-hr="Strategijski call za usklađivanje smjera">Strategy call to align on direction</li>
-          <li data-en="Niche research — we study top creators in your space" data-hr="Istraživanje niše — analiziramo top kreatore u tvojoj industriji">Niche research — we study top creators in your space</li>
-          <li data-en="Full month of scripts built specifically for you" data-hr="Izrada cijelog mjeseca skripti, prilagođenih tebi">Full month of scripts built specifically for you</li>
-        </ul>
-      </div>
-    </div>
-    <div class="how-card reveal">
-      <div class="how-num">02</div>
-      <p class="how-title" data-en="You film, we edit" data-hr="Ti snimaš, mi editiramo">You film, we edit</p>
-      <div class="how-details">
-        <ul class="how-list">
-          <li data-en="You record with your phone — we guide framing and delivery" data-hr="Snimaš mobitelom — mi te vodimo kroz kadar i izvedbu">You record with your phone — we guide framing and delivery</li>
-          <li data-en="We edit for retention — pacing, captions, pattern interrupts" data-hr="Edit fokusiran na retention — tempo, captioni, pattern interrupti">We edit for retention — pacing, captions, pattern interrupts</li>
-          <li data-en="Every cut has a purpose. Not random effects." data-hr="Svaki rez ima svrhu. Nema random efekata.">Every cut has a purpose. Not random effects.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="how-card reveal">
-      <div class="how-num">03</div>
-      <p class="how-title" data-en="We post and track" data-hr="Objavljujemo i optimiziramo">We post and track</p>
-      <div class="how-details">
-        <ul class="how-list">
-          <li data-en="We handle publishing across your platforms" data-hr="Mi objavljujemo sadržaj na platformama">We handle publishing across your platforms</li>
-          <li data-en="We monitor what performs and adjust" data-hr="Pratimo performans i prilagođavamo">We monitor what performs and adjust</li>
-          <li data-en="You focus on your business — content runs in the background" data-hr="Ti se fokusiraš na biznis — content radi u pozadini">You focus on your business — content runs in the background</li>
-        </ul>
-      </div>
-    </div>
+    <div class="how-card reveal"><div class="how-num">01</div><p class="how-title" data-en="We define your strategy" data-hr="Definiramo strategiju">We define your strategy</p><div class="how-details"><ul class="how-list"><li data-en="Deep onboarding — your offer, audience, goals" data-hr="Detaljan onboarding — tvoja ponuda, publika i ciljevi">Deep onboarding — your offer, audience, goals</li><li data-en="Strategy call to align on direction" data-hr="Strategijski call za usklađivanje smjera">Strategy call to align on direction</li><li data-en="Niche research — we study top creators in your space" data-hr="Istraživanje niše — analiziramo top kreatore u tvojoj industriji">Niche research — we study top creators in your space</li><li data-en="Full month of scripts built specifically for you" data-hr="Izrada cijelog mjeseca skripti, prilagodenih tebi">Full month of scripts built specifically for you</li></ul></div></div>
+    <div class="how-card reveal"><div class="how-num">02</div><p class="how-title" data-en="You film, we edit" data-hr="Ti snimaš, mi editiramo">You film, we edit</p><div class="how-details"><ul class="how-list"><li data-en="You record with your phone — we guide framing and delivery" data-hr="Snimaš mobitelom — mi te vodimo kroz kadar i izvedbu">You record with your phone — we guide framing and delivery</li><li data-en="We edit for retention — pacing, captions, pattern interrupts" data-hr="Edit fokusiran na retention — tempo, captioni, pattern interrupti">We edit for retention — pacing, captions, pattern interrupts</li><li data-en="Every cut has a purpose. Not random effects." data-hr="Svaki rez ima svrhu. Nema random efekata.">Every cut has a purpose. Not random effects.</li></ul></div></div>
+    <div class="how-card reveal"><div class="how-num">03</div><p class="how-title" data-en="We post and track" data-hr="Objavljujemo i optimiziramo">We post and track</p><div class="how-details"><ul class="how-list"><li data-en="We handle publishing across your platforms" data-hr="Mi objavljujemo sadržaj na platformama">We handle publishing across your platforms</li><li data-en="We monitor what performs and adjust" data-hr="Pratimo performans i prilagodavamo">We monitor what performs and adjust</li><li data-en="You focus on your business — content runs in the background" data-hr="Ti se fokusiraš na biznis — content radi u pozadini">You focus on your business — content runs in the background</li></ul></div></div>
   </div>
-
   <div class="how-mobile">
     <div class="how-mobile-cards">
-      <div class="how-mobile-card" onclick="selectHowMobile(0)">
-        <div class="how-mobile-num">01</div>
-        <div class="how-mobile-label" data-en="Strategy" data-hr="Strategija">Strategy</div>
-        <div class="how-mobile-hint" data-en="Tap for more" data-hr="Klikni za više">Tap for more</div>
-      </div>
-      <div class="how-mobile-card" onclick="selectHowMobile(1)">
-        <div class="how-mobile-num">02</div>
-        <div class="how-mobile-label" data-en="Edit" data-hr="Edit">Edit</div>
-        <div class="how-mobile-hint" data-en="Tap for more" data-hr="Klikni za više">Tap for more</div>
-      </div>
-      <div class="how-mobile-card" onclick="selectHowMobile(2)">
-        <div class="how-mobile-num">03</div>
-        <div class="how-mobile-label" data-en="Post" data-hr="Objava">Post</div>
-        <div class="how-mobile-hint" data-en="Tap for more" data-hr="Klikni za više">Tap for more</div>
-      </div>
+      <div class="how-mobile-card" onclick="selectHowMobile(0)"><div class="how-mobile-num">01</div><div class="how-mobile-label" data-en="Strategy" data-hr="Strategija">Strategy</div><div class="how-mobile-hint" data-en="Tap for more" data-hr="Klikni za više">Tap for more</div></div>
+      <div class="how-mobile-card" onclick="selectHowMobile(1)"><div class="how-mobile-num">02</div><div class="how-mobile-label" data-en="Edit" data-hr="Edit">Edit</div><div class="how-mobile-hint" data-en="Tap for more" data-hr="Klikni za više">Tap for more</div></div>
+      <div class="how-mobile-card" onclick="selectHowMobile(2)"><div class="how-mobile-num">03</div><div class="how-mobile-label" data-en="Post" data-hr="Objava">Post</div><div class="how-mobile-hint" data-en="Tap for more" data-hr="Klikni za više">Tap for more</div></div>
     </div>
-    <div class="how-mobile-panel" id="howMobile0">
-      <ul class="how-list">
-        <li data-en="Deep onboarding — your offer, audience, goals" data-hr="Detaljan onboarding — tvoja ponuda, publika i ciljevi">Deep onboarding — your offer, audience, goals</li>
-        <li data-en="Strategy call to align on direction" data-hr="Strategijski call za usklađivanje smjera">Strategy call to align on direction</li>
-        <li data-en="Niche research — we study top creators in your space" data-hr="Istraživanje niše — analiziramo top kreatore u tvojoj industriji">Niche research — we study top creators in your space</li>
-        <li data-en="Full month of scripts built specifically for you" data-hr="Izrada cijelog mjeseca skripti, prilagođenih tebi">Full month of scripts built specifically for you</li>
-      </ul>
-    </div>
-    <div class="how-mobile-panel" id="howMobile1">
-      <ul class="how-list">
-        <li data-en="You record with your phone — we guide framing and delivery" data-hr="Snimaš mobitelom — mi te vodimo kroz kadar i izvedbu">You record with your phone — we guide framing and delivery</li>
-        <li data-en="We edit for retention — pacing, captions, pattern interrupts" data-hr="Edit fokusiran na retention — tempo, captioni, pattern interrupti">We edit for retention — pacing, captions, pattern interrupts</li>
-        <li data-en="Every cut has a purpose. Not random effects." data-hr="Svaki rez ima svrhu. Nema random efekata.">Every cut has a purpose. Not random effects.</li>
-      </ul>
-    </div>
-    <div class="how-mobile-panel" id="howMobile2">
-      <ul class="how-list">
-        <li data-en="We handle publishing across your platforms" data-hr="Mi objavljujemo sadržaj na platformama">We handle publishing across your platforms</li>
-        <li data-en="We monitor what performs and adjust" data-hr="Pratimo performans i prilagođavamo">We monitor what performs and adjust</li>
-        <li data-en="You focus on your business — content runs in the background" data-hr="Ti se fokusiraš na biznis — content radi u pozadini">You focus on your business — content runs in the background</li>
-      </ul>
-    </div>
+    <div class="how-mobile-panel" id="howMobile0"><ul class="how-list"><li>Deep onboarding — your offer, audience, goals</li><li>Strategy call to align on direction</li><li>Niche research — we study top creators in your space</li><li>Full month of scripts built specifically for you</li></ul></div>
+    <div class="how-mobile-panel" id="howMobile1"><ul class="how-list"><li>You record with your phone — we guide framing and delivery</li><li>We edit for retention — pacing, captions, pattern interrupts</li><li>Every cut has a purpose. Not random effects.</li></ul></div>
+    <div class="how-mobile-panel" id="howMobile2"><ul class="how-list"><li>We handle publishing across your platforms</li><li>We monitor what performs and adjust</li><li>You focus on your business — content runs in the background</li></ul></div>
   </div>
-
 </div>
 </section>
-
 <div class="divider"></div>
-
-
-
-<div class="divider"></div>
-
-<!-- WHY -->
 <section class="section-wrap">
 <div class="section" id="why">
   <div class="section-label reveal" data-en="Differentiation" data-hr="Diferencijacija">Differentiation</div>
   <h2 class="reveal" data-en="Why Motionix." data-hr="Zašto Motionix.">Why Motionix.</h2>
   <p class="section-desc reveal" data-en="Not another editor. A content system built around your growth." data-hr="Nismo samo editori. Gradimo sustav za rast.">Not another editor. A content system built around your growth.</p>
   <div class="why-list">
-    <div class="why-row reveal" onclick="toggleWhy(this)">
-      <span class="why-num">01</span>
-      <div class="why-row-head">
-        <p class="why-title" data-en="We research before we create" data-hr="Prvo istraživanje, onda kreacija">We research before we create</p>
-        <svg class="why-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      </div>
-      <p class="why-desc" data-en="Most agencies start with templates. We start with data — studying top performers in your exact niche before writing a single word of script." data-hr="Većina agencija kreće s templateima. Mi krećemo s podacima — analiziramo top performere u tvojoj niši prije nego napišemo ijednu riječ.">Most agencies start with templates. We start with data — studying top performers in your exact niche before writing a single word of script.</p>
-    </div>
-    <div class="why-row reveal" onclick="toggleWhy(this)">
-      <span class="why-num">02</span>
-      <div class="why-row-head">
-        <p class="why-title" data-en="Scripts + editing in one system" data-hr="Skripte + edit kao jedan sustav">Scripts + editing in one system</p>
-        <svg class="why-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      </div>
-      <p class="why-desc" data-en="The script determines 80% of performance. Most editors just cut what you give them. We write what performs, then edit it to keep people watching." data-hr="Skripta određuje 80% performansa. Većina editora samo reže ono što dobije. Mi pišemo ono što radi — pa to editiramo da zadrži pažnju.">The script determines 80% of performance. Most editors just cut what you give them. We write what performs, then edit it to keep people watching.</p>
-    </div>
-    <div class="why-row reveal" onclick="toggleWhy(this)">
-      <span class="why-num">03</span>
-      <div class="why-row-head">
-        <p class="why-title" data-en="Every edit is intentional" data-hr="Svaki edit ima razlog">Every edit is intentional</p>
-        <svg class="why-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      </div>
-      <p class="why-desc" data-en="No random transitions, no trend-chasing effects. Every cut, caption, and sound choice is there to hold attention and move the viewer toward action." data-hr="Nema random tranzicija ni trend efekata bez smisla. Svaki rez, caption i zvuk imaju cilj — zadržati gledatelja i potaknuti akciju.">No random transitions, no trend-chasing effects. Every cut, caption, and sound choice is there to hold attention and move the viewer toward action.</p>
-    </div>
-    <div class="why-row reveal" onclick="toggleWhy(this)">
-      <span class="why-num">04</span>
-      <div class="why-row-head">
-        <p class="why-title" data-en="We measure and improve" data-hr="Mjerimo i poboljšavamo">We measure and improve</p>
-        <svg class="why-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      </div>
-      <p class="why-desc" data-en="We track retention curves and engagement data. What works gets replicated. What doesn't gets fixed. This is how content compounds over time." data-hr="Pratimo retention i engagement podatke. Ono što radi — skaliramo. Ono što ne radi — popravljamo. Tako content raste kroz vrijeme.">We track retention curves and engagement data. What works gets replicated. What doesn't gets fixed. This is how content compounds over time.</p>
-    </div>
+    <div class="why-row reveal" onclick="toggleWhy(this)"><span class="why-num">01</span><div class="why-row-head"><p class="why-title" data-en="We research before we create" data-hr="Prvo istraživanje, onda kreacija">We research before we create</p><svg class="why-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><p class="why-desc" data-en="Most agencies start with templates. We start with data — studying top performers in your exact niche before writing a single word of script." data-hr="Većina agencija kreće s templateima. Mi krećemo s podacima.">Most agencies start with templates. We start with data — studying top performers in your exact niche before writing a single word of script.</p></div>
+    <div class="why-row reveal" onclick="toggleWhy(this)"><span class="why-num">02</span><div class="why-row-head"><p class="why-title" data-en="Scripts + editing in one system" data-hr="Skripte + edit kao jedan sustav">Scripts + editing in one system</p><svg class="why-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><p class="why-desc" data-en="The script determines 80% of performance. Most editors just cut what you give them. We write what performs, then edit it to keep people watching." data-hr="Skripta određuje 80% performansa.">The script determines 80% of performance. Most editors just cut what you give them. We write what performs, then edit it to keep people watching.</p></div>
+    <div class="why-row reveal" onclick="toggleWhy(this)"><span class="why-num">03</span><div class="why-row-head"><p class="why-title" data-en="Every edit is intentional" data-hr="Svaki edit ima razlog">Every edit is intentional</p><svg class="why-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><p class="why-desc" data-en="No random transitions, no trend-chasing effects. Every cut, caption, and sound choice is there to hold attention and move the viewer toward action." data-hr="Nema random tranzicija ni trend efekata bez smisla.">No random transitions, no trend-chasing effects. Every cut, caption, and sound choice is there to hold attention and move the viewer toward action.</p></div>
+    <div class="why-row reveal" onclick="toggleWhy(this)"><span class="why-num">04</span><div class="why-row-head"><p class="why-title" data-en="We measure and improve" data-hr="Mjerimo i poboljšavamo">We measure and improve</p><svg class="why-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><p class="why-desc" data-en="We track retention curves and engagement data. What works gets replicated. What doesn’t gets fixed. This is how content compounds over time." data-hr="Pratimo retention i engagement podatke.">We track retention curves and engagement data. What works gets replicated. What doesn’t gets fixed. This is how content compounds over time.</p></div>
   </div>
 </div>
 </section>
-
 <div class="divider"></div>
-
-
-
-<div class="divider"></div>
-
-<!-- FAQ -->
 <section class="section-wrap">
 <div class="section" id="faq">
   <div class="section-label reveal" data-en="FAQ" data-hr="Česta pitanja">FAQ</div>
   <h2 class="reveal" data-en="Questions answered." data-hr="Odgovori na pitanja.">Questions answered.</h2>
-
   <div class="faq-list reveal">
-
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
         <span class="faq-q-text" data-en="How much does it cost?" data-hr="Koliko košta?">How much does it cost?</span>
         <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </div>
-      <div class="faq-a"><div class="faq-a-inner" data-en="Packages start at €700/month. What's included depends on your volume and goals — scripts, editing, and posting are all available. Send me a video and we'll figure out what makes sense for you." data-hr="Paketi kreću od €700/mj. Što je uključeno ovisi o tvojim potrebama i ciljevima — skripte, editing i objava su svi dostupni. Pošalji mi video i zajedno ćemo doći do onoga što ima smisla za tebe.">Packages start at €700/month. What's included depends on your volume and goals — scripts, editing, and posting are all available. Send me a video and we'll figure out what makes sense for you.</div></div>
+      <div class="faq-a"><div class="faq-a-inner" data-en="Packages start at €400/month. What's included depends on your volume and goals — scripts, editing, and posting are all available. Send me a video and we'll figure out what makes sense for you." data-hr="Paketi kreću od €400/mj. Što je uključeno ovisi o tvojim potrebama i ciljevima — skripte, editing i objava su svi dostupni. Pošalji mi video i zajedno ćemo doći do onoga što ima smisla za tebe.">Packages start at €400/month. What's included depends on your volume and goals — scripts, editing, and posting are all available. Send me a video and we'll figure out what makes sense for you.</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
         <span class="faq-q-text" data-en="Do I need a big audience to start?" data-hr="Treba li mi velika publika za početak?">Do I need a big audience to start?</span>
         <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </div>
-      <div class="faq-a"><div class="faq-a-inner" data-en="No. Most clients start from scratch or with under 1K followers. The work is the same — build a system that grows. The earlier you start with the right structure, the faster the growth compounds." data-hr="Ne. Većina klijenata počinje od nule ili s manje od 1K pratitelja. Rad je isti — gradimo sustav koji raste. Što ranije počneš s pravom strukturom, brže se rast multiplicira.">No. Most clients start from scratch or with under 1K followers. The work is the same — build a system that grows. The earlier you start with the right structure, the faster the growth compounds.</div></div>
+      <div class="faq-a"><div class="faq-a-inner" data-en="No. Most clients start from scratch or with under 1K followers. The work is the same — build a system that grows. The earlier you start with the right structure, the faster the growth compounds." data-hr="Ne. Većina klijenata počinje od nule ili s manje od 1K pratitelja.">No. Most clients start from scratch or with under 1K followers. The work is the same — build a system that grows. The earlier you start with the right structure, the faster the growth compounds.</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
         <span class="faq-q-text" data-en="How long until I see results?" data-hr="Koliko dugo do prvih rezultata?">How long until I see results?</span>
         <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </div>
-      <div class="faq-a"><div class="faq-a-inner" data-en="Most clients see meaningful improvement in watch time and reach within the first 2–3 videos. Growth compounds over time — the first month sets the foundation, the second and third is where it accelerates." data-hr="Većina klijenata vidi značajno poboljšanje u watch timeu i dosegu unutar prvih 2-3 videa. Rast se multiplicira kroz vrijeme — prvi mjesec postavlja temelje, drugi i treći je gdje se ubrzava.">Most clients see meaningful improvement in watch time and reach within the first 2–3 videos. Growth compounds over time — the first month sets the foundation, the second and third is where it accelerates.</div></div>
+      <div class="faq-a"><div class="faq-a-inner" data-en="Most clients see meaningful improvement in watch time and reach within the first 2–3 videos. Growth compounds over time — the first month sets the foundation, the second and third is where it accelerates." data-hr="Većina klijenata vidi značajno poboljšanje u watch timeu i dosegu unutar prvih 2-3 videa.">Most clients see meaningful improvement in watch time and reach within the first 2–3 videos. Growth compounds over time — the first month sets the foundation, the second and third is where it accelerates.</div></div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
         <span class="faq-q-text" data-en="What if I'm not satisfied?" data-hr="Što ako nisam zadovoljan?">What if I'm not satisfied?</span>
         <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </div>
-      <div class="faq-a"><div class="faq-a-inner" data-en="We start with a free video breakdown before any commitment. If after that you want to work together, we'll agree on clear deliverables upfront. No long-term lock-in — if the results aren't there, we'll fix it." data-hr="Počinjemo s besplatnom analizom videa bez ikakve obaveze. Ako nakon toga želiš surađivati, dogovaramo jasne isporuke unaprijed. Bez dugoročnog zaključavanja — ako rezultati nisu tu, popravit ćemo to.">We start with a free video breakdown before any commitment. If after that you want to work together, we'll agree on clear deliverables upfront. No long-term lock-in — if the results aren't there, we'll fix it.</div></div>
+      <div class="faq-a"><div class="faq-a-inner" data-en="We start with a free video breakdown before any commitment. If after that you want to work together, we'll agree on clear deliverables upfront. No long-term lock-in — if the results aren't there, we'll fix it." data-hr="Počinjemo s besplatnom analizom videa bez ikakve obaveze.">We start with a free video breakdown before any commitment. If after that you want to work together, we'll agree on clear deliverables upfront. No long-term lock-in — if the results aren't there, we'll fix it.</div></div>
     </div>
-
   </div>
 </div>
 </section>
-
-
-
-<!-- NEXT STEPS -->
 <section id="next-steps">
   <div class="next-inner">
     <div class="section-label reveal" data-en="How to start" data-hr="Kako početi">How to start</div>
     <div class="steps-row reveal">
-      <div class="step-item">
-        <div class="step-num">1</div>
-        <div>
-          <div class="step-title" data-en="Send a video" data-hr="Pošalji video">Send a video</div>
-          <div class="step-desc" data-en="Any video you've posted. Takes 2 minutes." data-hr="Bilo koji video koji si objavio. Traje 2 minute.">Any video you've posted. Takes 2 minutes.</div>
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">2</div>
-        <div>
-          <div class="step-title" data-en="Get a free breakdown" data-hr="Dobij besplatnu analizu">Get a free breakdown</div>
-          <div class="step-desc" data-en="I'll show you exactly what's holding it back." data-hr="Pokazat ću ti točno što ga usporava.">I'll show you exactly what's holding it back.</div>
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">3</div>
-        <div>
-          <div class="step-title" data-en="We decide together" data-hr="Zajedno odlučujemo">We decide together</div>
-          <div class="step-desc" data-en="If it's a fit, we build the system. No pressure." data-hr="Ako odgovara, gradimo sustav. Bez pritiska.">If it's a fit, we build the system. No pressure.</div>
-        </div>
-      </div>
+      <div class="step-item"><div class="step-num">1</div><div><div class="step-title" data-en="Send a video" data-hr="Pošalji video">Send a video</div><div class="step-desc" data-en="Any video you've posted. Takes 2 minutes." data-hr="Bilo koji video koji si objavio. Traje 2 minute.">Any video you've posted. Takes 2 minutes.</div></div></div>
+      <div class="step-item"><div class="step-num">2</div><div><div class="step-title" data-en="Get a free breakdown" data-hr="Dobij besplatnu analizu">Get a free breakdown</div><div class="step-desc" data-en="I'll show you exactly what's holding it back." data-hr="Pokazat ću ti točno što ga usporava.">I'll show you exactly what's holding it back.</div></div></div>
+      <div class="step-item"><div class="step-num">3</div><div><div class="step-title" data-en="We decide together" data-hr="Zajedno odlučujemo">We decide together</div><div class="step-desc" data-en="If it's a fit, we build the system. No pressure." data-hr="Ako odgovara, gradimo sustav. Bez pritiska.">If it's a fit, we build the system. No pressure.</div></div></div>
     </div>
   </div>
 </section>
-
-
-
 <div class="divider"></div>
-
-<!-- FINAL CTA -->
 <section id="cta">
   <div class="cta-inner">
     <div class="section-label reveal" style="justify-content:center;" data-en="Let's work" data-hr="Krenimo raditi">Let's work</div>
@@ -885,10 +633,6 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     </div>
   </div>
 </section>
-
-
-
-<!-- FOOTER -->
 <footer id="contact">
   <div class="footer-inner">
     <div class="footer-left">
@@ -920,153 +664,20 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     </div>
   </div>
 </footer>
-
 <script>
-// TESTI VIDEO PLAY
-function testiPlay(overlay) {
-  const wrap = overlay.parentElement;
-  const vid = wrap.querySelector('video');
-  if (vid.paused) {
-    vid.muted = false;
-    vid.play();
-    wrap.classList.add('playing');
-  } else {
-    vid.pause();
-    wrap.classList.remove('playing');
-  }
-}
-
-// TESTIMONIALS show more
-function toggleMoreTesti() {
-  const btn = document.getElementById('testiMoreBtn');
-  const hidden = document.querySelectorAll('.testi-card.testi-hidden');
-  const isExpanded = btn.classList.contains('expanded');
-  hidden.forEach(c => c.classList.toggle('testi-shown', !isExpanded));
-  btn.classList.toggle('expanded', !isExpanded);
-  const isHR = document.getElementById('btnHR').classList.contains('active');
-  btn.querySelector('span').textContent = isExpanded
-    ? (isHR ? 'Vidi više' : 'See more')
-    : (isHR ? 'Prikaži manje' : 'Show less');
-}
-
-// VIDEO PLAYER
-document.querySelectorAll('.vid-wrap').forEach(wrap => {
-  const vid = wrap.querySelector('video');
-  const fill = document.getElementById(wrap.id + '-fill');
-  const muteBtn = wrap.querySelector('.vid-mute');
-  const progressBar = wrap.querySelector('.vid-progress');
-
-  // touch: show controls briefly on touch, hide after delay
-  wrap.addEventListener('touchstart', () => {
-    wrap.classList.add('touching');
-    clearTimeout(wrap._touchTimer);
-    wrap._touchTimer = setTimeout(() => wrap.classList.remove('touching'), 2000);
-  }, {passive: true});
-
-  // click = toggle play/pause
-  wrap.addEventListener('click', function(e) {
-    if (e.target.closest('.vid-mute') || e.target.closest('.vid-progress')) return;
-    if (vid.paused) {
-      // unmute on first play
-      vid.muted = false;
-      wrap.classList.remove('muted');
-      vid.play();
-      wrap.classList.remove('paused');
-      wrap.classList.add('playing');
-    } else {
-      vid.pause();
-      wrap.classList.remove('playing');
-      wrap.classList.add('paused');
-    }
-  });
-
-  if (muteBtn) {
-    muteBtn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      vid.muted = !vid.muted;
-      wrap.classList.toggle('muted', vid.muted);
-    });
-  }
-
-  if (progressBar) {
-    progressBar.addEventListener('click', function(e) {
-      e.stopPropagation();
-      if (vid.duration) vid.currentTime = (e.offsetX / progressBar.offsetWidth) * vid.duration;
-    });
-  }
-
-  vid.addEventListener('timeupdate', () => {
-    if (fill && vid.duration) fill.style.width = (vid.currentTime / vid.duration * 100) + '%';
-  });
-
-  vid.addEventListener('ended', () => {
-    wrap.classList.remove('playing');
-    wrap.classList.add('paused');
-  });
-});
-
-// SEE MORE WORK
-function toggleMoreWork() {
-  const btn = document.getElementById('seeMoreBtn');
-  const hidden = document.querySelectorAll('.work-card.hidden');
-  const isExpanded = btn.classList.contains('expanded');
-  hidden.forEach(c => c.classList.toggle('shown', !isExpanded));
-  btn.classList.toggle('expanded', !isExpanded);
-  const lang = document.getElementById('btnHR').classList.contains('active') ? 'hr' : 'en';
-  btn.querySelector('span').textContent = isExpanded
-    ? (lang === 'hr' ? 'Vidi još radova' : 'See more work')
-    : (lang === 'hr' ? 'Prikaži manje' : 'Show less');
-}
-
-// WHY accordion
-function toggleWhy(row) {
-  const isOpen = row.classList.contains('open');
-  document.querySelectorAll('.why-row.open').forEach(r => r.classList.remove('open'));
-  if (!isOpen) row.classList.add('open');
-}
-
-// FAQ accordion
-function toggleFaq(el) {
-  const item = el.parentElement;
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
-}
-
-// HOW mobile — tap to open, tap again to close
-function selectHowMobile(i) {
-  const cards = document.querySelectorAll('.how-mobile-card');
-  const panels = document.querySelectorAll('.how-mobile-panel');
-  const isAlreadyOpen = cards[i].classList.contains('active');
-  cards.forEach(c => c.classList.remove('active'));
-  panels.forEach(p => p.classList.remove('active'));
-  if (!isAlreadyOpen) {
-    cards[i].classList.add('active');
-    panels[i].classList.add('active');
-  }
-}
-
-// SCROLL REVEAL
-const reveals = document.querySelectorAll('.reveal');
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} });
-}, {threshold:.08, rootMargin:'0px 0px -32px 0px'});
-document.querySelectorAll('.work-grid,.how-grid,.why-list').forEach(g => {
-  g.querySelectorAll('.reveal').forEach((el,i) => { el.style.transitionDelay = i*80+'ms'; });
-});
-reveals.forEach(el => obs.observe(el));
-
-// LANGUAGE
-let lang = 'en';
-function setLang(l) {
-  lang = l;
-  document.getElementById('btnEN').classList.toggle('active', l==='en');
-  document.getElementById('btnHR').classList.toggle('active', l==='hr');
-  document.querySelectorAll('[data-en]').forEach(el => {
-    const t = el.getAttribute('data-'+l);
-    if(t) el.innerHTML = t;
-  });
-}
+function testiPlay(o){const w=o.parentElement,v=w.querySelector('video');if(v.paused){v.muted=false;v.play();w.classList.add('playing');}else{v.pause();w.classList.remove('playing');}}
+function toggleMoreTesti(){const btn=document.getElementById('testiMoreBtn'),hidden=document.querySelectorAll('.testi-card.testi-hidden'),ex=btn.classList.contains('expanded');hidden.forEach(c=>c.classList.toggle('testi-shown',!ex));btn.classList.toggle('expanded',!ex);const hr=document.getElementById('btnHR').classList.contains('active');btn.querySelector('span').textContent=ex?(hr?'Vidi više':'See more'):(hr?'Prikaži manje':'Show less');}
+document.querySelectorAll('.vid-wrap').forEach(wrap=>{const vid=wrap.querySelector('video'),fill=document.getElementById(wrap.id+'-fill'),muteBtn=wrap.querySelector('.vid-mute'),pb=wrap.querySelector('.vid-progress');wrap.addEventListener('touchstart',()=>{wrap.classList.add('touching');clearTimeout(wrap._t);wrap._t=setTimeout(()=>wrap.classList.remove('touching'),2000);},{passive:true});wrap.addEventListener('click',e=>{if(e.target.closest('.vid-mute')||e.target.closest('.vid-progress'))return;if(vid.paused){vid.muted=false;wrap.classList.remove('muted');vid.play();wrap.classList.remove('paused');wrap.classList.add('playing');}else{vid.pause();wrap.classList.remove('playing');wrap.classList.add('paused');}});if(muteBtn)muteBtn.addEventListener('click',e=>{e.stopPropagation();vid.muted=!vid.muted;wrap.classList.toggle('muted',vid.muted);});if(pb)pb.addEventListener('click',e=>{e.stopPropagation();if(vid.duration)vid.currentTime=(e.offsetX/pb.offsetWidth)*vid.duration;});vid.addEventListener('timeupdate',()=>{if(fill&&vid.duration)fill.style.width=(vid.currentTime/vid.duration*100)+'%';});vid.addEventListener('ended',()=>{wrap.classList.remove('playing');wrap.classList.add('paused');});});
+function toggleMoreWork(){const btn=document.getElementById('seeMoreBtn'),hidden=document.querySelectorAll('.work-card.hidden'),ex=btn.classList.contains('expanded');hidden.forEach(c=>c.classList.toggle('shown',!ex));btn.classList.toggle('expanded',!ex);const l=document.getElementById('btnHR').classList.contains('active')?'hr':'en';btn.querySelector('span').textContent=ex?(l==='hr'?'Vidi još radova':'See more work'):(l==='hr'?'Prikaži manje':'Show less');}
+function toggleWhy(r){const o=r.classList.contains('open');document.querySelectorAll('.why-row.open').forEach(x=>x.classList.remove('open'));if(!o)r.classList.add('open');}
+function toggleFaq(el){const i=el.parentElement,o=i.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open');}
+function selectHowMobile(i){const cs=document.querySelectorAll('.how-mobile-card'),ps=document.querySelectorAll('.how-mobile-panel'),o=cs[i].classList.contains('active');cs.forEach(c=>c.classList.remove('active'));ps.forEach(p=>p.classList.remove('active'));if(!o){cs[i].classList.add('active');ps[i].classList.add('active');}}
+const revs=document.querySelectorAll('.reveal'),obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0,rootMargin:'0px 0px 0px 0px'});document.querySelectorAll('.work-grid,.how-grid,.why-list').forEach(g=>{g.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=i*80+'ms';});});revs.forEach(el=>obs.observe(el));
+// Force visible after short delay as fallback
+setTimeout(()=>{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));},300);
+// Fallback: ensure all reveals become visible
+document.addEventListener('DOMContentLoaded',()=>{setTimeout(()=>{revs.forEach(el=>el.classList.add('visible'));},100);});
+let lang='en';function setLang(l){lang=l;document.getElementById('btnEN').classList.toggle('active',l==='en');document.getElementById('btnHR').classList.toggle('active',l==='hr');document.querySelectorAll('[data-en]').forEach(el=>{const t=el.getAttribute('data-'+l);if(t)el.innerHTML=t;});}
 </script>
 </body>
 </html>
