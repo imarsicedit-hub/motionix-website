@@ -111,7 +111,7 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 .why-row.open .why-desc{max-height:150px;opacity:1;padding-bottom:16px}
 .testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .testi-card.testi-hidden{display:none}
-.testi-card.testi-shown{display:grid}
+.testi-card.testi-shown{display:flex}
 .testi-more-wrap{text-align:center;margin-top:20px}
 .testi-card{background:var(--void);border:1px solid rgba(0,229,160,.45);border-radius:6px;padding:28px 26px;position:relative;transition:border-color .25s,transform .25s;display:flex;flex-direction:column}
 .testi-card.reveal{opacity:1!important;transform:none!important}
@@ -412,39 +412,22 @@ footer{padding:32px 20px}
   <p class="section-desc reveal" data-en="Real feedback from real clients. No made-up stats." data-hr="Pravi feedback od pravih klijenata. Bez izmisljenih brojki.">Real feedback from real clients. No made-up stats.</p>
   <div class="testi-grid">
 
-    <!-- 1. JOHN TAYLOR -->
+    <!-- 1. JOHN TAYLOR - visible -->
     <div class="testi-card reveal">
       <p class="testi-quote">Great video, I can see that you do professional work, and that with additional coordination and direction, we will create some great branded content.</p>
       <div class="testi-author">
         <div class="testi-avatar">J</div>
         <div>
           <div class="testi-name">John Taylor</div>
-          <div class="testi-niche">act3agency · Podcast Branded Content</div>
+          <div class="testi-niche">act3agency &middot; Podcast Branded Content</div>
           <span class="testi-result">Branded podcast content</span>
         </div>
       </div>
     </div>
 
-    <!-- 2. ANEL -->
+    <!-- 2. MARIO MORENO - visible -->
     <div class="testi-card reveal">
-      <p class="testi-quote">Predobro, baš mi se sviđa <span class="testi-translation">(Incredible, I really love it)</span></p>
-      <div class="testi-divider"></div>
-      <p class="testi-quote">Odličan video <span class="testi-translation">(Excellent video)</span></p>
-      <div class="testi-divider"></div>
-      <p class="testi-quote">Brutalan je video, nema šta. <span class="testi-translation">(The video is brutal, no words.)</span></p>
-      <div class="testi-author">
-        <div class="testi-avatar">A</div>
-        <div>
-          <div class="testi-name">Anel</div>
-          <div class="testi-niche">SEO Expert · Mastermind · BiH</div>
-          <span class="testi-result">20 new clients from 1 video</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3. MARIO MORENO -->
-    <div class="testi-card reveal">
-      <p class="testi-quote">You really nailed the elevated approach. I'm impressed!</p>
+      <p class="testi-quote">You really nailed the elevated approach. I&apos;m impressed!</p>
       <div class="testi-author">
         <div class="testi-avatar">M</div>
         <div>
@@ -455,42 +438,59 @@ footer{padding:32px 20px}
       </div>
     </div>
 
-    <!-- 4. JOVANA -->
+    <!-- 3. ANEL - visible -->
     <div class="testi-card reveal">
-      <p class="testi-quote">Sviđa mi se <span class="testi-translation">(I love it)</span></p>
+      <p class="testi-quote">Predobro, ba&#353; mi se svi&#273;a <span class="testi-translation">(Incredible, I really love it)</span></p>
       <div class="testi-divider"></div>
-      <p class="testi-quote">Sviđa mi se :) <span class="testi-translation">(I love it :))</span></p>
+      <p class="testi-quote">Odli&#269;an video <span class="testi-translation">(Excellent video)</span></p>
+      <div class="testi-divider"></div>
+      <p class="testi-quote">Brutalan je video, nema &#353;ta. <span class="testi-translation">(The video is brutal, no words.)</span></p>
       <div class="testi-author">
-        <div class="testi-avatar">J</div>
+        <div class="testi-avatar">A</div>
         <div>
-          <div class="testi-name">Jovana</div>
-          <div class="testi-niche">AirBnB &amp; Booking Mentor · Serbia</div>
-          <span class="testi-result">20K views in 24h</span>
+          <div class="testi-name">Anel</div>
+          <div class="testi-niche">SEO Expert &middot; Mastermind &middot; BiH</div>
+          <span class="testi-result">20 new clients from 1 video</span>
         </div>
       </div>
     </div>
 
-    <!-- 5. AVSTER - hidden -->
-    <div class="testi-card reveal testi-hidden">
+    <!-- 4. AVSTER - visible -->
+    <div class="testi-card reveal">
       <p class="testi-quote">Wow Ivan, this is great. I know that the content thus far could gain some horsepower with more attention catching interruptions but I see where you took it.</p>
       <div class="testi-author">
         <div class="testi-avatar">A</div>
         <div>
           <div class="testi-name">Avster</div>
-          <div class="testi-niche">Self-Help · Motivational Content</div>
+          <div class="testi-niche">Self-Help &middot; Motivational Content</div>
           <span class="testi-result">Motivational content creator</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. JOVANA - hidden -->
+    <div class="testi-card reveal testi-hidden">
+      <p class="testi-quote">Svi&#273;a mi se <span class="testi-translation">(I love it)</span></p>
+      <div class="testi-divider"></div>
+      <p class="testi-quote">Svi&#273;a mi se :) <span class="testi-translation">(I love it :))</span></p>
+      <div class="testi-author">
+        <div class="testi-avatar">J</div>
+        <div>
+          <div class="testi-name">Jovana</div>
+          <div class="testi-niche">AirBnB &amp; Booking Mentor &middot; Serbia</div>
+          <span class="testi-result">20K views in 24h</span>
         </div>
       </div>
     </div>
 
     <!-- 6. MANDY - hidden -->
     <div class="testi-card reveal testi-hidden">
-      <p class="testi-quote">Video looks amazing — it performed even better. 17 leads in the first 24 hours.</p>
+      <p class="testi-quote">Video looks amazing &mdash; it performed even better. 17 leads in the first 24 hours.</p>
       <div class="testi-author">
         <div class="testi-avatar">M</div>
         <div>
           <div class="testi-name">Mandy</div>
-          <div class="testi-niche">English Course Seller · UK</div>
+          <div class="testi-niche">English Course Seller &middot; UK</div>
           <span class="testi-result">17 leads in 24h</span>
         </div>
       </div>
@@ -498,14 +498,14 @@ footer{padding:32px 20px}
 
     <!-- 7. FIP.GRAPHICS - hidden -->
     <div class="testi-card reveal testi-hidden">
-      <p class="testi-quote">I have to say the video turned out amazing 😍 Thank you once again for all the effort and attention to detail. Every frame has purpose, the transitions are perfectly timed, and the rhythm carries the emotion from start to finish.</p>
+      <p class="testi-quote">I have to say the video turned out amazing &#128525; Thank you once again for all the effort and attention to detail. Every frame has purpose, the transitions are perfectly timed, and the rhythm carries the emotion from start to finish.</p>
       <div class="testi-divider"></div>
-      <p class="testi-quote">Your creativity and experience truly stand out. When we start a new project I'm definitely calling you first — working with you is always smooth and the results are consistently top quality.</p>
+      <p class="testi-quote">Your creativity and experience truly stand out. When we start a new project I&apos;m definitely calling you first &mdash; working with you is always smooth and the results are consistently top quality.</p>
       <div class="testi-author">
         <div class="testi-avatar">F</div>
         <div>
           <div class="testi-name">fip.graphics</div>
-          <div class="testi-niche">Graphic Designer · Motion Design Client</div>
+          <div class="testi-niche">Graphic Designer &middot; Motion Design Client</div>
           <span class="testi-result">Premium motion design ad</span>
         </div>
       </div>
@@ -513,18 +513,22 @@ footer{padding:32px 20px}
 
     <!-- 8. TECH EXPERT POLAND - hidden -->
     <div class="testi-card reveal testi-hidden">
-      <p class="testi-quote">The videos are performing much better now. I'm gaining a lot more followers — around 70 new followers per video to start with. The difference is real.</p>
+      <p class="testi-quote">The videos are performing much better now. I&apos;m gaining a lot more followers &mdash; around 70 new followers per video to start with. The difference is real.</p>
       <div class="testi-author">
         <div class="testi-avatar">T</div>
         <div>
           <div class="testi-name">Tech Expert</div>
-          <div class="testi-niche">Tech Content Creator · Poland</div>
+          <div class="testi-niche">Tech Content Creator &middot; Poland</div>
           <span class="testi-result">~70 new followers per video</span>
         </div>
       </div>
     </div>
 
-  </div>  <div class="testi-more-wrap">
+  
+    </div>
+
+  </div>
+  <div class="testi-more-wrap">
     <button class="btn-outline" id="testiMoreBtn" onclick="toggleMoreTesti()">
       <span data-en="See more" data-hr="Vidi više">See more</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
@@ -539,9 +543,9 @@ footer{padding:32px 20px}
   <h2 class="reveal" data-en="How it works." data-hr="Kako to funkcionira.">How it works.</h2>
   <p class="section-desc reveal" data-en="Three phases. Everything handled. You just show up and film." data-hr="Tri faze. Sve pokriveno. Ti samo snimaš.">Three phases. Everything handled. You just show up and film.</p>
   <div class="how-grid">
-    <div class="how-card reveal"><div class="how-num">01</div><p class="how-title" data-en="We define your strategy" data-hr="Definiramo strategiju">We define your strategy</p><div class="how-details"><ul class="how-list"><li data-en="Deep onboarding — your offer, audience, goals" data-hr="Detaljan onboarding — tvoja ponuda, publika i ciljevi">Deep onboarding — your offer, audience, goals</li><li data-en="Strategy call to align on direction" data-hr="Strategijski call za usklađivanje smjera">Strategy call to align on direction</li><li data-en="Niche research — we study top creators in your space" data-hr="Istraživanje niše — analiziramo top kreatore u tvojoj industriji">Niche research — we study top creators in your space</li><li data-en="Full month of scripts built specifically for you" data-hr="Izrada cijelog mjeseca skripti, prilagodenih tebi">Full month of scripts built specifically for you</li></ul></div></div>
+    <div class="how-card reveal"><div class="how-num">01</div><p class="how-title" data-en="We define your strategy" data-hr="Definiramo strategiju">We define your strategy</p><div class="how-details"><ul class="how-list"><li data-en="Deep onboarding — your offer, audience, goals" data-hr="Detaljan onboarding — tvoja ponuda, publika i ciljevi">Deep onboarding — your offer, audience, goals</li><li data-en="Strategy call to align on direction" data-hr="Strategijski call za usklađivanje smjera">Strategy call to align on direction</li><li data-en="Niche research — we study top creators in your space" data-hr="Istraživanje niše — analiziramo top kreatore u tvojoj industriji">Niche research — we study top creators in your space</li><li data-en="Full month of scripts built specifically for you" data-hr="Izrada cijelog mjeseca skripti, prilagođenih tebi">Full month of scripts built specifically for you</li></ul></div></div>
     <div class="how-card reveal"><div class="how-num">02</div><p class="how-title" data-en="You film, we edit" data-hr="Ti snimaš, mi editiramo">You film, we edit</p><div class="how-details"><ul class="how-list"><li data-en="You record with your phone — we guide framing and delivery" data-hr="Snimaš mobitelom — mi te vodimo kroz kadar i izvedbu">You record with your phone — we guide framing and delivery</li><li data-en="We edit for retention — pacing, captions, pattern interrupts" data-hr="Edit fokusiran na retention — tempo, captioni, pattern interrupti">We edit for retention — pacing, captions, pattern interrupts</li><li data-en="Every cut has a purpose. Not random effects." data-hr="Svaki rez ima svrhu. Nema random efekata.">Every cut has a purpose. Not random effects.</li></ul></div></div>
-    <div class="how-card reveal"><div class="how-num">03</div><p class="how-title" data-en="We post and track" data-hr="Objavljujemo i optimiziramo">We post and track</p><div class="how-details"><ul class="how-list"><li data-en="We handle publishing across your platforms" data-hr="Mi objavljujemo sadržaj na platformama">We handle publishing across your platforms</li><li data-en="We monitor what performs and adjust" data-hr="Pratimo performans i prilagodavamo">We monitor what performs and adjust</li><li data-en="You focus on your business — content runs in the background" data-hr="Ti se fokusiraš na biznis — content radi u pozadini">You focus on your business — content runs in the background</li></ul></div></div>
+    <div class="how-card reveal"><div class="how-num">03</div><p class="how-title" data-en="We post and track" data-hr="Objavljujemo i optimiziramo">We post and track</p><div class="how-details"><ul class="how-list"><li data-en="We handle publishing across your platforms" data-hr="Mi objavljujemo sadržaj na platformama">We handle publishing across your platforms</li><li data-en="We monitor what performs and adjust" data-hr="Pratimo performans i prilagođavamo">We monitor what performs and adjust</li><li data-en="You focus on your business — content runs in the background" data-hr="Ti se fokusiraš na biznis — content radi u pozadini">You focus on your business — content runs in the background</li></ul></div></div>
   </div>
   <div class="how-mobile">
     <div class="how-mobile-cards">
@@ -562,10 +566,10 @@ footer{padding:32px 20px}
   <h2 class="reveal" data-en="Why Motionix." data-hr="Zašto Motionix.">Why Motionix.</h2>
   <p class="section-desc reveal" data-en="Not another editor. A content system built around your growth." data-hr="Nismo samo editori. Gradimo sustav za rast.">Not another editor. A content system built around your growth.</p>
   <div class="why-list">
-    <div class="why-row reveal" onclick="toggleWhy(this)"><span class="why-num">01</span><div class="why-row-head"><p class="why-title" data-en="We research before we create" data-hr="Prvo istraživanje, onda kreacija">We research before we create</p><svg class="why-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><p class="why-desc" data-en="Most agencies start with templates. We start with data — studying top performers in your exact niche before writing a single word of script." data-hr="Većina agencija kreće s templateima. Mi krećemo s podacima.">Most agencies start with templates. We start with data — studying top performers in your exact niche before writing a single word of script.</p></div>
-    <div class="why-row reveal" onclick="toggleWhy(this)"><span class="why-num">02</span><div class="why-row-head"><p class="why-title" data-en="Scripts + editing in one system" data-hr="Skripte + edit kao jedan sustav">Scripts + editing in one system</p><svg class="why-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><p class="why-desc" data-en="The script determines 80% of performance. Most editors just cut what you give them. We write what performs, then edit it to keep people watching." data-hr="Skripta određuje 80% performansa.">The script determines 80% of performance. Most editors just cut what you give them. We write what performs, then edit it to keep people watching.</p></div>
-    <div class="why-row reveal" onclick="toggleWhy(this)"><span class="why-num">03</span><div class="why-row-head"><p class="why-title" data-en="Every edit is intentional" data-hr="Svaki edit ima razlog">Every edit is intentional</p><svg class="why-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><p class="why-desc" data-en="No random transitions, no trend-chasing effects. Every cut, caption, and sound choice is there to hold attention and move the viewer toward action." data-hr="Nema random tranzicija ni trend efekata bez smisla.">No random transitions, no trend-chasing effects. Every cut, caption, and sound choice is there to hold attention and move the viewer toward action.</p></div>
-    <div class="why-row reveal" onclick="toggleWhy(this)"><span class="why-num">04</span><div class="why-row-head"><p class="why-title" data-en="We measure and improve" data-hr="Mjerimo i poboljšavamo">We measure and improve</p><svg class="why-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><p class="why-desc" data-en="We track retention curves and engagement data. What works gets replicated. What doesn’t gets fixed. This is how content compounds over time." data-hr="Pratimo retention i engagement podatke.">We track retention curves and engagement data. What works gets replicated. What doesn’t gets fixed. This is how content compounds over time.</p></div>
+    <div class="why-row reveal" onclick="toggleWhy(this)"><span class="why-num">01</span><div class="why-row-head"><p class="why-title" data-en="We research before we create" data-hr="Prvo istraživanje, onda kreacija">We research before we create</p><svg class="why-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><p class="why-desc" data-en="Most agencies start with templates. We start with data — studying top performers in your exact niche before writing a single word of script." data-hr="Većina agencija kreće s templateima. Mi krećemo s podacima — analiziramo top performere u tvojoj niši prije nego napišemo ijednu riječ.">Most agencies start with templates. We start with data — studying top performers in your exact niche before writing a single word of script.</p></div>
+    <div class="why-row reveal" onclick="toggleWhy(this)"><span class="why-num">02</span><div class="why-row-head"><p class="why-title" data-en="Scripts + editing in one system" data-hr="Skripte + edit kao jedan sustav">Scripts + editing in one system</p><svg class="why-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><p class="why-desc" data-en="The script determines 80% of performance. Most editors just cut what you give them. We write what performs, then edit it to keep people watching." data-hr="Skripta određuje 80% performansa. Većina editora samo reže ono što dobije. Mi pišemo ono što radi — pa to editiramo da zadrži pažnju.">The script determines 80% of performance. Most editors just cut what you give them. We write what performs, then edit it to keep people watching.</p></div>
+    <div class="why-row reveal" onclick="toggleWhy(this)"><span class="why-num">03</span><div class="why-row-head"><p class="why-title" data-en="Every edit is intentional" data-hr="Svaki edit ima razlog">Every edit is intentional</p><svg class="why-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><p class="why-desc" data-en="No random transitions, no trend-chasing effects. Every cut, caption, and sound choice is there to hold attention and move the viewer toward action." data-hr="Nema random tranzicija ni trend efekata bez smisla. Svaki rez, caption i zvuk imaju cilj — zadržati gledatelja i potaknuti akciju.">No random transitions, no trend-chasing effects. Every cut, caption, and sound choice is there to hold attention and move the viewer toward action.</p></div>
+    <div class="why-row reveal" onclick="toggleWhy(this)"><span class="why-num">04</span><div class="why-row-head"><p class="why-title" data-en="We measure and improve" data-hr="Mjerimo i poboljšavamo">We measure and improve</p><svg class="why-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><p class="why-desc" data-en="We track retention curves and engagement data. What works gets replicated. What doesn't gets fixed. This is how content compounds over time." data-hr="Pratimo retention i engagement podatke. Ono što radi — skaliramo. Ono što ne radi — popravljamo. Tako content raste kroz vrijeme.">We track retention curves and engagement data. What works gets replicated. What doesn't gets fixed. This is how content compounds over time.</p></div>
   </div>
 </div>
 </section>
@@ -587,21 +591,21 @@ footer{padding:32px 20px}
         <span class="faq-q-text" data-en="Do I need a big audience to start?" data-hr="Treba li mi velika publika za početak?">Do I need a big audience to start?</span>
         <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </div>
-      <div class="faq-a"><div class="faq-a-inner" data-en="No. Most clients start from scratch or with under 1K followers. The work is the same — build a system that grows. The earlier you start with the right structure, the faster the growth compounds." data-hr="Ne. Većina klijenata počinje od nule ili s manje od 1K pratitelja.">No. Most clients start from scratch or with under 1K followers. The work is the same — build a system that grows. The earlier you start with the right structure, the faster the growth compounds.</div></div>
+      <div class="faq-a"><div class="faq-a-inner" data-en="No. Most clients start from scratch or with under 1K followers. The work is the same — build a system that grows. The earlier you start with the right structure, the faster the growth compounds." data-hr="Ne. Većina klijenata počinje od nule ili s manje od 1K pratitelja. Rad je isti — gradimo sustav koji raste. Što ranije počneš s pravom strukturom, brže se rast multiplicira.">No. Most clients start from scratch or with under 1K followers. The work is the same — build a system that grows. The earlier you start with the right structure, the faster the growth compounds.</div></div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
         <span class="faq-q-text" data-en="How long until I see results?" data-hr="Koliko dugo do prvih rezultata?">How long until I see results?</span>
         <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </div>
-      <div class="faq-a"><div class="faq-a-inner" data-en="Most clients see meaningful improvement in watch time and reach within the first 2–3 videos. Growth compounds over time — the first month sets the foundation, the second and third is where it accelerates." data-hr="Većina klijenata vidi značajno poboljšanje u watch timeu i dosegu unutar prvih 2-3 videa.">Most clients see meaningful improvement in watch time and reach within the first 2–3 videos. Growth compounds over time — the first month sets the foundation, the second and third is where it accelerates.</div></div>
+      <div class="faq-a"><div class="faq-a-inner" data-en="Most clients see meaningful improvement in watch time and reach within the first 2–3 videos. Growth compounds over time — the first month sets the foundation, the second and third is where it accelerates." data-hr="Većina klijenata vidi značajno poboljšanje u watch timeu i dosegu unutar prvih 2-3 videa. Rast se multiplicira kroz vrijeme — prvi mjesec postavlja temelje, drugi i treći je gdje se ubrzava.">Most clients see meaningful improvement in watch time and reach within the first 2–3 videos. Growth compounds over time — the first month sets the foundation, the second and third is where it accelerates.</div></div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
         <span class="faq-q-text" data-en="What if I'm not satisfied?" data-hr="Što ako nisam zadovoljan?">What if I'm not satisfied?</span>
         <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </div>
-      <div class="faq-a"><div class="faq-a-inner" data-en="We start with a free video breakdown before any commitment. If after that you want to work together, we'll agree on clear deliverables upfront. No long-term lock-in — if the results aren't there, we'll fix it." data-hr="Počinjemo s besplatnom analizom videa bez ikakve obaveze.">We start with a free video breakdown before any commitment. If after that you want to work together, we'll agree on clear deliverables upfront. No long-term lock-in — if the results aren't there, we'll fix it.</div></div>
+      <div class="faq-a"><div class="faq-a-inner" data-en="We start with a free video breakdown before any commitment. If after that you want to work together, we'll agree on clear deliverables upfront. No long-term lock-in — if the results aren't there, we'll fix it." data-hr="Počinjemo s besplatnom analizom videa bez ikakve obaveze. Ako nakon toga želiš surađivati, dogovaramo jasne isporuke unaprijed. Bez dugoročnog zaključavanja — ako rezultati nisu tu, popravit ćemo to.">We start with a free video breakdown before any commitment. If after that you want to work together, we'll agree on clear deliverables upfront. No long-term lock-in — if the results aren't there, we'll fix it.</div></div>
     </div>
   </div>
 </div>
@@ -646,7 +650,10 @@ footer{padding:32px 20px}
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         WhatsApp
       </a>
-      <a href="mailto:ivan@motionix.co?subject=I%20want%20to%20improve%20my%20content%20performance" class="footer-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>ivan@motionix.co</a>
+      <a href="mailto:ivan@motionix.co?subject=I%20want%20to%20improve%20my%20content%20performance&body=Hey%2C%20just%20saw%20your%20work%20%E2%80%94%20I%20want%20to%20improve%20my%20content%20performance.%20Can%20I%20send%20you%20a%20video%3F" class="footer-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        ivan@motionix.co
+      </a>
       <a href="https://www.instagram.com/motionix.studio/" target="_blank" rel="noopener" class="footer-link">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         Instagram
@@ -666,19 +673,13 @@ function toggleMoreWork(){const btn=document.getElementById('seeMoreBtn'),hidden
 function toggleWhy(r){const o=r.classList.contains('open');document.querySelectorAll('.why-row.open').forEach(x=>x.classList.remove('open'));if(!o)r.classList.add('open');}
 function toggleFaq(el){const i=el.parentElement,o=i.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open');}
 function selectHowMobile(i){const cs=document.querySelectorAll('.how-mobile-card'),ps=document.querySelectorAll('.how-mobile-panel'),o=cs[i].classList.contains('active');cs.forEach(c=>c.classList.remove('active'));ps.forEach(p=>p.classList.remove('active'));if(!o){cs[i].classList.add('active');ps[i].classList.add('active');}}
-// Reveal animation with guaranteed visibility
 document.body.classList.add('js-loaded');
 function initReveals(){
   const revs=document.querySelectorAll('.reveal');
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-  },{threshold:0,rootMargin:'0px 0px 50px 0px'});
-  document.querySelectorAll('.work-grid,.how-grid,.why-list').forEach(g=>{
-    g.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=i*60+'ms';});
-  });
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0,rootMargin:'0px 0px 50px 0px'});
+  document.querySelectorAll('.work-grid,.how-grid,.why-list').forEach(g=>{g.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=i*60+'ms';});});
   revs.forEach(el=>obs.observe(el));
-  // Guarantee: after 800ms force everything visible
-  },800);
+  setTimeout(()=>{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));},800);
 }
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initReveals);}else{initReveals();}
 let lang='en';function setLang(l){lang=l;document.getElementById('btnEN').classList.toggle('active',l==='en');document.getElementById('btnHR').classList.toggle('active',l==='hr');document.querySelectorAll('[data-en]').forEach(el=>{const t=el.getAttribute('data-'+l);if(t)el.innerHTML=t;});}
