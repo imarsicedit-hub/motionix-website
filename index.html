@@ -128,9 +128,20 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 .why-row.open .why-icon{transform:rotate(45deg)}
 .why-desc{font-family:var(--font-b);font-size:.88rem;color:var(--mist);line-height:1.6;max-height:0;overflow:hidden;opacity:0;transition:max-height .35s cubic-bezier(.4,0,.2,1),opacity .25s,padding .25s}
 .why-row.open .why-desc{max-height:120px;opacity:1;padding-top:10px}
+@media(max-width:900px){
+  .why-list{max-width:100%}
+  .why-row{flex-direction:column;gap:0;padding:14px 0}
+  .why-num{display:none}
+  .why-row-head{width:100%;padding:0}
+  .why-title{font-size:.95rem}
+  .why-row.open .why-desc{max-height:200px}
+}
 
 /* TESTIMONIALS */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.testi-card.testi-hidden{display:none}
+.testi-card.testi-shown{display:block}
+.testi-more-wrap{text-align:center;margin-top:20px}
 .testi-card{background:var(--void);border:1px solid var(--border);border-radius:6px;padding:28px 26px;position:relative;transition:border-color .25s,transform .25s}
 .testi-card:hover{border-color:rgba(0,229,160,.25);transform:translateY(-3px)}
 .testi-quote{font-family:var(--font-b);font-size:.95rem;color:var(--white);line-height:1.65;margin-bottom:20px;font-style:italic}
@@ -168,10 +179,12 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 .step-title{font-family:var(--font-d);font-weight:700;font-size:.88rem;color:var(--white);margin-bottom:4px}
 .step-desc{font-family:var(--font-b);font-size:.78rem;color:var(--mist);line-height:1.5;max-width:140px}
 
-/* mobile: hide play btn controls when playing and not touching */
+/* mobile touch: controls auto-hide after play starts */
 @media(hover:none){
-  .vid-wrap.playing .vid-overlay{opacity:0}
-  .vid-wrap.playing .vid-play-btn{opacity:0}
+  .vid-wrap.playing .vid-overlay{opacity:0;transition:opacity .4s .8s}
+  .vid-wrap.playing .vid-play-btn{opacity:0;transition:opacity .4s .8s}
+  .vid-wrap.playing.touching .vid-overlay{opacity:1;transition:opacity .2s 0s}
+  .vid-wrap.playing.touching .vid-play-btn{opacity:1;transition:opacity .2s 0s}
   .vid-wrap.paused .vid-overlay{opacity:1}
   .vid-wrap.paused .vid-play-btn{opacity:1}
 }
@@ -200,6 +213,8 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
 .footer-link:hover{color:var(--white);border-color:var(--border-md)}
 .footer-link.whatsapp:hover{color:#25D366;border-color:rgba(37,211,102,.3)}
 
+.mob-menu-btn{display:none}
+.mob-nav-drawer{display:none}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
@@ -208,6 +223,15 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
 @media(max-width:900px){
   nav{padding:0 16px}
   .nav-links{display:none}
+  .mob-menu-btn{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;-webkit-tap-highlight-color:transparent}
+  .mob-menu-btn span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:all .25s}
+  .mob-menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .mob-menu-btn.open span:nth-child(2){opacity:0}
+  .mob-menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mob-nav-drawer{position:fixed;top:68px;left:0;right:0;background:rgba(10,37,64,.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);z-index:99;transform:translateY(-110%);transition:transform .3s cubic-bezier(.4,0,.2,1);padding:12px 0}
+  .mob-nav-drawer.open{transform:translateY(0)}
+  .mob-nav-drawer a{display:block;font-family:var(--font-d);font-weight:700;font-size:1.1rem;letter-spacing:.04em;color:var(--mist);text-decoration:none;padding:14px 24px;transition:color .15s}
+  .mob-nav-drawer a:hover{color:var(--white)}
   #hero,.section,#micro-cta,#cta{padding-left:20px;padding-right:20px}
   #hero{padding-top:100px;padding-bottom:60px}
   .work-grid{grid-template-columns:repeat(2,1fr);gap:10px}
@@ -226,6 +250,7 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
   .how-mobile-panel{background:var(--void);border:1px solid var(--green);border-top:none;border-radius:0 0 6px 6px;padding:18px 16px;display:none}
   .how-mobile-panel.active{display:block;animation:fadeUp .3s ease forwards}
   .testi-grid{grid-template-columns:1fr}
+  .testi-more-wrap{margin-top:14px}
   .steps-row{flex-direction:column;gap:20px}
   .step-item:not(:last-child)::after{display:none}
   .step-item{flex-direction:row;text-align:left;align-items:flex-start;gap:14px}
@@ -259,6 +284,9 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     <li><a href="#why" data-en="Why us" data-hr="Zašto mi">Why us</a></li>
     <li><a href="#contact" data-en="Contact" data-hr="Kontakt">Contact</a></li>
   </ul>
+  <button class="mob-menu-btn" id="mobMenuBtn" onclick="toggleMobMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
   <div class="nav-right">
     <div class="lang-switch">
       <button class="lang-btn active" id="btnEN" onclick="setLang('en')">EN</button>
@@ -270,6 +298,12 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     </a>
   </div>
 </nav>
+<div class="mob-nav-drawer" id="mobNavDrawer">
+  <a href="#work" onclick="closeMobMenu()" data-en="Work" data-hr="Rad">Work</a>
+  <a href="#how" onclick="closeMobMenu()" data-en="Process" data-hr="Proces">Process</a>
+  <a href="#why" onclick="closeMobMenu()" data-en="Why us" data-hr="Zašto mi">Why us</a>
+  <a href="#contact" onclick="closeMobMenu()" data-en="Contact" data-hr="Kontakt">Contact</a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -301,8 +335,8 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
   <div class="work-grid">
 
     <div class="work-card reveal">
-      <div class="vid-wrap paused muted" id="v0">
-        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Aneldevinjathofinal.mp4" loop muted playsinline preload="metadata"></video>
+      <div class="vid-wrap paused" id="v0">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Aneldevinjathofinal.mp4" loop playsinline preload="metadata"></video>
         <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
             <div class="vid-progress"><div class="vid-progress-fill" id="v0-fill"></div></div>
             <button class="vid-mute">
@@ -321,8 +355,8 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     </div>
 
     <div class="work-card reveal">
-      <div class="vid-wrap paused muted" id="v1">
-        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Jovanavideo2.mp4" loop muted playsinline preload="metadata"></video>
+      <div class="vid-wrap paused" id="v1">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Jovanavideo2.mp4" loop playsinline preload="metadata"></video>
         <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
             <div class="vid-progress"><div class="vid-progress-fill" id="v1-fill"></div></div>
             <button class="vid-mute">
@@ -341,8 +375,8 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     </div>
 
     <div class="work-card reveal">
-      <div class="vid-wrap paused muted" id="v2">
-        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Mandy%20Video%202%20V4.mp4" loop muted playsinline preload="metadata"></video>
+      <div class="vid-wrap paused" id="v2">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Mandy%20Video%202%20V4.mp4" loop playsinline preload="metadata"></video>
         <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
             <div class="vid-progress"><div class="vid-progress-fill" id="v2-fill"></div></div>
             <button class="vid-mute">
@@ -361,8 +395,8 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     </div>
 
     <div class="work-card reveal">
-      <div class="vid-wrap paused muted" id="v3">
-        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo8finalllll.mp4" loop muted playsinline preload="metadata"></video>
+      <div class="vid-wrap paused" id="v3">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo8finalllll.mp4" loop playsinline preload="metadata"></video>
         <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
             <div class="vid-progress"><div class="vid-progress-fill" id="v3-fill"></div></div>
             <button class="vid-mute">
@@ -381,8 +415,8 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     </div>
 
     <div class="work-card reveal hidden">
-      <div class="vid-wrap paused muted" id="v4">
-        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo10.mp4" loop muted playsinline preload="metadata"></video>
+      <div class="vid-wrap paused" id="v4">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo10.mp4" loop playsinline preload="metadata"></video>
         <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
             <div class="vid-progress"><div class="vid-progress-fill" id="v4-fill"></div></div>
             <button class="vid-mute">
@@ -401,8 +435,8 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     </div>
 
     <div class="work-card reveal hidden">
-      <div class="vid-wrap paused muted" id="v5">
-        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo6final.mp4" loop muted playsinline preload="metadata"></video>
+      <div class="vid-wrap paused" id="v5">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo6final.mp4" loop playsinline preload="metadata"></video>
         <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
             <div class="vid-progress"><div class="vid-progress-fill" id="v5-fill"></div></div>
             <button class="vid-mute">
@@ -421,8 +455,8 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     </div>
 
     <div class="work-card reveal hidden">
-      <div class="vid-wrap paused muted" id="v6">
-        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo1final.mp4" loop muted playsinline preload="metadata"></video>
+      <div class="vid-wrap paused" id="v6">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo1final.mp4" loop playsinline preload="metadata"></video>
         <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
             <div class="vid-progress"><div class="vid-progress-fill" id="v6-fill"></div></div>
             <button class="vid-mute">
@@ -441,8 +475,8 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
     </div>
 
     <div class="work-card reveal hidden">
-      <div class="vid-wrap paused muted" id="v7">
-        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo5.mp4" loop muted playsinline preload="metadata"></video>
+      <div class="vid-wrap paused" id="v7">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo5.mp4" loop playsinline preload="metadata"></video>
         <div class="vid-play-btn"><svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div><div class="vid-overlay"><div class="vid-bottom">
             <div class="vid-progress"><div class="vid-progress-fill" id="v7-fill"></div></div>
             <button class="vid-mute">
@@ -641,7 +675,7 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
       </div>
     </div>
 
-    <div class="testi-card reveal">
+    <div class="testi-card reveal testi-hidden">
       <p class="testi-quote" data-en="We went from zero presence to 8K followers and 12 inbound leads in the first month. The script + edit combo is what makes it work — most editors just cut, Ivan thinks about the whole thing." data-hr="Krenuli smo od nule do 8K pratitelja i 12 inbound leadova u prvom mjesecu. Kombinacija skripte i edita je ono što radi — većina editora samo reže, Ivan razmišlja o cijeloj stvari.">We went from zero presence to 8K followers and 12 inbound leads in the first month. The script + edit combo is what makes it work — most editors just cut, Ivan thinks about the whole thing.</p>
       <div class="testi-author">
         <div class="testi-avatar">D</div>
@@ -653,6 +687,12 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
       </div>
     </div>
 
+  </div>
+  <div class="testi-more-wrap">
+    <button class="btn-outline" id="testiMoreBtn" onclick="toggleMoreTesti()" data-en="See more" data-hr="Vidi više">
+      <span data-en="See more" data-hr="Vidi više">See more</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
   </div>
 </div>
 </section>
@@ -782,6 +822,31 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
 </footer>
 
 <script>
+// MOBILE NAV
+function toggleMobMenu() {
+  const btn = document.getElementById('mobMenuBtn');
+  const drawer = document.getElementById('mobNavDrawer');
+  btn.classList.toggle('open');
+  drawer.classList.toggle('open');
+}
+function closeMobMenu() {
+  document.getElementById('mobMenuBtn').classList.remove('open');
+  document.getElementById('mobNavDrawer').classList.remove('open');
+}
+
+// TESTIMONIALS show more
+function toggleMoreTesti() {
+  const btn = document.getElementById('testiMoreBtn');
+  const hidden = document.querySelectorAll('.testi-card.testi-hidden');
+  const isExpanded = btn.classList.contains('expanded');
+  hidden.forEach(c => c.classList.toggle('testi-shown', !isExpanded));
+  btn.classList.toggle('expanded', !isExpanded);
+  const isHR = document.getElementById('btnHR').classList.contains('active');
+  btn.querySelector('span').textContent = isExpanded
+    ? (isHR ? 'Vidi više' : 'See more')
+    : (isHR ? 'Prikaži manje' : 'Show less');
+}
+
 // VIDEO PLAYER
 document.querySelectorAll('.vid-wrap').forEach(wrap => {
   const vid = wrap.querySelector('video');
@@ -789,10 +854,20 @@ document.querySelectorAll('.vid-wrap').forEach(wrap => {
   const muteBtn = wrap.querySelector('.vid-mute');
   const progressBar = wrap.querySelector('.vid-progress');
 
-  // click wrap = toggle play/pause (ignore mute and progress clicks)
+  // touch: show controls briefly on touch, hide after delay
+  wrap.addEventListener('touchstart', () => {
+    wrap.classList.add('touching');
+    clearTimeout(wrap._touchTimer);
+    wrap._touchTimer = setTimeout(() => wrap.classList.remove('touching'), 2000);
+  }, {passive: true});
+
+  // click = toggle play/pause
   wrap.addEventListener('click', function(e) {
     if (e.target.closest('.vid-mute') || e.target.closest('.vid-progress')) return;
     if (vid.paused) {
+      // unmute on first play
+      vid.muted = false;
+      wrap.classList.remove('muted');
       vid.play();
       wrap.classList.remove('paused');
       wrap.classList.add('playing');
@@ -803,7 +878,6 @@ document.querySelectorAll('.vid-wrap').forEach(wrap => {
     }
   });
 
-  // mute
   if (muteBtn) {
     muteBtn.addEventListener('click', function(e) {
       e.stopPropagation();
@@ -812,7 +886,6 @@ document.querySelectorAll('.vid-wrap').forEach(wrap => {
     });
   }
 
-  // seek
   if (progressBar) {
     progressBar.addEventListener('click', function(e) {
       e.stopPropagation();
@@ -820,12 +893,10 @@ document.querySelectorAll('.vid-wrap').forEach(wrap => {
     });
   }
 
-  // progress bar fill
   vid.addEventListener('timeupdate', () => {
     if (fill && vid.duration) fill.style.width = (vid.currentTime / vid.duration * 100) + '%';
   });
 
-  // reset to paused state when video ends
   vid.addEventListener('ended', () => {
     wrap.classList.remove('playing');
     wrap.classList.add('paused');
