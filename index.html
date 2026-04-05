@@ -149,7 +149,7 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 .step-num{width:36px;height:36px;border-radius:50%;border:2px solid var(--green);display:flex;align-items:center;justify-content:center;font-family:var(--font-c);font-weight:900;font-size:.9rem;color:var(--green);background:var(--void);margin-bottom:12px;position:relative;z-index:1;flex-shrink:0}
 .step-title{font-family:var(--font-d);font-weight:700;font-size:.88rem;color:var(--white);margin-bottom:4px}
 .step-desc{font-family:var(--font-b);font-size:.78rem;color:var(--mist);line-height:1.5;max-width:140px}
-@media(hover:none){.vid-wrap.playing .vid-overlay{opacity:0!important;transition:none}.vid-wrap.playing .vid-play-btn{opacity:0!important;transition:none}.vid-wrap.paused .vid-overlay{opacity:1}.vid-wrap.paused .vid-play-btn{opacity:1}}
+@media(hover:none){.vid-wrap.playing .vid-play-btn{opacity:.25;width:36px;height:36px}.vid-wrap.playing .vid-overlay{opacity:.15}.vid-wrap.paused .vid-overlay{opacity:1}.vid-wrap.paused .vid-play-btn{opacity:1;width:52px;height:52px}}
 #cta{padding:120px 48px;text-align:center;position:relative;overflow:hidden}
 #cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(0,229,160,.05) 0%,transparent 65%);pointer-events:none}
 #cta::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(0,229,160,.25),transparent)}
