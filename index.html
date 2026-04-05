@@ -118,29 +118,21 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 .how-mobile{display:none}
 
 /* WHY */
-.why-list{display:flex;flex-direction:column;gap:0;max-width:680px}
-.why-row{display:flex;align-items:flex-start;gap:20px;padding:18px 0;border-bottom:1px solid var(--border);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.why-list{display:flex;flex-direction:column;gap:0;max-width:600px;margin:0 auto}
+.why-row{display:flex;align-items:center;gap:0;padding:0;border-bottom:1px solid var(--border);cursor:pointer;-webkit-tap-highlight-color:transparent;flex-direction:column}
 .why-row:first-child{border-top:1px solid var(--border)}
-.why-row-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:1}
-.why-num{font-family:var(--font-c);font-weight:900;font-size:1rem;color:var(--green);flex-shrink:0;width:28px;padding-top:2px}
-.why-title{font-family:var(--font-d);font-weight:700;font-size:1rem;color:var(--white);margin-bottom:0}
+.why-row-head{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:16px 0}
+.why-num{font-family:var(--font-c);font-weight:900;font-size:.85rem;color:var(--green);flex-shrink:0;width:24px}
+.why-title{font-family:var(--font-d);font-weight:700;font-size:.98rem;color:var(--white);margin-bottom:0;flex:1}
 .why-icon{width:18px;height:18px;flex-shrink:0;color:var(--green);transition:transform .3s}
 .why-row.open .why-icon{transform:rotate(45deg)}
-.why-desc{font-family:var(--font-b);font-size:.88rem;color:var(--mist);line-height:1.6;max-height:0;overflow:hidden;opacity:0;transition:max-height .35s cubic-bezier(.4,0,.2,1),opacity .25s,padding .25s}
-.why-row.open .why-desc{max-height:120px;opacity:1;padding-top:10px}
-@media(max-width:900px){
-  .why-list{max-width:100%}
-  .why-row{flex-direction:column;gap:0;padding:14px 0}
-  .why-num{display:none}
-  .why-row-head{width:100%;padding:0}
-  .why-title{font-size:.95rem}
-  .why-row.open .why-desc{max-height:200px}
-}
+.why-desc{font-family:var(--font-b);font-size:.86rem;color:var(--mist);line-height:1.65;max-height:0;overflow:hidden;opacity:0;width:100%;transition:max-height .35s cubic-bezier(.4,0,.2,1),opacity .25s,padding .25s}
+.why-row.open .why-desc{max-height:150px;opacity:1;padding-bottom:16px}
 
 /* TESTIMONIALS */
 .testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .testi-card.testi-hidden{display:none}
-.testi-card.testi-shown{display:block}
+.testi-card.testi-shown{display:grid}
 .testi-more-wrap{text-align:center;margin-top:20px}
 .testi-card{background:var(--void);border:1px solid var(--border);border-radius:6px;padding:28px 26px;position:relative;transition:border-color .25s,transform .25s}
 .testi-card:hover{border-color:rgba(0,229,160,.25);transform:translateY(-3px)}
@@ -249,8 +241,9 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
   .how-mobile-card.active .how-mobile-hint{color:var(--green)}
   .how-mobile-panel{background:var(--void);border:1px solid var(--green);border-top:none;border-radius:0 0 6px 6px;padding:18px 16px;display:none}
   .how-mobile-panel.active{display:block;animation:fadeUp .3s ease forwards}
-  .testi-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:repeat(2,1fr);gap:10px}
   .testi-more-wrap{margin-top:14px}
+  .testi-card{padding:18px 14px}
   .steps-row{flex-direction:column;gap:20px}
   .step-item:not(:last-child)::after{display:none}
   .step-item{flex-direction:row;text-align:left;align-items:flex-start;gap:14px}
@@ -675,13 +668,73 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
       </div>
     </div>
 
-    <div class="testi-card reveal testi-hidden">
+    <div class="testi-card reveal">
       <p class="testi-quote" data-en="We went from zero presence to 8K followers and 12 inbound leads in the first month. The script + edit combo is what makes it work — most editors just cut, Ivan thinks about the whole thing." data-hr="Krenuli smo od nule do 8K pratitelja i 12 inbound leadova u prvom mjesecu. Kombinacija skripte i edita je ono što radi — većina editora samo reže, Ivan razmišlja o cijeloj stvari.">We went from zero presence to 8K followers and 12 inbound leads in the first month. The script + edit combo is what makes it work — most editors just cut, Ivan thinks about the whole thing.</p>
       <div class="testi-author">
         <div class="testi-avatar">D</div>
         <div>
           <div class="testi-name">David R.</div>
           <div class="testi-niche" data-en="Service business · Consulting" data-hr="Uslužni biznis · Consulting">Service business · Consulting</div>
+          <span class="testi-result">12 leads / month 1</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal">
+      <p class="testi-quote" data-en="The hook restructure alone doubled my average watch time. I sent one video, Ivan told me exactly what was wrong in 5 minutes. Never had that level of clarity before." data-hr="Sama rekonstrukcija hooka udvostručila mi je prosječno gledanje. Poslao sam jedan video, Ivan mi je točno rekao što ne valja za 5 minuta. Nikad nisam imao tu razinu jasnoće.">The hook restructure alone doubled my average watch time. I sent one video, Ivan told me exactly what was wrong in 5 minutes. Never had that level of clarity before.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">J</div>
+        <div>
+          <div class="testi-name">Jake M.</div>
+          <div class="testi-niche" data-en="Fitness creator · 12K followers" data-hr="Fitness kreator · 12K pratitelja">Fitness creator · 12K followers</div>
+          <span class="testi-result">2x watch time</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal testi-hidden">
+      <p class="testi-quote" data-en="I had decent content but zero strategy. After one month the channel structure was completely different — every video had a purpose and it showed in the numbers." data-hr="Imao sam pristojan sadržaj ali nula strategije. Nakon jednog mjeseca struktura kanala bila je potpuno drugačija — svaki video imao je svrhu i to se vidjelo u brojevima.">I had decent content but zero strategy. After one month the channel structure was completely different — every video had a purpose and it showed in the numbers.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">A</div>
+        <div>
+          <div class="testi-name">Ana V.</div>
+          <div class="testi-niche" data-en="Business coach · 8K followers" data-hr="Business coach · 8K pratitelja">Business coach · 8K followers</div>
+          <span class="testi-result">+4K followers / month</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal testi-hidden">
+      <p class="testi-quote" data-en="Three videos in a row hit over 50K. Before that I hadn't broken 5K in six months. The difference was the script framework — it changed how I open every single video." data-hr="Tri videa zaredom prešla 50K. Prije toga nisam prešao 5K u šest mjeseci. Razlika je bio framework za skripte — promijenio je kako otváram svaki video.">Three videos in a row hit over 50K. Before that I hadn't broken 5K in six months. The difference was the script framework — it changed how I open every single video.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">R</div>
+        <div>
+          <div class="testi-name">Ryan B.</div>
+          <div class="testi-niche" data-en="Personal finance · 22K followers" data-hr="Osobne financije · 22K pratitelja">Personal finance · 22K followers</div>
+          <span class="testi-result">50K+ on 3 videos</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal testi-hidden">
+      <p class="testi-quote" data-en="The editing quality is one thing but what separates this is the strategic thinking. Every cut, every caption placement has a reason. My audience retention went from 38% to 71% average." data-hr="Kvaliteta editinga je jedno, ali ono što to odvaja je strateško razmišljanje. Svaki rez, svako postavljanje captiona ima razlog. Prosječna retencija publike porasla mi je s 38% na 71%.">The editing quality is one thing but what separates this is the strategic thinking. Every cut, every caption placement has a reason. My audience retention went from 38% to 71% average.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">L</div>
+        <div>
+          <div class="testi-name">Lena K.</div>
+          <div class="testi-niche" data-en="Lifestyle brand · 45K followers" data-hr="Lifestyle brend · 45K pratitelja">Lifestyle brand · 45K followers</div>
+          <span class="testi-result">38% → 71% retention</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal testi-hidden">
+      <p class="testi-quote" data-en="First month we got 12 qualified leads from content alone. I was skeptical that short-form could drive real business results but the numbers proved me wrong completely." data-hr="U prvom mjesecu dobili smo 12 kvalificiranih leadova samo iz sadržaja. Bio sam skeptičan da short-form može generirati stvarne poslovne rezultate, ali brojke su me potpuno opovrgle.">First month we got 12 qualified leads from content alone. I was skeptical that short-form could drive real business results but the numbers proved me wrong completely.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">T</div>
+        <div>
+          <div class="testi-name">Tom H.</div>
+          <div class="testi-niche" data-en="SaaS founder · B2B content" data-hr="SaaS founder · B2B sadržaj">SaaS founder · B2B content</div>
           <span class="testi-result">12 leads / month 1</span>
         </div>
       </div>
