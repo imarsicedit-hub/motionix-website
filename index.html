@@ -134,15 +134,29 @@ h2{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,4vw,3rem);line
 .testi-card.testi-hidden{display:none}
 .testi-card.testi-shown{display:grid}
 .testi-more-wrap{text-align:center;margin-top:20px}
-.testi-card{background:var(--void);border:1px solid var(--border);border-radius:6px;padding:28px 26px;position:relative;transition:border-color .25s,transform .25s}
+.testi-card{background:var(--void);border:1px solid var(--border);border-radius:6px;padding:28px 26px;position:relative;transition:border-color .25s,transform .25s;display:flex;flex-direction:column}
 .testi-card:hover{border-color:rgba(0,229,160,.25);transform:translateY(-3px)}
-.testi-quote{font-family:var(--font-b);font-size:.95rem;color:var(--white);line-height:1.65;margin-bottom:20px;font-style:italic}
+.testi-quote{font-family:var(--font-b);font-size:.95rem;color:var(--white);line-height:1.65;margin-bottom:20px;font-style:italic;flex:1}
 .testi-quote::before{content:'\201C';font-family:var(--font-c);font-size:2.5rem;color:var(--green);line-height:.5;display:block;margin-bottom:8px}
-.testi-author{display:flex;align-items:center;gap:10px}
+.testi-author{display:flex;align-items:center;gap:10px;margin-top:auto}
 .testi-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,rgba(0,229,160,.3),rgba(0,229,160,.05));border:1px solid rgba(0,229,160,.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-c);font-weight:900;font-size:.85rem;color:var(--green);flex-shrink:0}
 .testi-name{font-family:var(--font-d);font-weight:700;font-size:.85rem;color:var(--white)}
 .testi-niche{font-family:var(--font-b);font-size:.75rem;color:var(--mist)}
 .testi-result{display:inline-block;font-family:var(--font-d);font-weight:700;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:rgba(0,229,160,.08);border:1px solid rgba(0,229,160,.2);padding:3px 8px;border-radius:2px;margin-top:6px}
+/* testi video */
+.testi-vid-wrap{position:relative;width:100%;aspect-ratio:9/16;background:#000;border-radius:8px;overflow:hidden;margin-bottom:14px;cursor:pointer;max-height:280px}
+.testi-vid-wrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.testi-vid-overlay{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:rgba(10,37,64,.2);transition:background .2s}
+.testi-vid-wrap.playing .testi-vid-overlay{background:transparent}
+.testi-vid-wrap.playing:hover .testi-vid-overlay{background:rgba(10,37,64,.15)}
+.testi-play-btn{width:44px;height:44px;border:2px solid rgba(0,229,160,.75);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--green);background:rgba(13,27,42,.65);backdrop-filter:blur(4px);transition:opacity .2s}
+.testi-vid-wrap.playing .testi-play-btn{opacity:0}
+.testi-vid-wrap.playing:hover .testi-play-btn{opacity:1}
+/* chat screenshot card */
+.testi-card.is-chat{padding:16px}
+.chat-frame{border-radius:8px;overflow:hidden;margin-bottom:14px;position:relative;line-height:0;border:1px solid var(--border)}
+.chat-frame img{width:100%;height:auto;display:block;max-height:360px;object-fit:contain;background:#0b141a}
+.chat-platform{position:absolute;top:8px;right:8px;font-family:var(--font-b);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(0,0,0,.55);padding:3px 8px;border-radius:20px;backdrop-filter:blur(4px)}
 
 /* FAQ */
 .faq-list{display:flex;flex-direction:column;gap:0;max-width:680px}
@@ -512,50 +526,74 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
 
   <div class="testi-grid">
 
+    <!-- MANDY — Course seller / English teacher -->
     <div class="testi-card reveal">
-      <p class="testi-quote" data-en="Before working with Ivan, my videos were getting 2–3K views max. After the first edit, one hit 180K. I didn't change anything except who was cutting my content." data-hr="Prije suradnje s Ivanom, moji videi su imali maksimalno 2-3K pregleda. Nakon prvog edita, jedan je dosegao 180K. Nisam promijenio ništa osim tko mi reže sadržaj.">Before working with Ivan, my videos were getting 2–3K views max. After the first edit, one hit 180K. I didn't change anything except who was cutting my content.</p>
+      <div class="testi-vid-wrap">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Mandy%20Video%202%20V4.mp4" loop playsinline preload="metadata" muted></video>
+        <div class="testi-vid-overlay" onclick="testiPlay(this)">
+          <div class="testi-play-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        </div>
+      </div>
       <div class="testi-author">
         <div class="testi-avatar">M</div>
         <div>
-          <div class="testi-name">Marcus T.</div>
-          <div class="testi-niche" data-en="Ecom brand · 34K followers" data-hr="Ecom brend · 34K pratitelja">Ecom brand · 34K followers</div>
-          <span class="testi-result">180K views</span>
+          <div class="testi-name">Mandy</div>
+          <div class="testi-niche" data-en="English course seller · UK" data-hr="English course seller · UK">English course seller · UK</div>
+          <span class="testi-result">40 leads from 1 post</span>
         </div>
       </div>
     </div>
 
+    <!-- ANEL — SEO expert -->
     <div class="testi-card reveal">
-      <p class="testi-quote" data-en="I was posting consistently but nothing was growing. Ivan identified the problem in 10 minutes — my hooks were killing the video before it even started. Fixed that, watch time went up 70%." data-hr="Objavljivao sam konzistentno ali ništa nije raslo. Ivan je identificirao problem za 10 minuta — moji hookovi su ubijali video prije nego što je i počeo. Popravili smo to, watch time porastao 70%.">I was posting consistently but nothing was growing. Ivan identified the problem in 10 minutes — my hooks were killing the video before it even started. Fixed that, watch time went up 70%.</p>
+      <div class="testi-vid-wrap">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Aneldevinjathofinal.mp4" loop playsinline preload="metadata" muted></video>
+        <div class="testi-vid-overlay" onclick="testiPlay(this)">
+          <div class="testi-play-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        </div>
+      </div>
       <div class="testi-author">
-        <div class="testi-avatar">S</div>
+        <div class="testi-avatar">A</div>
         <div>
-          <div class="testi-name">Sara K.</div>
-          <div class="testi-niche" data-en="Personal brand · Coach" data-hr="Osobni brend · Coach">Personal brand · Coach</div>
-          <span class="testi-result">+70% watch time</span>
+          <div class="testi-name">Anel</div>
+          <div class="testi-niche" data-en="SEO Expert · Mastermind" data-hr="SEO Stručnjak · Mastermind">SEO Expert · Mastermind</div>
+          <span class="testi-result">20 new clients</span>
         </div>
       </div>
     </div>
 
+    <!-- JOVANA — AirBnB mentor -->
     <div class="testi-card reveal">
-      <p class="testi-quote" data-en="We went from zero presence to 8K followers and 12 inbound leads in the first month. The script + edit combo is what makes it work — most editors just cut, Ivan thinks about the whole thing." data-hr="Krenuli smo od nule do 8K pratitelja i 12 inbound leadova u prvom mjesecu. Kombinacija skripte i edita je ono što radi — većina editora samo reže, Ivan razmišlja o cijeloj stvari.">We went from zero presence to 8K followers and 12 inbound leads in the first month. The script + edit combo is what makes it work — most editors just cut, Ivan thinks about the whole thing.</p>
-      <div class="testi-author">
-        <div class="testi-avatar">D</div>
-        <div>
-          <div class="testi-name">David R.</div>
-          <div class="testi-niche" data-en="Service business · Consulting" data-hr="Uslužni biznis · Consulting">Service business · Consulting</div>
-          <span class="testi-result">12 leads / month 1</span>
+      <div class="testi-vid-wrap">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Jovanavideo2.mp4" loop playsinline preload="metadata" muted></video>
+        <div class="testi-vid-overlay" onclick="testiPlay(this)">
+          <div class="testi-play-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
         </div>
       </div>
-    </div>
-
-    <div class="testi-card reveal">
-      <p class="testi-quote" data-en="The hook restructure alone doubled my average watch time. I sent one video, Ivan told me exactly what was wrong in 5 minutes. Never had that level of clarity before." data-hr="Sama rekonstrukcija hooka udvostručila mi je prosječno gledanje. Poslao sam jedan video, Ivan mi je točno rekao što ne valja za 5 minuta. Nikad nisam imao tu razinu jasnoće.">The hook restructure alone doubled my average watch time. I sent one video, Ivan told me exactly what was wrong in 5 minutes. Never had that level of clarity before.</p>
       <div class="testi-author">
         <div class="testi-avatar">J</div>
         <div>
-          <div class="testi-name">Jake M.</div>
-          <div class="testi-niche" data-en="Fitness creator · 12K followers" data-hr="Fitness kreator · 12K pratitelja">Fitness creator · 12K followers</div>
-          <span class="testi-result">2x watch time</span>
+          <div class="testi-name">Jovana</div>
+          <div class="testi-niche" data-en="AirBnB &amp; Booking Mentor · 10K" data-hr="AirBnB &amp; Booking Mentor · 10K">AirBnB &amp; Booking Mentor · 10K</div>
+          <span class="testi-result">20K views in 24h</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- HARIS — Real estate -->
+    <div class="testi-card reveal">
+      <div class="testi-vid-wrap">
+        <video src="https://pub-44e23fb655794915afaa5ab96d3596b2.r2.dev/Portfoliovideo10.mp4" loop playsinline preload="metadata" muted></video>
+        <div class="testi-vid-overlay" onclick="testiPlay(this)">
+          <div class="testi-play-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        </div>
+      </div>
+      <div class="testi-author">
+        <div class="testi-avatar">H</div>
+        <div>
+          <div class="testi-name">Haris</div>
+          <div class="testi-niche" data-en="Real Estate · Pattern-interrupt edit" data-hr="Real Estate · Pattern-interrupt edit">Real Estate · Pattern-interrupt edit</div>
+          <span class="testi-result">+70% watch rate</span>
         </div>
       </div>
     </div>
@@ -899,6 +937,20 @@ footer{background:var(--void);border-top:1px solid rgba(138,154,181,.12);padding
 </footer>
 
 <script>
+// TESTI VIDEO PLAY
+function testiPlay(overlay) {
+  const wrap = overlay.parentElement;
+  const vid = wrap.querySelector('video');
+  if (vid.paused) {
+    vid.muted = false;
+    vid.play();
+    wrap.classList.add('playing');
+  } else {
+    vid.pause();
+    wrap.classList.remove('playing');
+  }
+}
+
 // TESTIMONIALS show more
 function toggleMoreTesti() {
   const btn = document.getElementById('testiMoreBtn');
